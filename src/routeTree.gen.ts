@@ -9,16 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as UpcomingRouteImport } from './routes/upcoming'
+import { Route as StatsRouteImport } from './routes/stats'
 import { Route as SquadRouteImport } from './routes/squad'
 import { Route as BodekasseRouteImport } from './routes/bodekasse'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as FixturesIndexRouteImport } from './routes/fixtures.index'
 import { Route as FixturesFixtureIdRouteImport } from './routes/fixtures.$fixtureId'
 
-const UpcomingRoute = UpcomingRouteImport.update({
-  id: '/upcoming',
-  path: '/upcoming',
+const StatsRoute = StatsRouteImport.update({
+  id: '/stats',
+  path: '/stats',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SquadRoute = SquadRouteImport.update({
@@ -51,7 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bodekasse': typeof BodekasseRoute
   '/squad': typeof SquadRoute
-  '/upcoming': typeof UpcomingRoute
+  '/stats': typeof StatsRoute
   '/fixtures/$fixtureId': typeof FixturesFixtureIdRoute
   '/fixtures/': typeof FixturesIndexRoute
 }
@@ -59,7 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bodekasse': typeof BodekasseRoute
   '/squad': typeof SquadRoute
-  '/upcoming': typeof UpcomingRoute
+  '/stats': typeof StatsRoute
   '/fixtures/$fixtureId': typeof FixturesFixtureIdRoute
   '/fixtures': typeof FixturesIndexRoute
 }
@@ -68,7 +68,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/bodekasse': typeof BodekasseRoute
   '/squad': typeof SquadRoute
-  '/upcoming': typeof UpcomingRoute
+  '/stats': typeof StatsRoute
   '/fixtures/$fixtureId': typeof FixturesFixtureIdRoute
   '/fixtures/': typeof FixturesIndexRoute
 }
@@ -78,7 +78,7 @@ export interface FileRouteTypes {
     | '/'
     | '/bodekasse'
     | '/squad'
-    | '/upcoming'
+    | '/stats'
     | '/fixtures/$fixtureId'
     | '/fixtures/'
   fileRoutesByTo: FileRoutesByTo
@@ -86,7 +86,7 @@ export interface FileRouteTypes {
     | '/'
     | '/bodekasse'
     | '/squad'
-    | '/upcoming'
+    | '/stats'
     | '/fixtures/$fixtureId'
     | '/fixtures'
   id:
@@ -94,7 +94,7 @@ export interface FileRouteTypes {
     | '/'
     | '/bodekasse'
     | '/squad'
-    | '/upcoming'
+    | '/stats'
     | '/fixtures/$fixtureId'
     | '/fixtures/'
   fileRoutesById: FileRoutesById
@@ -103,18 +103,18 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BodekasseRoute: typeof BodekasseRoute
   SquadRoute: typeof SquadRoute
-  UpcomingRoute: typeof UpcomingRoute
+  StatsRoute: typeof StatsRoute
   FixturesFixtureIdRoute: typeof FixturesFixtureIdRoute
   FixturesIndexRoute: typeof FixturesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/upcoming': {
-      id: '/upcoming'
-      path: '/upcoming'
-      fullPath: '/upcoming'
-      preLoaderRoute: typeof UpcomingRouteImport
+    '/stats': {
+      id: '/stats'
+      path: '/stats'
+      fullPath: '/stats'
+      preLoaderRoute: typeof StatsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/squad': {
@@ -159,7 +159,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BodekasseRoute: BodekasseRoute,
   SquadRoute: SquadRoute,
-  UpcomingRoute: UpcomingRoute,
+  StatsRoute: StatsRoute,
   FixturesFixtureIdRoute: FixturesFixtureIdRoute,
   FixturesIndexRoute: FixturesIndexRoute,
 }
