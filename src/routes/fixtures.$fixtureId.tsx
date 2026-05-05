@@ -20,6 +20,8 @@ type Fixture = {
   their_score: number | null;
   played_at: string;
   formation: string;
+  kickoff_time: string | null;
+  meeting_time: string | null;
 };
 type Player = { id: string; name: string };
 type LineupRow = { id: string; fixture_id: string; player_id: string; position: string; slot: number; is_sub: boolean };
@@ -36,6 +38,8 @@ function FixtureDetail() {
   const [ourScore, setOurScore] = useState("");
   const [theirScore, setTheirScore] = useState("");
   const [formation, setFormation] = useState("4-3-3");
+  const [kickoff, setKickoff] = useState("");
+  const [meeting, setMeeting] = useState("");
 
   const load = async () => {
     const [{ data: f }, { data: ps }, { data: l }] = await Promise.all([
@@ -50,6 +54,8 @@ function FixtureDetail() {
       setOurScore(f.our_score?.toString() ?? "");
       setTheirScore(f.their_score?.toString() ?? "");
       setFormation(f.formation);
+      setKickoff(f.kickoff_time?.slice(0, 5) ?? "");
+      setMeeting(f.meeting_time?.slice(0, 5) ?? "");
     }
     setPlayers(ps ?? []);
     setLineup((l ?? []) as LineupRow[]);
