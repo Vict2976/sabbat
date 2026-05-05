@@ -60,6 +60,18 @@ function SquadPage() {
 
   const bump = async (p: Player, key: StatKey, delta: number) => {
     const next = Math.max(0, p[key] + delta);
+
+    // Cap player goals at team's total scored across fixtures
+    if (key === "goals" && delta > 0) {
+      const { data: fx } = await supabase.from("fixtures").select("our_score");
+      const teamScored = (fx ?? []).reduce((s, x) => s + (x.our_score ?? 0), 0);
+      const otherPlayerGoals = players.filter((x) => x.id !== p.id).reduce((s, x) => s + x.goals, 0);
+      if (otherPlayerGoals + next > teamScored) {
+        toast.error(`Holdet har kun scoret ${teamScored} mål i alt. Tilføj kampresultater først.`);
+        return;
+      }
+    }
+
     setPlayers((prev) => prev.map((x) => (x.id === p.id ? { ...x, [key]: next } : x)));
     const update: Partial<Record<StatKey, number>> = { [key]: next };
     const { error } = await supabase.from("players").update(update).eq("id", p.id);
