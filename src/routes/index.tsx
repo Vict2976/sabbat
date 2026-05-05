@@ -108,19 +108,26 @@ function UpcomingPage() {
           </Link>
         </div>
 
-        <div className="relative rounded-2xl overflow-hidden border-2 border-primary/20 p-6 md:p-10" style={{
-          background: "repeating-linear-gradient(180deg, oklch(0.32 0.08 145) 0 60px, oklch(0.28 0.07 145) 60px 120px)",
+        <div className="relative rounded-2xl overflow-hidden border-2 border-primary/20 p-4 md:p-6 min-h-[420px]" style={{
+          background: "repeating-linear-gradient(90deg, oklch(0.32 0.08 145) 0 60px, oklch(0.28 0.07 145) 60px 120px)",
         }}>
           <div className="absolute inset-3 border-2 border-white/30 rounded-xl pointer-events-none" />
-          <div className="absolute left-1/2 top-3 bottom-3 w-px bg-white/30 pointer-events-none" />
+          <div className="absolute top-3 bottom-3 left-1/2 w-px bg-white/30 pointer-events-none" />
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-20 w-20 rounded-full border-2 border-white/30 pointer-events-none" />
+          {/* Own goal box (left) */}
+          <div className="absolute left-3 top-1/2 -translate-y-1/2 h-40 w-16 border-2 border-l-0 border-white/30 rounded-r-md pointer-events-none" />
+          {/* Opponent goal box (right) */}
+          <div className="absolute right-3 top-1/2 -translate-y-1/2 h-40 w-16 border-2 border-r-0 border-white/30 rounded-l-md pointer-events-none" />
 
-          <div className="relative space-y-6">
-            {[...formation.rows].reverse().map((row, ri) => {
-              const reversedIndex = formation.rows.length - 1 - ri;
-              const offset = 1 + formation.rows.slice(0, reversedIndex).reduce((s, r) => s + r.length, 0);
+          <div className="relative flex items-stretch justify-between gap-2 h-full min-h-[380px] py-2">
+            {/* GK column */}
+            <div className="flex flex-col justify-center">
+              <PitchPlayer position="GK" name={lineupBySlot.get(0) ? playerName(lineupBySlot.get(0)!.player_id) : null} />
+            </div>
+            {formation.rows.map((row, ri) => {
+              const offset = 1 + formation.rows.slice(0, ri).reduce((s, r) => s + r.length, 0);
               return (
-                <div key={ri} className="flex justify-evenly gap-3 flex-wrap">
+                <div key={ri} className="flex flex-col justify-evenly flex-1 gap-2">
                   {row.map((pos, pi) => {
                     const slot = offset + pi;
                     const r = lineupBySlot.get(slot);
@@ -129,9 +136,6 @@ function UpcomingPage() {
                 </div>
               );
             })}
-            <div className="flex justify-center">
-              <PitchPlayer position="GK" name={lineupBySlot.get(0) ? playerName(lineupBySlot.get(0)!.player_id) : null} />
-            </div>
           </div>
         </div>
 
