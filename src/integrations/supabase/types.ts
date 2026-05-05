@@ -14,7 +14,68 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      fines: {
+        Row: {
+          amount: number
+          created_at: string
+          id: string
+          player_id: string
+          reason: string
+        }
+        Insert: {
+          amount?: number
+          created_at?: string
+          id?: string
+          player_id: string
+          reason: string
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          id?: string
+          player_id?: string
+          reason?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fines_player_id_fkey"
+            columns: ["player_id"]
+            isOneToOne: false
+            referencedRelation: "players"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      players: {
+        Row: {
+          assists: number
+          created_at: string
+          goals: number
+          id: string
+          name: string
+          red_cards: number
+          yellow_cards: number
+        }
+        Insert: {
+          assists?: number
+          created_at?: string
+          goals?: number
+          id?: string
+          name: string
+          red_cards?: number
+          yellow_cards?: number
+        }
+        Update: {
+          assists?: number
+          created_at?: string
+          goals?: number
+          id?: string
+          name?: string
+          red_cards?: number
+          yellow_cards?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
