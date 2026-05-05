@@ -72,6 +72,7 @@ function RootComponent() {
           <nav className="flex items-center gap-1">
             <NavLink to="/" label="Statistik" />
             <NavLink to="/squad" label="Trup" />
+            <NavLink to="/fixtures" label="Kampe" />
             <NavLink to="/bodekasse" label="Bødekasse" />
           </nav>
         </div>
