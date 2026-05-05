@@ -49,6 +49,78 @@ export type Database = {
           },
         ]
       }
+      fixture_lineups: {
+        Row: {
+          fixture_id: string
+          id: string
+          is_sub: boolean
+          player_id: string
+          position: string
+          slot: number
+        }
+        Insert: {
+          fixture_id: string
+          id?: string
+          is_sub?: boolean
+          player_id: string
+          position: string
+          slot: number
+        }
+        Update: {
+          fixture_id?: string
+          id?: string
+          is_sub?: boolean
+          player_id?: string
+          position?: string
+          slot?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fixture_lineups_fixture_id_fkey"
+            columns: ["fixture_id"]
+            isOneToOne: false
+            referencedRelation: "fixtures"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "fixture_lineups_player_id_fkey"
+            columns: ["player_id"]
+            isOneToOne: false
+            referencedRelation: "players"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      fixtures: {
+        Row: {
+          created_at: string
+          formation: string
+          id: string
+          opponent: string
+          our_score: number | null
+          played_at: string
+          their_score: number | null
+        }
+        Insert: {
+          created_at?: string
+          formation?: string
+          id?: string
+          opponent: string
+          our_score?: number | null
+          played_at?: string
+          their_score?: number | null
+        }
+        Update: {
+          created_at?: string
+          formation?: string
+          id?: string
+          opponent?: string
+          our_score?: number | null
+          played_at?: string
+          their_score?: number | null
+        }
+        Relationships: []
+      }
       players: {
         Row: {
           assists: number
