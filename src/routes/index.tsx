@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { CalendarDays, Clock, Users, Pencil } from "lucide-react";
 import { FORMATIONS } from "@/lib/formations";
 
-export const Route = createFileRoute("/upcoming")({
+export const Route = createFileRoute("/")({
   component: UpcomingPage,
   head: () => ({ meta: [{ title: "Kommende kamp — FC Sabbatår" }] }),
 });
