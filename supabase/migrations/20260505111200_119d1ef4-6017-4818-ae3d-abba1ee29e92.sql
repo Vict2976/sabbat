@@ -1,0 +1,1 @@
+ALTER TABLE public.fixtures ADD COLUMN place text;
