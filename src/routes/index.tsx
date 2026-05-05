@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Trophy, Goal, Handshake, Square } from "lucide-react";
@@ -71,12 +71,19 @@ function StatsPage() {
         <p className="text-muted-foreground mt-2">Sorteret efter mål, så assists, færrest røde, færrest gule. Rediger tallene under fanen Trup.</p>
       </section>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <TotalCard icon={<Goal className="h-5 w-5" />} label="Mål" value={totals.goals} accent />
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+        <TotalCard icon={<Goal className="h-5 w-5" />} label="Scoret" value={totals.goals} accent />
+        <TotalCard icon={<Goal className="h-5 w-5 rotate-180" />} label="Indkasseret" value={totals.conceded} />
         <TotalCard icon={<Handshake className="h-5 w-5" />} label="Assists" value={totals.assists} />
         <TotalCard icon={<Square className="h-5 w-5 fill-warning text-warning" />} label="Gule" value={totals.yellow} />
         <TotalCard icon={<Square className="h-5 w-5 fill-destructive text-destructive" />} label="Røde" value={totals.red} />
       </div>
+
+      {teamScored - playerGoals > 0 && (
+        <div className="rounded-lg border border-primary/30 bg-primary/5 px-4 py-3 text-sm text-muted-foreground">
+          <span className="font-display text-primary text-base">{teamScored - playerGoals}</span> mål mangler at blive tildelt en spiller. Tilføj dem i fanen <Link to="/squad" className="text-primary underline">Trup</Link>.
+        </div>
+      )}
 
       <div className="flex items-center justify-between gap-4">
         <h2 className="font-display text-2xl flex items-center gap-2"><Trophy className="h-5 w-5 text-primary" /> Topscorerlisten</h2>
