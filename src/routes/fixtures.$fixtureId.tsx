@@ -58,6 +58,7 @@ function FixtureDetail() {
       setFormation(f.formation);
       setKickoff(f.kickoff_time?.slice(0, 5) ?? "");
       setMeeting(f.meeting_time?.slice(0, 5) ?? "");
+      setPlace(f.place ?? "");
     }
     setPlayers(ps ?? []);
     setLineup((l ?? []) as LineupRow[]);
