@@ -109,6 +109,8 @@ function FixtureDetail() {
       formation,
       our_score: ourScore === "" ? null : Math.max(0, Number(ourScore)),
       their_score: theirScore === "" ? null : Math.max(0, Number(theirScore)),
+      kickoff_time: kickoff || null,
+      meeting_time: meeting || null,
     };
 
     // Validate goals against player goals total
@@ -159,7 +161,7 @@ function FixtureDetail() {
         <h1 className="font-display text-4xl md:text-5xl">FC Sabbatår vs {fixture.opponent}</h1>
       </section>
 
-      <div className="rounded-xl border border-border bg-card p-5 grid md:grid-cols-[1fr_140px_1fr_1fr_auto] gap-3 items-end">
+      <div className="rounded-xl border border-border bg-card p-5 grid md:grid-cols-3 gap-3">
         <div>
           <label className="text-[10px] uppercase tracking-wider text-muted-foreground">Modstander</label>
           <Input value={opponent} onChange={(e) => setOpponent(e.target.value)} maxLength={60} className="bg-input border-border mt-1" />
@@ -168,15 +170,27 @@ function FixtureDetail() {
           <label className="text-[10px] uppercase tracking-wider text-muted-foreground">Dato</label>
           <Input type="date" value={playedAt} onChange={(e) => setPlayedAt(e.target.value)} className="bg-input border-border mt-1" />
         </div>
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label className="text-[10px] uppercase tracking-wider text-muted-foreground">Mødetid</label>
+            <Input type="time" value={meeting} onChange={(e) => setMeeting(e.target.value)} className="bg-input border-border mt-1" />
+          </div>
+          <div>
+            <label className="text-[10px] uppercase tracking-wider text-muted-foreground">Kampstart</label>
+            <Input type="time" value={kickoff} onChange={(e) => setKickoff(e.target.value)} className="bg-input border-border mt-1" />
+          </div>
+        </div>
         <div>
           <label className="text-[10px] uppercase tracking-wider text-muted-foreground">Vores mål</label>
           <Input type="number" min="0" value={ourScore} onChange={(e) => setOurScore(e.target.value)} placeholder="–" className="bg-input border-border mt-1" />
         </div>
         <div>
-          <label className="text-[10px] uppercase tracking-wider text-muted-foreground">Modstanderens</label>
+          <label className="text-[10px] uppercase tracking-wider text-muted-foreground">Modstanderens mål</label>
           <Input type="number" min="0" value={theirScore} onChange={(e) => setTheirScore(e.target.value)} placeholder="–" className="bg-input border-border mt-1" />
         </div>
-        <Button onClick={saveDetails} className="gap-2"><Save className="h-4 w-4" /> Gem</Button>
+        <div className="flex items-end">
+          <Button onClick={saveDetails} className="gap-2 w-full"><Save className="h-4 w-4" /> Gem</Button>
+        </div>
       </div>
 
       <section className="space-y-4">
