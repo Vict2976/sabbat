@@ -19,6 +19,7 @@ export type Database = {
           amount: number
           created_at: string
           id: string
+          paid: boolean
           player_id: string
           reason: string
         }
@@ -26,6 +27,7 @@ export type Database = {
           amount?: number
           created_at?: string
           id?: string
+          paid?: boolean
           player_id: string
           reason: string
         }
@@ -33,6 +35,7 @@ export type Database = {
           amount?: number
           created_at?: string
           id?: string
+          paid?: boolean
           player_id?: string
           reason?: string
         }
