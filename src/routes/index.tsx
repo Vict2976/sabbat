@@ -25,24 +25,32 @@ function StatsPage() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
 
+  const [teamScored, setTeamScored] = useState(0);
+  const [teamConceded, setTeamConceded] = useState(0);
+
   const load = async () => {
-    const { data, error } = await supabase.from("players").select("*");
+    const [{ data: ps, error }, { data: fx }] = await Promise.all([
+      supabase.from("players").select("*"),
+      supabase.from("fixtures").select("our_score,their_score"),
+    ]);
     if (error) toast.error(error.message);
-    else setPlayers(data ?? []);
+    else setPlayers(ps ?? []);
+    setTeamScored((fx ?? []).reduce((s, x) => s + (x.our_score ?? 0), 0));
+    setTeamConceded((fx ?? []).reduce((s, x) => s + (x.their_score ?? 0), 0));
     setLoading(false);
   };
 
   useEffect(() => { load(); }, []);
 
-  const totals = players.reduce(
-    (acc, p) => ({
-      goals: acc.goals + p.goals,
-      assists: acc.assists + p.assists,
-      yellow: acc.yellow + p.yellow_cards,
-      red: acc.red + p.red_cards,
-    }),
-    { goals: 0, assists: 0, yellow: 0, red: 0 },
-  );
+  const playerGoals = players.reduce((s, p) => s + p.goals, 0);
+
+  const totals = {
+    goals: teamScored,
+    assists: players.reduce((s, p) => s + p.assists, 0),
+    yellow: players.reduce((s, p) => s + p.yellow_cards, 0),
+    red: players.reduce((s, p) => s + p.red_cards, 0),
+    conceded: teamConceded,
+  };
 
   // Sort: goals desc, assists desc, red asc, yellow asc, name asc
   const sorted = [...players].sort((a, b) => {
