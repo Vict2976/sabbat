@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SquadRouteImport } from './routes/squad'
 import { Route as BodekasseRouteImport } from './routes/bodekasse'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FixturesIndexRouteImport } from './routes/fixtures.index'
+import { Route as FixturesFixtureIdRouteImport } from './routes/fixtures.$fixtureId'
 
 const SquadRoute = SquadRouteImport.update({
   id: '/squad',
@@ -28,35 +30,64 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FixturesIndexRoute = FixturesIndexRouteImport.update({
+  id: '/fixtures/',
+  path: '/fixtures/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FixturesFixtureIdRoute = FixturesFixtureIdRouteImport.update({
+  id: '/fixtures/$fixtureId',
+  path: '/fixtures/$fixtureId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bodekasse': typeof BodekasseRoute
   '/squad': typeof SquadRoute
+  '/fixtures/$fixtureId': typeof FixturesFixtureIdRoute
+  '/fixtures/': typeof FixturesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bodekasse': typeof BodekasseRoute
   '/squad': typeof SquadRoute
+  '/fixtures/$fixtureId': typeof FixturesFixtureIdRoute
+  '/fixtures': typeof FixturesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bodekasse': typeof BodekasseRoute
   '/squad': typeof SquadRoute
+  '/fixtures/$fixtureId': typeof FixturesFixtureIdRoute
+  '/fixtures/': typeof FixturesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bodekasse' | '/squad'
+  fullPaths:
+    | '/'
+    | '/bodekasse'
+    | '/squad'
+    | '/fixtures/$fixtureId'
+    | '/fixtures/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bodekasse' | '/squad'
-  id: '__root__' | '/' | '/bodekasse' | '/squad'
+  to: '/' | '/bodekasse' | '/squad' | '/fixtures/$fixtureId' | '/fixtures'
+  id:
+    | '__root__'
+    | '/'
+    | '/bodekasse'
+    | '/squad'
+    | '/fixtures/$fixtureId'
+    | '/fixtures/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BodekasseRoute: typeof BodekasseRoute
   SquadRoute: typeof SquadRoute
+  FixturesFixtureIdRoute: typeof FixturesFixtureIdRoute
+  FixturesIndexRoute: typeof FixturesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +113,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/fixtures/': {
+      id: '/fixtures/'
+      path: '/fixtures'
+      fullPath: '/fixtures/'
+      preLoaderRoute: typeof FixturesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fixtures/$fixtureId': {
+      id: '/fixtures/$fixtureId'
+      path: '/fixtures/$fixtureId'
+      fullPath: '/fixtures/$fixtureId'
+      preLoaderRoute: typeof FixturesFixtureIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +134,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BodekasseRoute: BodekasseRoute,
   SquadRoute: SquadRoute,
+  FixturesFixtureIdRoute: FixturesFixtureIdRoute,
+  FixturesIndexRoute: FixturesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Trash2, Plus, ChevronRight, Trophy } from "lucide-react";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/fixtures")({
+export const Route = createFileRoute("/fixtures/")({
   component: FixturesPage,
   head: () => ({ meta: [{ title: "Kampe — FC Sabbatår" }] }),
 });
