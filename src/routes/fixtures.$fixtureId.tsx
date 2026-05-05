@@ -41,6 +41,7 @@ function FixtureDetail() {
   const [formation, setFormation] = useState("4-3-3");
   const [kickoff, setKickoff] = useState("");
   const [meeting, setMeeting] = useState("");
+  const [place, setPlace] = useState("");
 
   const load = async () => {
     const [{ data: f }, { data: ps }, { data: l }] = await Promise.all([
