@@ -8,7 +8,7 @@ import { toast } from "sonner";
 
 export const Route = createFileRoute("/")({
   component: StatsPage,
-  head: () => ({ meta: [{ title: "Stats — FC Sabbatår" }] }),
+  head: () => ({ meta: [{ title: "Statistik — FC Sabbatår" }] }),
 });
 
 type Player = {
@@ -62,22 +62,22 @@ function StatsPage() {
   return (
     <div className="space-y-8">
       <section>
-        <p className="text-xs uppercase tracking-[0.3em] text-primary mb-2">Season overview</p>
-        <h1 className="font-display text-5xl md:text-6xl">The Numbers</h1>
-        <p className="text-muted-foreground mt-2">Track every goal, assist and card. Tap +/- to update.</p>
+        <p className="text-xs uppercase tracking-[0.3em] text-primary mb-2">Sæsonoverblik</p>
+        <h1 className="font-display text-5xl md:text-6xl">Tallene</h1>
+        <p className="text-muted-foreground mt-2">Hold styr på mål, assists og kort. Tryk +/- for at opdatere.</p>
       </section>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <TotalCard icon={<Goal className="h-5 w-5" />} label="Goals" value={totals.goals} accent />
+        <TotalCard icon={<Goal className="h-5 w-5" />} label="Mål" value={totals.goals} accent />
         <TotalCard icon={<Handshake className="h-5 w-5" />} label="Assists" value={totals.assists} />
-        <TotalCard icon={<Square className="h-5 w-5 fill-warning text-warning" />} label="Yellow" value={totals.yellow} />
-        <TotalCard icon={<Square className="h-5 w-5 fill-destructive text-destructive" />} label="Red" value={totals.red} />
+        <TotalCard icon={<Square className="h-5 w-5 fill-warning text-warning" />} label="Gule" value={totals.yellow} />
+        <TotalCard icon={<Square className="h-5 w-5 fill-destructive text-destructive" />} label="Røde" value={totals.red} />
       </div>
 
       <div className="flex items-center justify-between gap-4">
-        <h2 className="font-display text-2xl flex items-center gap-2"><Trophy className="h-5 w-5 text-primary" /> Player Stats</h2>
+        <h2 className="font-display text-2xl flex items-center gap-2"><Trophy className="h-5 w-5 text-primary" /> Spillerstatistik</h2>
         <Input
-          placeholder="Search player…"
+          placeholder="Søg spiller…"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="max-w-xs bg-card border-border"
@@ -85,13 +85,13 @@ function StatsPage() {
       </div>
 
       {loading ? (
-        <p className="text-muted-foreground">Loading…</p>
+        <p className="text-muted-foreground">Indlæser…</p>
       ) : players.length === 0 ? (
         <EmptyState />
       ) : (
         <div className="rounded-xl border border-border bg-card overflow-hidden shadow-[var(--shadow-card)]">
           <div className="hidden md:grid grid-cols-[1fr_repeat(4,minmax(0,140px))] gap-2 px-5 py-3 border-b border-border text-[11px] uppercase tracking-wider text-muted-foreground">
-            <span>Player</span><span>Goals</span><span>Assists</span><span>Yellow</span><span>Red</span>
+            <span>Spiller</span><span>Mål</span><span>Assists</span><span>Gule</span><span>Røde</span>
           </div>
           {filtered.map((p, i) => (
             <div key={p.id} className={`grid grid-cols-2 md:grid-cols-[1fr_repeat(4,minmax(0,140px))] gap-2 items-center px-5 py-4 ${i !== filtered.length - 1 ? "border-b border-border/60" : ""} hover:bg-secondary/40 transition-colors`}>
@@ -101,10 +101,10 @@ function StatsPage() {
                 </div>
                 <span className="font-semibold">{p.name}</span>
               </div>
-              <StatCell value={p.goals} onInc={() => bump(p, "goals", 1)} onDec={() => bump(p, "goals", -1)} label="G" />
+              <StatCell value={p.goals} onInc={() => bump(p, "goals", 1)} onDec={() => bump(p, "goals", -1)} label="Mål" />
               <StatCell value={p.assists} onInc={() => bump(p, "assists", 1)} onDec={() => bump(p, "assists", -1)} label="A" />
-              <StatCell value={p.yellow_cards} onInc={() => bump(p, "yellow_cards", 1)} onDec={() => bump(p, "yellow_cards", -1)} label="Y" tone="warning" />
-              <StatCell value={p.red_cards} onInc={() => bump(p, "red_cards", 1)} onDec={() => bump(p, "red_cards", -1)} label="R" tone="destructive" />
+              <StatCell value={p.yellow_cards} onInc={() => bump(p, "yellow_cards", 1)} onDec={() => bump(p, "yellow_cards", -1)} label="Gul" tone="warning" />
+              <StatCell value={p.red_cards} onInc={() => bump(p, "red_cards", 1)} onDec={() => bump(p, "red_cards", -1)} label="Rød" tone="destructive" />
             </div>
           ))}
         </div>
@@ -142,8 +142,8 @@ function StatCell({ value, onInc, onDec, label, tone }: { value: number; onInc: 
 function EmptyState() {
   return (
     <div className="rounded-xl border border-dashed border-border p-10 text-center">
-      <p className="text-muted-foreground">No players yet.</p>
-      <a href="/squad"><Button className="mt-4">Add players</Button></a>
+      <p className="text-muted-foreground">Ingen spillere endnu.</p>
+      <a href="/squad"><Button className="mt-4">Tilføj spillere</Button></a>
     </div>
   );
 }
