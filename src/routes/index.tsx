@@ -20,32 +20,19 @@ type Player = {
   red_cards: number;
 };
 
-type StatKey = "goals" | "assists" | "yellow_cards" | "red_cards";
-
 function StatsPage() {
   const [players, setPlayers] = useState<Player[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
 
   const load = async () => {
-    const { data, error } = await supabase
-      .from("players")
-      .select("*")
-      .order("goals", { ascending: false });
+    const { data, error } = await supabase.from("players").select("*");
     if (error) toast.error(error.message);
     else setPlayers(data ?? []);
     setLoading(false);
   };
 
   useEffect(() => { load(); }, []);
-
-  const bump = async (p: Player, key: StatKey, delta: number) => {
-    const next = Math.max(0, p[key] + delta);
-    setPlayers((prev) => prev.map((x) => (x.id === p.id ? { ...x, [key]: next } : x)));
-    const update: Partial<Record<StatKey, number>> = { [key]: next };
-    const { error } = await supabase.from("players").update(update).eq("id", p.id);
-    if (error) { toast.error(error.message); load(); }
-  };
 
   const totals = players.reduce(
     (acc, p) => ({
@@ -57,14 +44,23 @@ function StatsPage() {
     { goals: 0, assists: 0, yellow: 0, red: 0 },
   );
 
-  const filtered = players.filter((p) => p.name.toLowerCase().includes(search.toLowerCase()));
+  // Sort: goals desc, assists desc, red asc, yellow asc, name asc
+  const sorted = [...players].sort((a, b) => {
+    if (b.goals !== a.goals) return b.goals - a.goals;
+    if (b.assists !== a.assists) return b.assists - a.assists;
+    if (a.red_cards !== b.red_cards) return a.red_cards - b.red_cards;
+    if (a.yellow_cards !== b.yellow_cards) return a.yellow_cards - b.yellow_cards;
+    return a.name.localeCompare(b.name, "da");
+  });
+
+  const filtered = sorted.filter((p) => p.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
     <div className="space-y-8">
       <section>
         <p className="text-xs uppercase tracking-[0.3em] text-primary mb-2">Sæsonoverblik</p>
         <h1 className="font-display text-5xl md:text-6xl">Tallene</h1>
-        <p className="text-muted-foreground mt-2">Hold styr på mål, assists og kort. Tryk +/- for at opdatere.</p>
+        <p className="text-muted-foreground mt-2">Sorteret efter mål, så assists, færrest røde, færrest gule. Rediger tallene under fanen Trup.</p>
       </section>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -75,7 +71,7 @@ function StatsPage() {
       </div>
 
       <div className="flex items-center justify-between gap-4">
-        <h2 className="font-display text-2xl flex items-center gap-2"><Trophy className="h-5 w-5 text-primary" /> Spillerstatistik</h2>
+        <h2 className="font-display text-2xl flex items-center gap-2"><Trophy className="h-5 w-5 text-primary" /> Topscorerlisten</h2>
         <Input
           placeholder="Søg spiller…"
           value={search}
@@ -90,26 +86,51 @@ function StatsPage() {
         <EmptyState />
       ) : (
         <div className="rounded-xl border border-border bg-card overflow-hidden shadow-[var(--shadow-card)]">
-          <div className="hidden md:grid grid-cols-[1fr_repeat(4,minmax(0,140px))] gap-2 px-5 py-3 border-b border-border text-[11px] uppercase tracking-wider text-muted-foreground">
-            <span>Spiller</span><span>Mål</span><span>Assists</span><span>Gule</span><span>Røde</span>
+          <div className="hidden md:grid grid-cols-[40px_1fr_repeat(4,minmax(0,90px))] gap-2 px-5 py-3 border-b border-border text-[11px] uppercase tracking-wider text-muted-foreground">
+            <span>#</span><span>Spiller</span>
+            <span className="text-right">Mål</span>
+            <span className="text-right">Assists</span>
+            <span className="text-right">Gule</span>
+            <span className="text-right">Røde</span>
           </div>
-          {filtered.map((p, i) => (
-            <div key={p.id} className={`grid grid-cols-2 md:grid-cols-[1fr_repeat(4,minmax(0,140px))] gap-2 items-center px-5 py-4 ${i !== filtered.length - 1 ? "border-b border-border/60" : ""} hover:bg-secondary/40 transition-colors`}>
-              <div className="col-span-2 md:col-span-1 flex items-center gap-3">
-                <div className="h-9 w-9 rounded-full bg-secondary flex items-center justify-center font-display text-sm">
-                  {p.name.slice(0, 2).toUpperCase()}
+          {filtered.map((p, i) => {
+            const rank = sorted.indexOf(p) + 1;
+            const podium = rank === 1 ? "text-primary" : rank <= 3 ? "text-foreground" : "text-muted-foreground";
+            return (
+              <div key={p.id} className={`grid grid-cols-[30px_1fr_auto] md:grid-cols-[40px_1fr_repeat(4,minmax(0,90px))] gap-2 items-center px-5 py-4 ${i !== filtered.length - 1 ? "border-b border-border/60" : ""} hover:bg-secondary/30 transition-colors`}>
+                <span className={`font-display text-xl ${podium}`}>{rank}</span>
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="h-9 w-9 rounded-full bg-secondary flex items-center justify-center font-display text-sm shrink-0">
+                    {p.name.slice(0, 2).toUpperCase()}
+                  </div>
+                  <span className="font-semibold truncate">{p.name}</span>
                 </div>
-                <span className="font-semibold">{p.name}</span>
+                <div className="md:hidden flex items-center gap-3 text-sm font-display">
+                  <Stat label="M" value={p.goals} />
+                  <Stat label="A" value={p.assists} />
+                  <Stat label="G" value={p.yellow_cards} tone="warning" />
+                  <Stat label="R" value={p.red_cards} tone="destructive" />
+                </div>
+                <span className="hidden md:block text-right font-display text-xl">{p.goals}</span>
+                <span className="hidden md:block text-right font-display text-xl">{p.assists}</span>
+                <span className="hidden md:block text-right font-display text-xl text-warning">{p.yellow_cards}</span>
+                <span className="hidden md:block text-right font-display text-xl text-destructive">{p.red_cards}</span>
               </div>
-              <StatCell value={p.goals} onInc={() => bump(p, "goals", 1)} onDec={() => bump(p, "goals", -1)} label="Mål" />
-              <StatCell value={p.assists} onInc={() => bump(p, "assists", 1)} onDec={() => bump(p, "assists", -1)} label="A" />
-              <StatCell value={p.yellow_cards} onInc={() => bump(p, "yellow_cards", 1)} onDec={() => bump(p, "yellow_cards", -1)} label="Gul" tone="warning" />
-              <StatCell value={p.red_cards} onInc={() => bump(p, "red_cards", 1)} onDec={() => bump(p, "red_cards", -1)} label="Rød" tone="destructive" />
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
     </div>
+  );
+}
+
+function Stat({ label, value, tone }: { label: string; value: number; tone?: "warning" | "destructive" }) {
+  const color = tone === "warning" ? "text-warning" : tone === "destructive" ? "text-destructive" : "text-foreground";
+  return (
+    <span className="flex items-center gap-1">
+      <span className="text-[10px] uppercase text-muted-foreground">{label}</span>
+      <span className={color}>{value}</span>
+    </span>
   );
 }
 
@@ -120,20 +141,6 @@ function TotalCard({ icon, label, value, accent }: { icon: React.ReactNode; labe
       <div className="relative">
         <div className="flex items-center gap-2 text-muted-foreground text-xs uppercase tracking-wider">{icon}{label}</div>
         <div className="font-display text-4xl mt-2">{value}</div>
-      </div>
-    </div>
-  );
-}
-
-function StatCell({ value, onInc, onDec, label, tone }: { value: number; onInc: () => void; onDec: () => void; label: string; tone?: "warning" | "destructive" }) {
-  const color = tone === "warning" ? "text-warning" : tone === "destructive" ? "text-destructive" : "text-foreground";
-  return (
-    <div className="flex items-center justify-between md:justify-start gap-2">
-      <span className="md:hidden text-xs text-muted-foreground">{label}</span>
-      <div className="flex items-center gap-1">
-        <button onClick={onDec} className="h-7 w-7 rounded-md bg-secondary hover:bg-secondary/70 text-sm">−</button>
-        <span className={`w-8 text-center font-display text-xl ${color}`}>{value}</span>
-        <button onClick={onInc} className="h-7 w-7 rounded-md bg-primary text-primary-foreground hover:opacity-90 text-sm font-bold">+</button>
       </div>
     </div>
   );
