@@ -22,6 +22,7 @@ type Fixture = {
   formation: string;
   kickoff_time: string | null;
   meeting_time: string | null;
+  place: string | null;
 };
 type Player = { id: string; name: string };
 type LineupRow = { id: string; fixture_id: string; player_id: string; position: string; slot: number; is_sub: boolean };
@@ -40,6 +41,7 @@ function FixtureDetail() {
   const [formation, setFormation] = useState("4-3-3");
   const [kickoff, setKickoff] = useState("");
   const [meeting, setMeeting] = useState("");
+  const [place, setPlace] = useState("");
 
   const load = async () => {
     const [{ data: f }, { data: ps }, { data: l }] = await Promise.all([
@@ -56,6 +58,7 @@ function FixtureDetail() {
       setFormation(f.formation);
       setKickoff(f.kickoff_time?.slice(0, 5) ?? "");
       setMeeting(f.meeting_time?.slice(0, 5) ?? "");
+      setPlace(f.place ?? "");
     }
     setPlayers(ps ?? []);
     setLineup((l ?? []) as LineupRow[]);
@@ -111,6 +114,7 @@ function FixtureDetail() {
       their_score: theirScore === "" ? null : Math.max(0, Number(theirScore)),
       kickoff_time: kickoff || null,
       meeting_time: meeting || null,
+      place: place.trim() || null,
     };
 
     // Validate goals against player goals total
@@ -169,6 +173,10 @@ function FixtureDetail() {
         <div>
           <label className="text-[10px] uppercase tracking-wider text-muted-foreground">Dato</label>
           <Input type="date" value={playedAt} onChange={(e) => setPlayedAt(e.target.value)} className="bg-input border-border mt-1" />
+        </div>
+        <div>
+          <label className="text-[10px] uppercase tracking-wider text-muted-foreground">Sted</label>
+          <Input value={place} onChange={(e) => setPlace(e.target.value)} maxLength={80} placeholder="fx Ryparken" className="bg-input border-border mt-1" />
         </div>
         <div className="grid grid-cols-2 gap-3">
           <div>

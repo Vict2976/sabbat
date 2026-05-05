@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { CalendarDays, Clock, Users, Pencil } from "lucide-react";
+import { CalendarDays, Clock, Users, Pencil, MapPin } from "lucide-react";
 import { FORMATIONS } from "@/lib/formations";
 
 export const Route = createFileRoute("/")({
@@ -16,6 +16,7 @@ type Fixture = {
   formation: string;
   kickoff_time: string | null;
   meeting_time: string | null;
+  place: string | null;
   our_score: number | null;
   their_score: number | null;
 };
@@ -90,8 +91,9 @@ function UpcomingPage() {
         <h2 className="font-display text-4xl md:text-6xl">{fixture.opponent}</h2>
       </section>
 
-      <div className="grid sm:grid-cols-3 gap-3 max-w-3xl mx-auto">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl mx-auto">
         <InfoCard icon={<CalendarDays className="h-5 w-5" />} label="Dato" value={dateLabel} />
+        <InfoCard icon={<MapPin className="h-5 w-5" />} label="Sted" value={fixture.place ?? "—"} />
         <InfoCard icon={<Users className="h-5 w-5" />} label="Mødetid" value={fixture.meeting_time?.slice(0, 5) ?? "—"} />
         <InfoCard icon={<Clock className="h-5 w-5" />} label="Kampstart" value={fixture.kickoff_time?.slice(0, 5) ?? "—"} highlight />
       </div>

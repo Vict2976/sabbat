@@ -100,6 +100,7 @@ export type Database = {
           meeting_time: string | null
           opponent: string
           our_score: number | null
+          place: string | null
           played_at: string
           their_score: number | null
         }
@@ -111,6 +112,7 @@ export type Database = {
           meeting_time?: string | null
           opponent: string
           our_score?: number | null
+          place?: string | null
           played_at?: string
           their_score?: number | null
         }
@@ -122,6 +124,7 @@ export type Database = {
           meeting_time?: string | null
           opponent?: string
           our_score?: number | null
+          place?: string | null
           played_at?: string
           their_score?: number | null
         }
