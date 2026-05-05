@@ -16,6 +16,7 @@ type Fixture = {
   formation: string;
   kickoff_time: string | null;
   meeting_time: string | null;
+  place: string | null;
   our_score: number | null;
   their_score: number | null;
 };
