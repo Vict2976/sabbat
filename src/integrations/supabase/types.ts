@@ -96,6 +96,8 @@ export type Database = {
           created_at: string
           formation: string
           id: string
+          kickoff_time: string | null
+          meeting_time: string | null
           opponent: string
           our_score: number | null
           played_at: string
@@ -105,6 +107,8 @@ export type Database = {
           created_at?: string
           formation?: string
           id?: string
+          kickoff_time?: string | null
+          meeting_time?: string | null
           opponent: string
           our_score?: number | null
           played_at?: string
@@ -114,6 +118,8 @@ export type Database = {
           created_at?: string
           formation?: string
           id?: string
+          kickoff_time?: string | null
+          meeting_time?: string | null
           opponent?: string
           our_score?: number | null
           played_at?: string
