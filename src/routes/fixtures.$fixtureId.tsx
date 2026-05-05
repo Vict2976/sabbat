@@ -22,6 +22,7 @@ type Fixture = {
   formation: string;
   kickoff_time: string | null;
   meeting_time: string | null;
+  place: string | null;
 };
 type Player = { id: string; name: string };
 type LineupRow = { id: string; fixture_id: string; player_id: string; position: string; slot: number; is_sub: boolean };
