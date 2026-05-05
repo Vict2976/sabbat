@@ -91,8 +91,9 @@ function UpcomingPage() {
         <h2 className="font-display text-4xl md:text-6xl">{fixture.opponent}</h2>
       </section>
 
-      <div className="grid sm:grid-cols-3 gap-3 max-w-3xl mx-auto">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl mx-auto">
         <InfoCard icon={<CalendarDays className="h-5 w-5" />} label="Dato" value={dateLabel} />
+        <InfoCard icon={<MapPin className="h-5 w-5" />} label="Sted" value={fixture.place ?? "—"} />
         <InfoCard icon={<Users className="h-5 w-5" />} label="Mødetid" value={fixture.meeting_time?.slice(0, 5) ?? "—"} />
         <InfoCard icon={<Clock className="h-5 w-5" />} label="Kampstart" value={fixture.kickoff_time?.slice(0, 5) ?? "—"} highlight />
       </div>
