@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Trophy, Goal, Handshake, Square } from "lucide-react";
@@ -25,24 +25,32 @@ function StatsPage() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
 
+  const [teamScored, setTeamScored] = useState(0);
+  const [teamConceded, setTeamConceded] = useState(0);
+
   const load = async () => {
-    const { data, error } = await supabase.from("players").select("*");
+    const [{ data: ps, error }, { data: fx }] = await Promise.all([
+      supabase.from("players").select("*"),
+      supabase.from("fixtures").select("our_score,their_score"),
+    ]);
     if (error) toast.error(error.message);
-    else setPlayers(data ?? []);
+    else setPlayers(ps ?? []);
+    setTeamScored((fx ?? []).reduce((s, x) => s + (x.our_score ?? 0), 0));
+    setTeamConceded((fx ?? []).reduce((s, x) => s + (x.their_score ?? 0), 0));
     setLoading(false);
   };
 
   useEffect(() => { load(); }, []);
 
-  const totals = players.reduce(
-    (acc, p) => ({
-      goals: acc.goals + p.goals,
-      assists: acc.assists + p.assists,
-      yellow: acc.yellow + p.yellow_cards,
-      red: acc.red + p.red_cards,
-    }),
-    { goals: 0, assists: 0, yellow: 0, red: 0 },
-  );
+  const playerGoals = players.reduce((s, p) => s + p.goals, 0);
+
+  const totals = {
+    goals: teamScored,
+    assists: players.reduce((s, p) => s + p.assists, 0),
+    yellow: players.reduce((s, p) => s + p.yellow_cards, 0),
+    red: players.reduce((s, p) => s + p.red_cards, 0),
+    conceded: teamConceded,
+  };
 
   // Sort: goals desc, assists desc, red asc, yellow asc, name asc
   const sorted = [...players].sort((a, b) => {
@@ -63,12 +71,19 @@ function StatsPage() {
         <p className="text-muted-foreground mt-2">Sorteret efter mål, så assists, færrest røde, færrest gule. Rediger tallene under fanen Trup.</p>
       </section>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <TotalCard icon={<Goal className="h-5 w-5" />} label="Mål" value={totals.goals} accent />
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+        <TotalCard icon={<Goal className="h-5 w-5" />} label="Scoret" value={totals.goals} accent />
+        <TotalCard icon={<Goal className="h-5 w-5 rotate-180" />} label="Indkasseret" value={totals.conceded} />
         <TotalCard icon={<Handshake className="h-5 w-5" />} label="Assists" value={totals.assists} />
         <TotalCard icon={<Square className="h-5 w-5 fill-warning text-warning" />} label="Gule" value={totals.yellow} />
         <TotalCard icon={<Square className="h-5 w-5 fill-destructive text-destructive" />} label="Røde" value={totals.red} />
       </div>
+
+      {teamScored - playerGoals > 0 && (
+        <div className="rounded-lg border border-primary/30 bg-primary/5 px-4 py-3 text-sm text-muted-foreground">
+          <span className="font-display text-primary text-base">{teamScored - playerGoals}</span> mål mangler at blive tildelt en spiller. Tilføj dem i fanen <Link to="/squad" className="text-primary underline">Trup</Link>.
+        </div>
+      )}
 
       <div className="flex items-center justify-between gap-4">
         <h2 className="font-display text-2xl flex items-center gap-2"><Trophy className="h-5 w-5 text-primary" /> Topscorerlisten</h2>
