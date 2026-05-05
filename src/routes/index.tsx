@@ -42,7 +42,8 @@ function StatsPage() {
   const bump = async (p: Player, key: StatKey, delta: number) => {
     const next = Math.max(0, p[key] + delta);
     setPlayers((prev) => prev.map((x) => (x.id === p.id ? { ...x, [key]: next } : x)));
-    const { error } = await supabase.from("players").update({ [key]: next }).eq("id", p.id);
+    const update: Partial<Record<StatKey, number>> = { [key]: next };
+    const { error } = await supabase.from("players").update(update).eq("id", p.id);
     if (error) { toast.error(error.message); load(); }
   };
 
