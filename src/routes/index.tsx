@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { CalendarDays, Clock, Users, Pencil } from "lucide-react";
+import { CalendarDays, Clock, Users, Pencil, MapPin } from "lucide-react";
 import { FORMATIONS } from "@/lib/formations";
 
 export const Route = createFileRoute("/")({
