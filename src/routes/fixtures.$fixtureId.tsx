@@ -114,6 +114,7 @@ function FixtureDetail() {
       their_score: theirScore === "" ? null : Math.max(0, Number(theirScore)),
       kickoff_time: kickoff || null,
       meeting_time: meeting || null,
+      place: place.trim() || null,
     };
 
     // Validate goals against player goals total
