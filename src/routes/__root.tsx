@@ -7,8 +7,8 @@ function NotFoundComponent() {
     <div className="flex min-h-screen items-center justify-center px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-display text-primary">404</h1>
-        <p className="mt-2 text-muted-foreground">Off the pitch.</p>
-        <Link to="/" className="mt-6 inline-flex rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground">Back home</Link>
+        <p className="mt-2 text-muted-foreground">Uden for banen.</p>
+        <Link to="/" className="mt-6 inline-flex rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground">Tilbage til forsiden</Link>
       </div>
     </div>
   );
@@ -20,7 +20,7 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "FC Sabbatår" },
-      { name: "description", content: "Squad, stats & bødekasse for FC Sabbatår." },
+      { name: "description", content: "Trup, statistik og bødekasse for FC Sabbatår." },
     ],
     links: [{ rel: "stylesheet", href: appCss }],
   }),
@@ -31,7 +31,7 @@ export const Route = createRootRoute({
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="da">
       <head><HeadContent /></head>
       <body>
         {children}
@@ -66,12 +66,12 @@ function RootComponent() {
             <div className="h-9 w-9 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-display text-xl">FC</div>
             <div>
               <div className="font-display text-xl leading-none">FC Sabbatår</div>
-              <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Squad HQ</div>
+              <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Holdets HQ</div>
             </div>
           </Link>
           <nav className="flex items-center gap-1">
-            <NavLink to="/" label="Stats" />
-            <NavLink to="/squad" label="Squad" />
+            <NavLink to="/" label="Statistik" />
+            <NavLink to="/squad" label="Trup" />
             <NavLink to="/bodekasse" label="Bødekasse" />
           </nav>
         </div>

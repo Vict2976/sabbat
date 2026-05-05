@@ -8,7 +8,7 @@ import { toast } from "sonner";
 
 export const Route = createFileRoute("/squad")({
   component: SquadPage,
-  head: () => ({ meta: [{ title: "Squad — FC Sabbatår" }] }),
+  head: () => ({ meta: [{ title: "Trup — FC Sabbatår" }] }),
 });
 
 type Player = { id: string; name: string; created_at: string };
@@ -30,38 +30,38 @@ function SquadPage() {
     e.preventDefault();
     const trimmed = name.trim();
     if (!trimmed) return;
-    if (trimmed.length > 60) return toast.error("Name too long");
+    if (trimmed.length > 60) return toast.error("Navnet er for langt");
     setLoading(true);
     const { error } = await supabase.from("players").insert({ name: trimmed });
     setLoading(false);
     if (error) toast.error(error.message);
-    else { setName(""); toast.success(`${trimmed} added to the squad`); load(); }
+    else { setName(""); toast.success(`${trimmed} er tilføjet til truppen`); load(); }
   };
 
   const remove = async (p: Player) => {
-    if (!confirm(`Remove ${p.name} from the squad?`)) return;
+    if (!confirm(`Fjern ${p.name} fra truppen?`)) return;
     const { error } = await supabase.from("players").delete().eq("id", p.id);
     if (error) toast.error(error.message);
-    else { toast.success("Player removed"); load(); }
+    else { toast.success("Spiller fjernet"); load(); }
   };
 
   return (
     <div className="space-y-8">
       <section>
-        <p className="text-xs uppercase tracking-[0.3em] text-primary mb-2">Roster</p>
-        <h1 className="font-display text-5xl md:text-6xl">The Squad</h1>
+        <p className="text-xs uppercase tracking-[0.3em] text-primary mb-2">Spillertrup</p>
+        <h1 className="font-display text-5xl md:text-6xl">Truppen</h1>
       </section>
 
       <form onSubmit={add} className="flex gap-2 max-w-xl">
         <Input
-          placeholder="New player name…"
+          placeholder="Navn på ny spiller…"
           value={name}
           onChange={(e) => setName(e.target.value)}
           maxLength={60}
           className="bg-card border-border"
         />
         <Button type="submit" disabled={loading} className="gap-2">
-          <UserPlus className="h-4 w-4" /> Add
+          <UserPlus className="h-4 w-4" /> Tilføj
         </Button>
       </form>
 
@@ -80,7 +80,7 @@ function SquadPage() {
           </div>
         ))}
         {players.length === 0 && (
-          <p className="text-muted-foreground col-span-full">No players yet — add the first one above.</p>
+          <p className="text-muted-foreground col-span-full">Ingen spillere endnu — tilføj den første ovenfor.</p>
         )}
       </div>
     </div>
