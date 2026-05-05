@@ -174,6 +174,10 @@ function FixtureDetail() {
           <label className="text-[10px] uppercase tracking-wider text-muted-foreground">Dato</label>
           <Input type="date" value={playedAt} onChange={(e) => setPlayedAt(e.target.value)} className="bg-input border-border mt-1" />
         </div>
+        <div>
+          <label className="text-[10px] uppercase tracking-wider text-muted-foreground">Sted</label>
+          <Input value={place} onChange={(e) => setPlace(e.target.value)} maxLength={80} placeholder="fx Ryparken" className="bg-input border-border mt-1" />
+        </div>
         <div className="grid grid-cols-2 gap-3">
           <div>
             <label className="text-[10px] uppercase tracking-wider text-muted-foreground">Mødetid</label>
