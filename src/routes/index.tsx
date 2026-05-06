@@ -69,10 +69,15 @@ function UpcomingPage() {
 
   if (!fixture) {
     return (
-      <div className="text-center py-20">
-        <p className="text-xs uppercase tracking-[0.3em] text-primary mb-2">Næste kamp</p>
-        <h1 className="font-display text-5xl">Ingen kommende kampe</h1>
-        <p className="text-muted-foreground mt-3">Tilføj en kamp i fanen <Link to="/fixtures" className="text-primary underline">Kampe</Link>.</p>
+      <div className="space-y-8">
+        <section className="relative rounded-2xl overflow-hidden -mx-4 md:mx-0">
+          <img src="/cover.jpg" alt="FC Sabbatår cover" className="w-full h-64 md:h-80 object-cover" />
+          <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center px-4">
+            <p className="text-xs uppercase tracking-[0.3em] text-primary mb-2">Næste kamp</p>
+            <h1 className="font-display text-5xl text-white">Ingen kommende kampe</h1>
+          </div>
+        </section>
+        <p className="text-muted-foreground text-center">Tilføj en kamp i fanen <Link to="/fixtures" className="text-primary underline">Kampe</Link>.</p>
       </div>
     );
   }
@@ -84,11 +89,14 @@ function UpcomingPage() {
 
   return (
     <div className="space-y-8">
-      <section className="text-center">
-        <p className="text-xs uppercase tracking-[0.3em] text-primary mb-2">Næste kamp</p>
-        <h1 className="font-display text-5xl md:text-7xl">FC Sabbatår</h1>
-        <p className="font-display text-2xl text-muted-foreground mt-1">vs</p>
-        <h2 className="font-display text-4xl md:text-6xl">{fixture.opponent}</h2>
+      <section className="relative rounded-2xl overflow-hidden -mx-4 md:mx-0">
+        <img src="/cover.jpg" alt="FC Sabbatår cover" className="w-full h-64 md:h-80 object-cover" />
+        <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center px-4">
+          <p className="text-xs uppercase tracking-[0.3em] text-primary mb-2">Næste kamp</p>
+          <h1 className="font-display text-5xl md:text-7xl text-white">FC Sabbatår</h1>
+          <p className="font-display text-2xl text-white/70 mt-1">vs</p>
+          <h2 className="font-display text-4xl md:text-6xl text-white">{fixture.opponent}</h2>
+        </div>
       </section>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl mx-auto">
