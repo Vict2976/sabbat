@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Trophy, Goal, Handshake, Square } from "lucide-react";
@@ -11,30 +11,37 @@ export const Route = createFileRoute("/stats")({
   head: () => ({ meta: [{ title: "Statistik — FC Sabbatår" }] }),
 });
 
-type Player = {
-  id: string;
-  name: string;
-  goals: number;
-  assists: number;
-  yellow_cards: number;
-  red_cards: number;
-};
+type Player = { id: string; name: string };
+type PlayerStats = { goals: number; assists: number; yellow_cards: number; red_cards: number };
 
 function StatsPage() {
   const [players, setPlayers] = useState<Player[]>([]);
+  const [statsMap, setStatsMap] = useState<Map<string, PlayerStats>>(new Map());
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
-
   const [teamScored, setTeamScored] = useState(0);
   const [teamConceded, setTeamConceded] = useState(0);
 
   const load = async () => {
-    const [{ data: ps, error }, { data: fx }] = await Promise.all([
-      supabase.from("players").select("*"),
+    const [{ data: ps, error }, { data: fx }, { data: ev }] = await Promise.all([
+      supabase.from("players").select("id,name"),
       supabase.from("fixtures").select("our_score,their_score"),
+      supabase.from("fixture_events").select("player_id,event_type"),
     ]);
     if (error) toast.error(error.message);
     else setPlayers(ps ?? []);
+
+    const map = new Map<string, PlayerStats>();
+    (ev ?? []).forEach((e) => {
+      if (!map.has(e.player_id)) map.set(e.player_id, { goals: 0, assists: 0, yellow_cards: 0, red_cards: 0 });
+      const s = map.get(e.player_id)!;
+      if (e.event_type === "goal") s.goals++;
+      if (e.event_type === "assist") s.assists++;
+      if (e.event_type === "yellow_card") s.yellow_cards++;
+      if (e.event_type === "red_card") s.red_cards++;
+    });
+    setStatsMap(map);
+
     setTeamScored((fx ?? []).reduce((s, x) => s + (x.our_score ?? 0), 0));
     setTeamConceded((fx ?? []).reduce((s, x) => s + (x.their_score ?? 0), 0));
     setLoading(false);
@@ -42,22 +49,24 @@ function StatsPage() {
 
   useEffect(() => { load(); }, []);
 
-  const playerGoals = players.reduce((s, p) => s + p.goals, 0);
+  const getStats = (id: string): PlayerStats => statsMap.get(id) ?? { goals: 0, assists: 0, yellow_cards: 0, red_cards: 0 };
 
   const totals = {
     goals: teamScored,
-    assists: players.reduce((s, p) => s + p.assists, 0),
-    yellow: players.reduce((s, p) => s + p.yellow_cards, 0),
-    red: players.reduce((s, p) => s + p.red_cards, 0),
+    assists: Array.from(statsMap.values()).reduce((s, p) => s + p.assists, 0),
+    yellow: Array.from(statsMap.values()).reduce((s, p) => s + p.yellow_cards, 0),
+    red: Array.from(statsMap.values()).reduce((s, p) => s + p.red_cards, 0),
     conceded: teamConceded,
   };
 
-  // Sort: goals desc, assists desc, red asc, yellow asc, name asc
+  const playerGoals = Array.from(statsMap.values()).reduce((s, p) => s + p.goals, 0);
+
   const sorted = [...players].sort((a, b) => {
-    if (b.goals !== a.goals) return b.goals - a.goals;
-    if (b.assists !== a.assists) return b.assists - a.assists;
-    if (a.red_cards !== b.red_cards) return a.red_cards - b.red_cards;
-    if (a.yellow_cards !== b.yellow_cards) return a.yellow_cards - b.yellow_cards;
+    const sa = getStats(a.id), sb = getStats(b.id);
+    if (sb.goals !== sa.goals) return sb.goals - sa.goals;
+    if (sb.assists !== sa.assists) return sb.assists - sa.assists;
+    if (sa.red_cards !== sb.red_cards) return sa.red_cards - sb.red_cards;
+    if (sa.yellow_cards !== sb.yellow_cards) return sa.yellow_cards - sb.yellow_cards;
     return a.name.localeCompare(b.name, "da");
   });
 
@@ -67,8 +76,8 @@ function StatsPage() {
     <div className="space-y-8">
       <section>
         <p className="text-xs uppercase tracking-[0.3em] text-primary mb-2">Sæsonoverblik</p>
-        <h1 className="font-display text-5xl md:text-6xl">Tallene</h1>
-        <p className="text-muted-foreground mt-2">Sorteret efter mål, så assists, færrest røde, færrest gule. Rediger tallene under fanen Trup.</p>
+        <h1 className="font-display text-4xl sm:text-5xl">Tallene</h1>
+        <p className="text-muted-foreground mt-1 text-sm">Sorteret efter mål, assists, færrest røde og gule kort.</p>
       </section>
 
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -81,17 +90,17 @@ function StatsPage() {
 
       {teamScored - playerGoals > 0 && (
         <div className="rounded-lg border border-primary/30 bg-primary/5 px-4 py-3 text-sm text-muted-foreground">
-          <span className="font-display text-primary text-base">{teamScored - playerGoals}</span> mål mangler at blive tildelt en spiller. Tilføj dem i fanen <Link to="/squad" className="text-primary underline">Trup</Link>.
+          <span className="font-display text-primary text-base">{teamScored - playerGoals}</span> mål mangler at blive tildelt en spiller. Gå til en kamp og tilføj hændelser.
         </div>
       )}
 
-      <div className="flex items-center justify-between gap-4">
-        <h2 className="font-display text-2xl flex items-center gap-2"><Trophy className="h-5 w-5 text-primary" /> Topscorerlisten</h2>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <h2 className="font-display text-xl flex items-center gap-2"><Trophy className="h-5 w-5 text-primary" /> Topscorerlisten</h2>
         <Input
           placeholder="Søg spiller…"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="max-w-xs bg-card border-border"
+          className="sm:max-w-xs bg-card border-border"
         />
       </div>
 
@@ -103,13 +112,14 @@ function StatsPage() {
         <div className="rounded-xl border border-border bg-card overflow-hidden shadow-[var(--shadow-card)]">
           <div className="hidden md:grid grid-cols-[40px_1fr_repeat(4,minmax(0,90px))] gap-2 px-5 py-3 border-b border-border text-[11px] uppercase tracking-wider text-muted-foreground">
             <span>#</span><span>Spiller</span>
-            <span className="text-right">Mål</span>
-            <span className="text-right">Assists</span>
-            <span className="text-right">Gule</span>
-            <span className="text-right">Røde</span>
+            <span className="text-right">⚽ Mål</span>
+            <span className="text-right">🎯 Assists</span>
+            <span className="text-right">🟨 Gule</span>
+            <span className="text-right">🟥 Røde</span>
           </div>
           {filtered.map((p, i) => {
             const rank = sorted.indexOf(p) + 1;
+            const s = getStats(p.id);
             const podium = rank === 1 ? "text-primary" : rank <= 3 ? "text-foreground" : "text-muted-foreground";
             return (
               <div key={p.id} className={`grid grid-cols-[30px_1fr_auto] md:grid-cols-[40px_1fr_repeat(4,minmax(0,90px))] gap-2 items-center px-5 py-4 ${i !== filtered.length - 1 ? "border-b border-border/60" : ""} hover:bg-secondary/30 transition-colors`}>
@@ -121,15 +131,15 @@ function StatsPage() {
                   <span className="font-semibold truncate">{p.name}</span>
                 </div>
                 <div className="md:hidden flex items-center gap-3 text-sm font-display">
-                  <Stat label="M" value={p.goals} />
-                  <Stat label="A" value={p.assists} />
-                  <Stat label="G" value={p.yellow_cards} tone="warning" />
-                  <Stat label="R" value={p.red_cards} tone="destructive" />
+                  <Stat label="⚽" value={s.goals} />
+                  <Stat label="🎯" value={s.assists} />
+                  <Stat label="🟨" value={s.yellow_cards} tone="warning" />
+                  <Stat label="🟥" value={s.red_cards} tone="destructive" />
                 </div>
-                <span className="hidden md:block text-right font-display text-xl">{p.goals}</span>
-                <span className="hidden md:block text-right font-display text-xl">{p.assists}</span>
-                <span className="hidden md:block text-right font-display text-xl text-warning">{p.yellow_cards}</span>
-                <span className="hidden md:block text-right font-display text-xl text-destructive">{p.red_cards}</span>
+                <span className="hidden md:block text-right font-display text-xl">{s.goals}</span>
+                <span className="hidden md:block text-right font-display text-xl">{s.assists}</span>
+                <span className="hidden md:block text-right font-display text-xl text-warning">{s.yellow_cards}</span>
+                <span className="hidden md:block text-right font-display text-xl text-destructive">{s.red_cards}</span>
               </div>
             );
           })}
@@ -143,7 +153,7 @@ function Stat({ label, value, tone }: { label: string; value: number; tone?: "wa
   const color = tone === "warning" ? "text-warning" : tone === "destructive" ? "text-destructive" : "text-foreground";
   return (
     <span className="flex items-center gap-1">
-      <span className="text-[10px] uppercase text-muted-foreground">{label}</span>
+      <span className="text-[10px]">{label}</span>
       <span className={color}>{value}</span>
     </span>
   );
@@ -151,11 +161,11 @@ function Stat({ label, value, tone }: { label: string; value: number; tone?: "wa
 
 function TotalCard({ icon, label, value, accent }: { icon: React.ReactNode; label: string; value: number; accent?: boolean }) {
   return (
-    <div className={`relative rounded-xl border p-5 overflow-hidden ${accent ? "border-primary/40" : "border-border"} bg-card shadow-[var(--shadow-card)]`}>
+    <div className={`relative rounded-xl border p-3 sm:p-5 overflow-hidden ${accent ? "border-primary/40" : "border-border"} bg-card shadow-[var(--shadow-card)]`}>
       {accent && <div className="absolute inset-0 opacity-20" style={{ background: "var(--gradient-primary)" }} />}
       <div className="relative">
-        <div className="flex items-center gap-2 text-muted-foreground text-xs uppercase tracking-wider">{icon}{label}</div>
-        <div className="font-display text-4xl mt-2">{value}</div>
+        <div className="flex items-center gap-1.5 text-muted-foreground text-[10px] uppercase tracking-wider">{icon}{label}</div>
+        <div className="font-display text-3xl sm:text-4xl mt-1">{value}</div>
       </div>
     </div>
   );

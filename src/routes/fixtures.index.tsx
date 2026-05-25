@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Trash2, Plus, ChevronRight, Trophy } from "lucide-react";
 import { toast } from "sonner";
+import { useAuth } from "@/contexts/AuthContext";
 
 export const Route = createFileRoute("/fixtures/")({
   component: FixturesPage,
@@ -21,6 +22,7 @@ type Fixture = {
 };
 
 function FixturesPage() {
+  const { user, openLoginDialog } = useAuth();
   const [fixtures, setFixtures] = useState<Fixture[]>([]);
   const [opponent, setOpponent] = useState("");
   const [loading, setLoading] = useState(false);
@@ -38,6 +40,7 @@ function FixturesPage() {
 
   const add = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!user) return openLoginDialog();
     const trimmed = opponent.trim();
     if (!trimmed) return;
     if (trimmed.length > 60) return toast.error("Modstanderens navn er for langt");
@@ -49,6 +52,7 @@ function FixturesPage() {
   };
 
   const remove = async (f: Fixture) => {
+    if (!user) return openLoginDialog();
     if (!confirm(`Slet kampen mod ${f.opponent}?`)) return;
     const { error } = await supabase.from("fixtures").delete().eq("id", f.id);
     if (error) toast.error(error.message);
@@ -62,14 +66,14 @@ function FixturesPage() {
   const conceded = fixtures.reduce((s, f) => s + (f.their_score ?? 0), 0);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <section>
-        <p className="text-xs uppercase tracking-[0.3em] text-primary mb-2">Sæsonen</p>
-        <h1 className="font-display text-5xl md:text-6xl">Kampe</h1>
-        <p className="text-muted-foreground mt-2">Tilføj kampe, redigér opstilling og indtast resultatet.</p>
+        <p className="text-xs uppercase tracking-[0.3em] text-primary mb-1">Sæsonen</p>
+        <h1 className="font-display text-4xl sm:text-5xl">Kampe</h1>
+        <p className="text-muted-foreground mt-1 text-sm">Tilføj kampe, redigér opstilling og indtast resultatet.</p>
       </section>
 
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+      <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
         <RecordCard label="Sejre" value={wins} tone="primary" />
         <RecordCard label="Uafgjort" value={draws} />
         <RecordCard label="Nederlag" value={losses} tone="destructive" />
@@ -77,7 +81,7 @@ function FixturesPage() {
         <RecordCard label="Indkasseret" value={conceded} tone="destructive" />
       </div>
 
-      <form onSubmit={add} className="flex gap-2 max-w-xl">
+      <form onSubmit={add} className="flex gap-2">
         <Input
           placeholder="Modstanderens navn…"
           value={opponent}
@@ -85,8 +89,8 @@ function FixturesPage() {
           maxLength={60}
           className="bg-card border-border"
         />
-        <Button type="submit" disabled={loading} className="gap-2">
-          <Plus className="h-4 w-4" /> Tilføj kamp
+        <Button type="submit" disabled={loading} className="gap-1.5 shrink-0">
+          <Plus className="h-4 w-4" /> Tilføj
         </Button>
       </form>
 
@@ -96,36 +100,45 @@ function FixturesPage() {
           const result = played
             ? f.our_score! > f.their_score! ? "W" : f.our_score! < f.their_score! ? "L" : "D"
             : null;
-          const resultColor = result === "W" ? "bg-primary text-primary-foreground" : result === "L" ? "bg-destructive text-destructive-foreground" : result === "D" ? "bg-muted text-foreground" : "bg-secondary text-muted-foreground";
+          const resultColor =
+            result === "W" ? "bg-primary text-primary-foreground" :
+            result === "L" ? "bg-destructive text-destructive-foreground" :
+            result === "D" ? "bg-muted text-foreground" :
+            "bg-secondary text-muted-foreground";
           return (
             <Link
               key={f.id}
               to="/fixtures/$fixtureId"
               params={{ fixtureId: f.id }}
-              className="group flex items-center gap-4 rounded-xl border border-border bg-card px-4 py-3 hover:border-primary/50 transition-colors"
+              className="group flex items-center gap-3 rounded-xl border border-border bg-card px-3 py-3 hover:border-primary/50 active:bg-secondary/30 transition-colors"
             >
-              <div className={`h-10 w-10 rounded-lg flex items-center justify-center font-display text-lg ${resultColor}`}>
+              <div className={`h-10 w-10 rounded-lg flex items-center justify-center font-display text-base shrink-0 ${resultColor}`}>
                 {result ?? <Trophy className="h-4 w-4" />}
               </div>
               <div className="flex-1 min-w-0">
-                <div className="font-semibold truncate">FC Sabbatår vs {f.opponent}</div>
-                <div className="text-xs text-muted-foreground">{new Date(f.played_at).toLocaleDateString("da-DK")} · {f.formation}</div>
+                <div className="font-semibold text-sm truncate">{f.opponent}</div>
+                <div className="text-xs text-muted-foreground">
+                  {new Date(f.played_at).toLocaleDateString("da-DK")} · {f.formation}
+                </div>
               </div>
-              <div className="font-display text-2xl">
-                {played ? `${f.our_score} – ${f.their_score}` : <span className="text-muted-foreground text-sm">Ikke spillet</span>}
+              <div className="font-display text-xl shrink-0">
+                {played
+                  ? `${f.our_score}–${f.their_score}`
+                  : <span className="text-muted-foreground text-xs font-sans">Ikke spillet</span>}
               </div>
               <button
                 onClick={(e) => { e.preventDefault(); remove(f); }}
-                className="text-muted-foreground hover:text-destructive opacity-0 group-hover:opacity-100 transition-opacity"
+                className="text-muted-foreground hover:text-destructive p-1 -mr-1 opacity-0 group-hover:opacity-100 sm:opacity-100 transition-opacity"
+                aria-label="Slet kamp"
               >
                 <Trash2 className="h-4 w-4" />
               </button>
-              <ChevronRight className="h-4 w-4 text-muted-foreground" />
+              <ChevronRight className="h-4 w-4 text-muted-foreground shrink-0" />
             </Link>
           );
         })}
         {fixtures.length === 0 && (
-          <p className="text-muted-foreground">Ingen kampe endnu — tilføj den første ovenfor.</p>
+          <p className="text-muted-foreground text-sm">Ingen kampe endnu — tilføj den første ovenfor.</p>
         )}
       </div>
     </div>
@@ -135,9 +148,9 @@ function FixturesPage() {
 function RecordCard({ label, value, tone }: { label: string; value: number; tone?: "primary" | "destructive" }) {
   const color = tone === "primary" ? "text-primary" : tone === "destructive" ? "text-destructive" : "text-foreground";
   return (
-    <div className="rounded-xl border border-border bg-card p-4">
-      <div className="text-[10px] uppercase tracking-wider text-muted-foreground">{label}</div>
-      <div className={`font-display text-3xl mt-1 ${color}`}>{value}</div>
+    <div className="rounded-xl border border-border bg-card p-3">
+      <div className="text-[9px] uppercase tracking-wider text-muted-foreground truncate">{label}</div>
+      <div className={`font-display text-2xl sm:text-3xl mt-0.5 ${color}`}>{value}</div>
     </div>
   );
 }
