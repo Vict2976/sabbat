@@ -17,6 +17,7 @@ export const Route = createFileRoute("/bodekasse")({
 type Player = { id: string; name: string };
 type Fine = { id: string; player_id: string; amount: number; reason: string; paid: boolean; created_at: string };
 
+// @uxid src/routes/bodekasse::BodekassePage
 function BodekassePage() {
   const { user, openLoginDialog } = useAuth();
   const [players, setPlayers] = useState<Player[]>([]);
