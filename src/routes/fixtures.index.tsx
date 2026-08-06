@@ -21,6 +21,7 @@ type Fixture = {
   formation: string;
 };
 
+// @uxid src/routes/fixtures.index::FixturesPage
 function FixturesPage() {
   const { user, openLoginDialog } = useAuth();
   const [fixtures, setFixtures] = useState<Fixture[]>([]);
@@ -145,6 +146,7 @@ function FixturesPage() {
   );
 }
 
+// @uxid src/routes/fixtures.index::RecordCard
 function RecordCard({ label, value, tone }: { label: string; value: number; tone?: "primary" | "destructive" }) {
   const color = tone === "primary" ? "text-primary" : tone === "destructive" ? "text-destructive" : "text-foreground";
   return (
