@@ -14,6 +14,7 @@ export const Route = createFileRoute("/squad")({
 
 type Player = { id: string; name: string };
 
+// @uxid src/routes/squad::SquadPage
 function SquadPage() {
   const { user, openLoginDialog } = useAuth();
   const [players, setPlayers] = useState<Player[]>([]);
