@@ -1,0 +1,72 @@
+# Design system components
+
+Each component is cross-referenced to the code via its `@uxid` identifier.
+
+| @uxid | component | file | notes |
+| --- | --- | --- | --- |
+| `src/components/ui/alert-dialog::AlertDialogHeader` | AlertDialogHeader | `src/components/ui/alert-dialog.tsx` | UI component defined in src/components/ui/alert-dialog.tsx. |
+| `src/components/ui/alert-dialog::AlertDialogFooter` | AlertDialogFooter | `src/components/ui/alert-dialog.tsx` | UI component defined in src/components/ui/alert-dialog.tsx. |
+| `src/components/ui/alert::Alert` | Alert | `src/components/ui/alert.tsx` | UI component defined in src/components/ui/alert.tsx. |
+| `src/components/ui/badge::Badge` | Badge | `src/components/ui/badge.tsx` | UI component defined in src/components/ui/badge.tsx. |
+| `src/components/ui/breadcrumb::Breadcrumb` | Breadcrumb | `src/components/ui/breadcrumb.tsx` | UI component defined in src/components/ui/breadcrumb.tsx. |
+| `src/components/ui/breadcrumb::BreadcrumbSeparator` | BreadcrumbSeparator | `src/components/ui/breadcrumb.tsx` | UI component defined in src/components/ui/breadcrumb.tsx. |
+| `src/components/ui/breadcrumb::BreadcrumbEllipsis` | BreadcrumbEllipsis | `src/components/ui/breadcrumb.tsx` | UI component defined in src/components/ui/breadcrumb.tsx. |
+| `src/components/ui/calendar::Calendar` | Calendar | `src/components/ui/calendar.tsx` | UI component defined in src/components/ui/calendar.tsx. |
+| `src/components/ui/calendar::CalendarDayButton` | CalendarDayButton | `src/components/ui/calendar.tsx` | UI component defined in src/components/ui/calendar.tsx. |
+| `src/components/ui/carousel::Carousel` | Carousel | `src/components/ui/carousel.tsx` | UI component defined in src/components/ui/carousel.tsx. |
+| `src/components/ui/chart::ChartStyle` | ChartStyle | `src/components/ui/chart.tsx` | UI component defined in src/components/ui/chart.tsx. |
+| `src/components/ui/command::CommandDialog` | CommandDialog | `src/components/ui/command.tsx` | UI component defined in src/components/ui/command.tsx. |
+| `src/components/ui/command::CommandShortcut` | CommandShortcut | `src/components/ui/command.tsx` | UI component defined in src/components/ui/command.tsx. |
+| `src/components/ui/context-menu::ContextMenuShortcut` | ContextMenuShortcut | `src/components/ui/context-menu.tsx` | UI component defined in src/components/ui/context-menu.tsx. |
+| `src/components/ui/dialog::DialogHeader` | DialogHeader | `src/components/ui/dialog.tsx` | UI component defined in src/components/ui/dialog.tsx. |
+| `src/components/ui/dialog::DialogFooter` | DialogFooter | `src/components/ui/dialog.tsx` | UI component defined in src/components/ui/dialog.tsx. |
+| `src/components/ui/drawer::Drawer` | Drawer | `src/components/ui/drawer.tsx` | UI component defined in src/components/ui/drawer.tsx. |
+| `src/components/ui/drawer::DrawerHeader` | DrawerHeader | `src/components/ui/drawer.tsx` | UI component defined in src/components/ui/drawer.tsx. |
+| `src/components/ui/drawer::DrawerFooter` | DrawerFooter | `src/components/ui/drawer.tsx` | UI component defined in src/components/ui/drawer.tsx. |
+| `src/components/ui/dropdown-menu::DropdownMenuShortcut` | DropdownMenuShortcut | `src/components/ui/dropdown-menu.tsx` | UI component defined in src/components/ui/dropdown-menu.tsx. |
+| `src/components/ui/form::FormField` | FormField | `src/components/ui/form.tsx` | UI component defined in src/components/ui/form.tsx. |
+| `src/components/ui/input-otp::InputOtp` | InputOtp | `src/components/ui/input-otp.tsx` | UI component defined in src/components/ui/input-otp.tsx. |
+| `src/components/ui/input::Input` | Input | `src/components/ui/input.tsx` | UI component defined in src/components/ui/input.tsx. |
+| `src/components/ui/menubar::MenubarMenu` | MenubarMenu | `src/components/ui/menubar.tsx` | UI component defined in src/components/ui/menubar.tsx. |
+| `src/components/ui/menubar::MenubarGroup` | MenubarGroup | `src/components/ui/menubar.tsx` | UI component defined in src/components/ui/menubar.tsx. |
+| `src/components/ui/menubar::MenubarPortal` | MenubarPortal | `src/components/ui/menubar.tsx` | UI component defined in src/components/ui/menubar.tsx. |
+| `src/components/ui/menubar::MenubarRadioGroup` | MenubarRadioGroup | `src/components/ui/menubar.tsx` | UI component defined in src/components/ui/menubar.tsx. |
+| `src/components/ui/menubar::MenubarSub` | MenubarSub | `src/components/ui/menubar.tsx` | UI component defined in src/components/ui/menubar.tsx. |
+| `src/components/ui/menubar::MenubarShortcut` | MenubarShortcut | `src/components/ui/menubar.tsx` | UI component defined in src/components/ui/menubar.tsx. |
+| `src/components/ui/pagination::Pagination` | Pagination | `src/components/ui/pagination.tsx` | UI component defined in src/components/ui/pagination.tsx. |
+| `src/components/ui/pagination::PaginationLink` | PaginationLink | `src/components/ui/pagination.tsx` | UI component defined in src/components/ui/pagination.tsx. |
+| `src/components/ui/pagination::PaginationPrevious` | PaginationPrevious | `src/components/ui/pagination.tsx` | UI component defined in src/components/ui/pagination.tsx. |
+| `src/components/ui/pagination::PaginationNext` | PaginationNext | `src/components/ui/pagination.tsx` | UI component defined in src/components/ui/pagination.tsx. |
+| `src/components/ui/pagination::PaginationEllipsis` | PaginationEllipsis | `src/components/ui/pagination.tsx` | UI component defined in src/components/ui/pagination.tsx. |
+| `src/components/ui/resizable::ResizablePanelGroup` | ResizablePanelGroup | `src/components/ui/resizable.tsx` | UI component defined in src/components/ui/resizable.tsx. |
+| `src/components/ui/resizable::ResizableHandle` | ResizableHandle | `src/components/ui/resizable.tsx` | UI component defined in src/components/ui/resizable.tsx. |
+| `src/components/ui/sheet::SheetHeader` | SheetHeader | `src/components/ui/sheet.tsx` | UI component defined in src/components/ui/sheet.tsx. |
+| `src/components/ui/sheet::SheetFooter` | SheetFooter | `src/components/ui/sheet.tsx` | UI component defined in src/components/ui/sheet.tsx. |
+| `src/components/ui/sidebar::Sidebar` | Sidebar | `src/components/ui/sidebar.tsx` | UI component defined in src/components/ui/sidebar.tsx. |
+| `src/components/ui/skeleton::Skeleton` | Skeleton | `src/components/ui/skeleton.tsx` | UI component defined in src/components/ui/skeleton.tsx. |
+| `src/components/ui/sonner::Toaster` | Toaster | `src/components/ui/sonner.tsx` | UI component defined in src/components/ui/sonner.tsx. |
+| `src/components/ui/textarea::Textarea` | Textarea | `src/components/ui/textarea.tsx` | UI component defined in src/components/ui/textarea.tsx. |
+| `src/contexts/AuthContext::AuthProvider` | AuthProvider | `src/contexts/AuthContext.tsx` | UI component defined in src/contexts/AuthContext.tsx. |
+| `src/router::DefaultErrorComponent` | DefaultErrorComponent | `src/router.tsx` | UI component defined in src/router.tsx. |
+| `src/routes/__root::NotFoundComponent` | NotFoundComponent | `src/routes/__root.tsx` | UI component defined in src/routes/__root.tsx. |
+| `src/routes/__root::RootShell` | RootShell | `src/routes/__root.tsx` | UI component defined in src/routes/__root.tsx. |
+| `src/routes/__root::DesktopNavLink` | DesktopNavLink | `src/routes/__root.tsx` | UI component defined in src/routes/__root.tsx. |
+| `src/routes/__root::BottomTab` | BottomTab | `src/routes/__root.tsx` | UI component defined in src/routes/__root.tsx. |
+| `src/routes/__root::AuthButton` | AuthButton | `src/routes/__root.tsx` | UI component defined in src/routes/__root.tsx. |
+| `src/routes/__root::RootComponent` | RootComponent | `src/routes/__root.tsx` | UI component defined in src/routes/__root.tsx. |
+| `src/routes/bodekasse::BodekassePage` | BodekassePage | `src/routes/bodekasse.tsx` | UI component defined in src/routes/bodekasse.tsx. |
+| `src/routes/fixtures.$fixtureId::FixtureDetail` | FixtureDetail | `src/routes/fixtures.$fixtureId.tsx` | UI component defined in src/routes/fixtures.$fixtureId.tsx. |
+| `src/routes/fixtures.$fixtureId::EventViewRow` | EventViewRow | `src/routes/fixtures.$fixtureId.tsx` | UI component defined in src/routes/fixtures.$fixtureId.tsx. |
+| `src/routes/fixtures.$fixtureId::InfoCard` | InfoCard | `src/routes/fixtures.$fixtureId.tsx` | UI component defined in src/routes/fixtures.$fixtureId.tsx. |
+| `src/routes/fixtures.$fixtureId::PitchPlayer` | PitchPlayer | `src/routes/fixtures.$fixtureId.tsx` | UI component defined in src/routes/fixtures.$fixtureId.tsx. |
+| `src/routes/fixtures.$fixtureId::SlotCard` | SlotCard | `src/routes/fixtures.$fixtureId.tsx` | UI component defined in src/routes/fixtures.$fixtureId.tsx. |
+| `src/routes/fixtures.index::FixturesPage` | FixturesPage | `src/routes/fixtures.index.tsx` | UI component defined in src/routes/fixtures.index.tsx. |
+| `src/routes/fixtures.index::RecordCard` | RecordCard | `src/routes/fixtures.index.tsx` | UI component defined in src/routes/fixtures.index.tsx. |
+| `src/routes/index::UpcomingPage` | UpcomingPage | `src/routes/index.tsx` | UI component defined in src/routes/index.tsx. |
+| `src/routes/index::InfoCard` | InfoCard | `src/routes/index.tsx` | UI component defined in src/routes/index.tsx. |
+| `src/routes/index::PitchPlayer` | PitchPlayer | `src/routes/index.tsx` | UI component defined in src/routes/index.tsx. |
+| `src/routes/squad::SquadPage` | SquadPage | `src/routes/squad.tsx` | UI component defined in src/routes/squad.tsx. |
+| `src/routes/stats::StatsPage` | StatsPage | `src/routes/stats.tsx` | UI component defined in src/routes/stats.tsx. |
+| `src/routes/stats::Stat` | Stat | `src/routes/stats.tsx` | UI component defined in src/routes/stats.tsx. |
+| `src/routes/stats::TotalCard` | TotalCard | `src/routes/stats.tsx` | UI component defined in src/routes/stats.tsx. |
+| `src/routes/stats::EmptyState` | EmptyState | `src/routes/stats.tsx` | UI component defined in src/routes/stats.tsx. |
