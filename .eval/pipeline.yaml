@@ -1,0 +1,14 @@
+stack: react-typescript
+packageManager: bun
+commit: 7f7427145437525762e074f1d505a2a6da6378ff
+verifiedAt: 2026-08-06T14:35:08.139Z
+commands:
+  install: bun install --frozen-lockfile
+  build: bun run build
+  analyze: bun run lint
+  test: null
+status:
+  install: none
+  build: none
+  analyze: none
+  test: none
