@@ -14,6 +14,7 @@ export const Route = createFileRoute("/stats")({
 type Player = { id: string; name: string };
 type PlayerStats = { goals: number; assists: number; yellow_cards: number; red_cards: number };
 
+// @uxid src/routes/stats::StatsPage
 function StatsPage() {
   const [players, setPlayers] = useState<Player[]>([]);
   const [statsMap, setStatsMap] = useState<Map<string, PlayerStats>>(new Map());
@@ -149,6 +150,7 @@ function StatsPage() {
   );
 }
 
+// @uxid src/routes/stats::Stat
 function Stat({ label, value, tone }: { label: string; value: number; tone?: "warning" | "destructive" }) {
   const color = tone === "warning" ? "text-warning" : tone === "destructive" ? "text-destructive" : "text-foreground";
   return (
@@ -159,6 +161,7 @@ function Stat({ label, value, tone }: { label: string; value: number; tone?: "wa
   );
 }
 
+// @uxid src/routes/stats::TotalCard
 function TotalCard({ icon, label, value, accent }: { icon: React.ReactNode; label: string; value: number; accent?: boolean }) {
   return (
     <div className={`relative rounded-xl border p-3 sm:p-5 overflow-hidden ${accent ? "border-primary/40" : "border-border"} bg-card shadow-[var(--shadow-card)]`}>
@@ -171,6 +174,7 @@ function TotalCard({ icon, label, value, accent }: { icon: React.ReactNode; labe
   );
 }
 
+// @uxid src/routes/stats::EmptyState
 function EmptyState() {
   return (
     <div className="rounded-xl border border-dashed border-border p-10 text-center">

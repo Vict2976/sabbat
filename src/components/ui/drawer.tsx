@@ -3,6 +3,7 @@ import { Drawer as DrawerPrimitive } from "vaul";
 
 import { cn } from "@/lib/utils";
 
+// @uxid src/components/ui/drawer::Drawer
 const Drawer = ({
   shouldScaleBackground = true,
   ...props
@@ -50,11 +51,13 @@ const DrawerContent = React.forwardRef<
 ));
 DrawerContent.displayName = "DrawerContent";
 
+// @uxid src/components/ui/drawer::DrawerHeader
 const DrawerHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
   <div className={cn("grid gap-1.5 p-4 text-center sm:text-left", className)} {...props} />
 );
 DrawerHeader.displayName = "DrawerHeader";
 
+// @uxid src/components/ui/drawer::DrawerFooter
 const DrawerFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
   <div className={cn("mt-auto flex flex-col gap-2 p-4", className)} {...props} />
 );
