@@ -49,6 +49,45 @@ export type Database = {
           },
         ]
       }
+      fixture_events: {
+        Row: {
+          created_at: string
+          event_type: string
+          fixture_id: string
+          id: string
+          player_id: string
+        }
+        Insert: {
+          created_at?: string
+          event_type: string
+          fixture_id: string
+          id?: string
+          player_id: string
+        }
+        Update: {
+          created_at?: string
+          event_type?: string
+          fixture_id?: string
+          id?: string
+          player_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fixture_events_fixture_id_fkey"
+            columns: ["fixture_id"]
+            isOneToOne: false
+            referencedRelation: "fixtures"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "fixture_events_player_id_fkey"
+            columns: ["player_id"]
+            isOneToOne: false
+            referencedRelation: "players"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       fixture_lineups: {
         Row: {
           fixture_id: string
@@ -102,6 +141,7 @@ export type Database = {
           our_score: number | null
           place: string | null
           played_at: string
+          season_id: string
           their_score: number | null
         }
         Insert: {
@@ -114,6 +154,7 @@ export type Database = {
           our_score?: number | null
           place?: string | null
           played_at?: string
+          season_id: string
           their_score?: number | null
         }
         Update: {
@@ -126,9 +167,18 @@ export type Database = {
           our_score?: number | null
           place?: string | null
           played_at?: string
+          season_id?: string
           their_score?: number | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "fixtures_season_id_fkey"
+            columns: ["season_id"]
+            isOneToOne: false
+            referencedRelation: "seasons"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       players: {
         Row: {
@@ -157,6 +207,30 @@ export type Database = {
           name?: string
           red_cards?: number
           yellow_cards?: number
+        }
+        Relationships: []
+      }
+      seasons: {
+        Row: {
+          created_at: string
+          id: string
+          is_active: boolean
+          name: string
+          sort_order: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          name: string
+          sort_order?: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          name?: string
+          sort_order?: number
         }
         Relationships: []
       }

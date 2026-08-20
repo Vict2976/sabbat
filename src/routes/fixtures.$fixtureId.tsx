@@ -10,6 +10,7 @@ import { ArrowLeft, Save, X, ChevronsUpDown, Pencil, CalendarDays, Clock, Users,
 import { toast } from "sonner";
 import { FORMATIONS, formationPositions, parseFormation, parseFormationPattern } from "@/lib/formations";
 import { useAuth } from "@/contexts/AuthContext";
+import { useSeason } from "@/contexts/SeasonContext";
 
 export const Route = createFileRoute("/fixtures/$fixtureId")({
   component: FixtureDetail,
@@ -26,6 +27,7 @@ type Fixture = {
   kickoff_time: string | null;
   meeting_time: string | null;
   place: string | null;
+  season_id: string;
 };
 type Player = { id: string; name: string };
 type LineupRow = { id: string; fixture_id: string; player_id: string; position: string; slot: number; is_sub: boolean };
@@ -36,6 +38,7 @@ const SUB_COUNT = 3;
 
 function FixtureDetail() {
   const { user, openLoginDialog } = useAuth();
+  const { seasons } = useSeason();
   const { fixtureId } = Route.useParams();
   const [fixture, setFixture] = useState<Fixture | null>(null);
   const [players, setPlayers] = useState<Player[]>([]);
@@ -182,6 +185,8 @@ function FixtureDetail() {
   const subsFilled = lineup.filter((r) => r.is_sub).length;
   const pitchFormation = parseFormation(fixture.formation);
 
+  const seasonName = seasons.find((s) => s.id === fixture.season_id)?.name ?? null;
+
   const goalEvents = events.filter((e) => e.event_type === "goal");
   const assistEvents = events.filter((e) => e.event_type === "assist");
   const yellowEvents = events.filter((e) => e.event_type === "yellow_card");
@@ -201,7 +206,9 @@ function FixtureDetail() {
         </div>
 
         <section className="text-center">
-          <p className="text-xs uppercase tracking-[0.3em] text-primary mb-2">Kamp</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-primary mb-2">
+            Kamp{seasonName && ` · ${seasonName}`}
+          </p>
           {isPlayed ? (
             <>
               <h1 className="font-display text-3xl sm:text-5xl">FC Sabbatår</h1>

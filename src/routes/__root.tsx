@@ -3,6 +3,8 @@ import { Toaster } from "@/components/ui/sonner";
 import { Home, Trophy, Users, CalendarDays, Coins, LogIn, LogOut } from "lucide-react";
 import appCss from "../styles.css?url";
 import { AuthProvider, useAuth } from "@/contexts/AuthContext";
+import { SeasonProvider } from "@/contexts/SeasonContext";
+import { SeasonPicker } from "@/components/SeasonPicker";
 
 function NotFoundComponent() {
   return (
@@ -112,48 +114,54 @@ function AuthButton() {
 function RootComponent() {
   return (
     <AuthProvider>
-      <div className="min-h-screen">
-        {/* Desktop header */}
-        <header className="border-b border-border/50 backdrop-blur-md bg-background/70 sticky top-0 z-40 hidden md:block">
-          <div className="mx-auto max-w-6xl px-4 flex items-center justify-between h-16">
+      <SeasonProvider>
+        <div className="min-h-screen">
+          {/* Desktop header */}
+          <header className="border-b border-border/50 backdrop-blur-md bg-background/70 sticky top-0 z-40 hidden md:block">
+            <div className="mx-auto max-w-6xl px-4 flex items-center justify-between h-16">
+              <Link to="/" className="flex items-center gap-2">
+                <div className="h-9 w-9 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-display text-xl">FC</div>
+                <div>
+                  <div className="font-display text-xl leading-none">FC Sabbatår</div>
+                  <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Holdets HQ</div>
+                </div>
+              </Link>
+              <nav className="flex items-center gap-1">
+                {NAV_ITEMS.map(({ to, label }) => (
+                  <DesktopNavLink key={to} to={to} label={label} />
+                ))}
+                <SeasonPicker className="ml-2" />
+                <AuthButton />
+              </nav>
+            </div>
+          </header>
+
+          {/* Mobile top bar — logo + sæsonvælger + auth */}
+          <header className="border-b border-border/50 backdrop-blur-md bg-background/70 sticky top-0 z-40 flex md:hidden items-center justify-between h-12 px-4">
             <Link to="/" className="flex items-center gap-2">
-              <div className="h-9 w-9 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-display text-xl">FC</div>
-              <div>
-                <div className="font-display text-xl leading-none">FC Sabbatår</div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Holdets HQ</div>
-              </div>
+              <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-display text-base">FC</div>
+              <div className="font-display text-lg leading-none">FC Sabbatår</div>
             </Link>
-            <nav className="flex items-center gap-1">
-              {NAV_ITEMS.map(({ to, label }) => (
-                <DesktopNavLink key={to} to={to} label={label} />
-              ))}
+            <div className="flex items-center gap-1 min-w-0">
+              <SeasonPicker className="max-w-[9.5rem]" />
               <AuthButton />
-            </nav>
-          </div>
-        </header>
+            </div>
+          </header>
 
-        {/* Mobile top bar — logo + auth button */}
-        <header className="border-b border-border/50 backdrop-blur-md bg-background/70 sticky top-0 z-40 flex md:hidden items-center justify-between h-12 px-4">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-display text-base">FC</div>
-            <div className="font-display text-lg leading-none">FC Sabbatår</div>
-          </Link>
-          <AuthButton />
-        </header>
+          <main className="mx-auto max-w-6xl px-4 py-6 pb-24 md:pb-8">
+            <Outlet />
+          </main>
 
-        <main className="mx-auto max-w-6xl px-4 py-6 pb-24 md:pb-8">
-          <Outlet />
-        </main>
+          {/* Mobile bottom tab bar */}
+          <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-background/95 backdrop-blur-md flex md:hidden safe-area-inset-bottom">
+            {NAV_ITEMS.map(({ to, label, icon: Icon }) => (
+              <BottomTab key={to} to={to} label={label} Icon={Icon} />
+            ))}
+          </nav>
 
-        {/* Mobile bottom tab bar */}
-        <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-background/95 backdrop-blur-md flex md:hidden safe-area-inset-bottom">
-          {NAV_ITEMS.map(({ to, label, icon: Icon }) => (
-            <BottomTab key={to} to={to} label={label} Icon={Icon} />
-          ))}
-        </nav>
-
-        <Toaster />
-      </div>
+          <Toaster />
+        </div>
+      </SeasonProvider>
     </AuthProvider>
   );
 }

@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { CalendarDays, Clock, Users, Pencil, MapPin } from "lucide-react";
 import { parseFormation } from "@/lib/formations";
+import { useSeason } from "@/contexts/SeasonContext";
 
 export const Route = createFileRoute("/")({
   component: UpcomingPage,
@@ -24,17 +25,25 @@ type Player = { id: string; name: string };
 type LineupRow = { player_id: string; position: string; slot: number; is_sub: boolean };
 
 function UpcomingPage() {
+  const { season, seasonId, loading: seasonsLoading } = useSeason();
   const [fixture, setFixture] = useState<Fixture | null>(null);
   const [players, setPlayers] = useState<Player[]>([]);
   const [lineup, setLineup] = useState<LineupRow[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (!seasonId) {
+      setFixture(null);
+      setLoading(seasonsLoading);
+      return;
+    }
+    setLoading(true);
     (async () => {
       const today = new Date().toISOString().slice(0, 10);
       const { data } = await supabase
         .from("fixtures")
         .select("*")
+        .eq("season_id", seasonId)
         .gte("played_at", today)
         .is("our_score", null)
         .order("played_at", { ascending: true })
@@ -42,6 +51,7 @@ function UpcomingPage() {
         .limit(1)
         .maybeSingle();
 
+      setFixture(null);
       if (data) {
         setFixture(data as Fixture);
         const [{ data: ps }, { data: l }] = await Promise.all([
@@ -53,7 +63,7 @@ function UpcomingPage() {
       }
       setLoading(false);
     })();
-  }, []);
+  }, [seasonId, seasonsLoading]);
 
   const playerName = (id: string) => players.find((p) => p.id === id)?.name ?? "—";
 
@@ -78,7 +88,8 @@ function UpcomingPage() {
           </div>
         </section>
         <p className="text-muted-foreground text-center text-sm">
-          Tilføj en kamp i fanen <Link to="/fixtures" className="text-primary underline">Kampe</Link>.
+          Ingen kampe venter i {season?.name ?? "den valgte sæson"} — tilføj en i fanen{" "}
+          <Link to="/fixtures" className="text-primary underline">Kampe</Link>.
         </p>
       </div>
     );

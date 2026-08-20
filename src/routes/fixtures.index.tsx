@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Trash2, Plus, ChevronRight, Trophy } from "lucide-react";
 import { toast } from "sonner";
 import { useAuth } from "@/contexts/AuthContext";
+import { useSeason } from "@/contexts/SeasonContext";
 
 export const Route = createFileRoute("/fixtures/")({
   component: FixturesPage,
@@ -23,29 +24,39 @@ type Fixture = {
 
 function FixturesPage() {
   const { user, openLoginDialog } = useAuth();
+  const { season, seasonId } = useSeason();
   const [fixtures, setFixtures] = useState<Fixture[]>([]);
   const [opponent, setOpponent] = useState("");
+  const [playedAt, setPlayedAt] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // Filled after mount so the server-rendered markup does not disagree about "today".
+  useEffect(() => { setPlayedAt(new Date().toLocaleDateString("sv-SE")); }, []);
+
   const load = async () => {
+    if (!seasonId) return;
     const { data, error } = await supabase
       .from("fixtures")
       .select("id,opponent,our_score,their_score,played_at,formation")
+      .eq("season_id", seasonId)
       .order("played_at", { ascending: false });
     if (error) toast.error(error.message);
     else setFixtures(data ?? []);
   };
 
-  useEffect(() => { load(); }, []);
+  useEffect(() => { setFixtures([]); load(); }, [seasonId]);
 
   const add = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!user) return openLoginDialog();
+    if (!seasonId) return toast.error("Vælg en sæson først");
     const trimmed = opponent.trim();
     if (!trimmed) return;
     if (trimmed.length > 60) return toast.error("Modstanderens navn er for langt");
     setLoading(true);
-    const { error } = await supabase.from("fixtures").insert({ opponent: trimmed });
+    const { error } = await supabase
+      .from("fixtures")
+      .insert({ opponent: trimmed, season_id: seasonId, ...(playedAt ? { played_at: playedAt } : {}) });
     setLoading(false);
     if (error) toast.error(error.message);
     else { setOpponent(""); toast.success("Kamp tilføjet"); load(); }
@@ -68,9 +79,9 @@ function FixturesPage() {
   return (
     <div className="space-y-6">
       <section>
-        <p className="text-xs uppercase tracking-[0.3em] text-primary mb-1">Sæsonen</p>
+        <p className="text-xs uppercase tracking-[0.3em] text-primary mb-1">{season?.name ?? "Sæsonen"}</p>
         <h1 className="font-display text-4xl sm:text-5xl">Kampe</h1>
-        <p className="text-muted-foreground mt-1 text-sm">Tilføj kampe, redigér opstilling og indtast resultatet.</p>
+        <p className="text-muted-foreground mt-1 text-sm">Tilføj kampe, redigér opstilling og indtast resultatet. Kampe hører til den valgte sæson.</p>
       </section>
 
       <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
@@ -81,17 +92,26 @@ function FixturesPage() {
         <RecordCard label="Indkasseret" value={conceded} tone="destructive" />
       </div>
 
-      <form onSubmit={add} className="flex gap-2">
+      <form onSubmit={add} className="flex flex-col sm:flex-row gap-2">
         <Input
           placeholder="Modstanderens navn…"
           value={opponent}
           onChange={(e) => setOpponent(e.target.value)}
           maxLength={60}
-          className="bg-card border-border"
+          className="bg-card border-border sm:flex-1"
         />
-        <Button type="submit" disabled={loading} className="gap-1.5 shrink-0">
-          <Plus className="h-4 w-4" /> Tilføj
-        </Button>
+        <div className="flex gap-2">
+          <Input
+            type="date"
+            aria-label="Kampdato"
+            value={playedAt}
+            onChange={(e) => setPlayedAt(e.target.value)}
+            className="bg-card border-border flex-1 sm:w-[10.5rem] sm:flex-none"
+          />
+          <Button type="submit" disabled={loading} className="gap-1.5 shrink-0">
+            <Plus className="h-4 w-4" /> Tilføj
+          </Button>
+        </div>
       </form>
 
       <div className="space-y-2">
@@ -138,7 +158,9 @@ function FixturesPage() {
           );
         })}
         {fixtures.length === 0 && (
-          <p className="text-muted-foreground text-sm">Ingen kampe endnu — tilføj den første ovenfor.</p>
+          <p className="text-muted-foreground text-sm">
+            Ingen kampe i {season?.name ?? "denne sæson"} endnu — tilføj den første ovenfor.
+          </p>
         )}
       </div>
     </div>

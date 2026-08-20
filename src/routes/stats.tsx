@@ -5,6 +5,7 @@ import { Trophy, Goal, Handshake, Square } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { useSeason } from "@/contexts/SeasonContext";
 
 export const Route = createFileRoute("/stats")({
   component: StatsPage,
@@ -15,6 +16,7 @@ type Player = { id: string; name: string };
 type PlayerStats = { goals: number; assists: number; yellow_cards: number; red_cards: number };
 
 function StatsPage() {
+  const { season, seasonId, loading: seasonsLoading } = useSeason();
   const [players, setPlayers] = useState<Player[]>([]);
   const [statsMap, setStatsMap] = useState<Map<string, PlayerStats>>(new Map());
   const [loading, setLoading] = useState(true);
@@ -25,8 +27,12 @@ function StatsPage() {
   const load = async () => {
     const [{ data: ps, error }, { data: fx }, { data: ev }] = await Promise.all([
       supabase.from("players").select("id,name"),
-      supabase.from("fixtures").select("our_score,their_score"),
-      supabase.from("fixture_events").select("player_id,event_type"),
+      supabase.from("fixtures").select("our_score,their_score").eq("season_id", seasonId!),
+      // Events have no season of their own — they inherit it from the fixture they belong to.
+      supabase
+        .from("fixture_events")
+        .select("player_id,event_type,fixtures!inner(season_id)")
+        .eq("fixtures.season_id", seasonId!),
     ]);
     if (error) toast.error(error.message);
     else setPlayers(ps ?? []);
@@ -47,7 +53,17 @@ function StatsPage() {
     setLoading(false);
   };
 
-  useEffect(() => { load(); }, []);
+  useEffect(() => {
+    if (!seasonId) {
+      setStatsMap(new Map());
+      setTeamScored(0);
+      setTeamConceded(0);
+      setLoading(seasonsLoading);
+      return;
+    }
+    setLoading(true);
+    load();
+  }, [seasonId, seasonsLoading]);
 
   const getStats = (id: string): PlayerStats => statsMap.get(id) ?? { goals: 0, assists: 0, yellow_cards: 0, red_cards: 0 };
 
@@ -75,9 +91,11 @@ function StatsPage() {
   return (
     <div className="space-y-8">
       <section>
-        <p className="text-xs uppercase tracking-[0.3em] text-primary mb-2">Sæsonoverblik</p>
+        <p className="text-xs uppercase tracking-[0.3em] text-primary mb-2">{season?.name ?? "Sæsonoverblik"}</p>
         <h1 className="font-display text-4xl sm:text-5xl">Tallene</h1>
-        <p className="text-muted-foreground mt-1 text-sm">Sorteret efter mål, assists, færrest røde og gule kort.</p>
+        <p className="text-muted-foreground mt-1 text-sm">
+          Tal for den valgte sæson. Sorteret efter mål, assists, færrest røde og gule kort.
+        </p>
       </section>
 
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
