@@ -11,6 +11,7 @@ import { toast } from "sonner";
 import { FORMATIONS, formationPositions, parseFormation, parseFormationPattern } from "@/lib/formations";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSeason } from "@/contexts/SeasonContext";
+import { AttendancePanel } from "@/components/AttendancePanel";
 
 export const Route = createFileRoute("/fixtures/$fixtureId")({
   component: FixtureDetail,
@@ -42,6 +43,8 @@ function FixtureDetail() {
   const { fixtureId } = Route.useParams();
   const [fixture, setFixture] = useState<Fixture | null>(null);
   const [players, setPlayers] = useState<Player[]>([]);
+  // The fixture season's trup — who can be picked and who signs up. `players` still names everyone.
+  const [squadIds, setSquadIds] = useState<Set<string>>(new Set());
   const [lineup, setLineup] = useState<LineupRow[]>([]);
   const [events, setEvents] = useState<FixtureEvent[]>([]);
   const [editing, setEditing] = useState(false);
@@ -64,6 +67,8 @@ function FixtureDetail() {
       supabase.from("fixture_events").select("*").eq("fixture_id", fixtureId),
     ]);
     if (f) {
+      const { data: sp } = await supabase.from("season_players").select("player_id").eq("season_id", f.season_id);
+      setSquadIds(new Set((sp ?? []).map((r) => r.player_id)));
       setFixture(f as Fixture);
       setOpponent(f.opponent);
       setPlayedAt(f.played_at);
@@ -92,6 +97,7 @@ function FixtureDetail() {
     return m;
   }, [lineup]);
 
+  const squad = useMemo(() => players.filter((p) => squadIds.has(p.id)), [players, squadIds]);
   const usedPlayerIds = new Set(lineup.map((r) => r.player_id));
   const playerName = (id: string) => players.find((p) => p.id === id)?.name ?? "—";
 
@@ -185,7 +191,8 @@ function FixtureDetail() {
   const subsFilled = lineup.filter((r) => r.is_sub).length;
   const pitchFormation = parseFormation(fixture.formation);
 
-  const seasonName = seasons.find((s) => s.id === fixture.season_id)?.name ?? null;
+  const fixtureSeason = seasons.find((s) => s.id === fixture.season_id);
+  const seasonName = fixtureSeason?.name ?? null;
 
   const goalEvents = events.filter((e) => e.event_type === "goal");
   const assistEvents = events.filter((e) => e.event_type === "assist");
@@ -306,6 +313,15 @@ function FixtureDetail() {
             </div>
           </div>
         </section>
+
+        {fixtureSeason?.attendance_enabled && (
+          <AttendancePanel
+            fixtureId={fixtureId}
+            players={squad}
+            playedAt={fixture.played_at}
+            kickoffTime={fixture.kickoff_time}
+          />
+        )}
       </div>
     );
   }
@@ -469,7 +485,7 @@ function FixtureDetail() {
                         position={pos}
                         isSub={false}
                         current={lineupBySlot.get(slot)}
-                        players={players}
+                        players={squad}
                         usedPlayerIds={usedPlayerIds}
                         onAssign={assign}
                       />
@@ -479,7 +495,7 @@ function FixtureDetail() {
               );
             })}
             <div className="flex justify-center">
-              <SlotCard slot={0} position="GK" isSub={false} current={lineupBySlot.get(0)} players={players} usedPlayerIds={usedPlayerIds} onAssign={assign} />
+              <SlotCard slot={0} position="GK" isSub={false} current={lineupBySlot.get(0)} players={squad} usedPlayerIds={usedPlayerIds} onAssign={assign} />
             </div>
           </div>
         </div>
@@ -490,7 +506,7 @@ function FixtureDetail() {
             {Array.from({ length: SUB_COUNT }).map((_, i) => {
               const slot = 100 + i;
               return (
-                <SlotCard key={slot} slot={slot} position={`SUB ${i + 1}`} isSub current={lineupBySlot.get(slot)} players={players} usedPlayerIds={usedPlayerIds} onAssign={assign} bench />
+                <SlotCard key={slot} slot={slot} position={`SUB ${i + 1}`} isSub current={lineupBySlot.get(slot)} players={squad} usedPlayerIds={usedPlayerIds} onAssign={assign} bench />
               );
             })}
           </div>

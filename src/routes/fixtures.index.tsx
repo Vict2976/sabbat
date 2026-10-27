@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Trash2, Plus, ChevronRight, Trophy } from "lucide-react";
+import { Trash2, Plus, ChevronRight, Trophy, Clock, Users } from "lucide-react";
 import { toast } from "sonner";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSeason } from "@/contexts/SeasonContext";
@@ -20,6 +20,8 @@ type Fixture = {
   their_score: number | null;
   played_at: string;
   formation: string;
+  kickoff_time: string | null;
+  meeting_time: string | null;
 };
 
 function FixturesPage() {
@@ -37,11 +39,18 @@ function FixturesPage() {
     if (!seasonId) return;
     const { data, error } = await supabase
       .from("fixtures")
-      .select("id,opponent,our_score,their_score,played_at,formation")
+      .select("id,opponent,our_score,their_score,played_at,formation,kickoff_time,meeting_time")
       .eq("season_id", seasonId)
-      .order("played_at", { ascending: false });
-    if (error) toast.error(error.message);
-    else setFixtures(data ?? []);
+      .order("played_at", { ascending: true })
+      .order("kickoff_time", { ascending: true });
+    if (error) return toast.error(error.message);
+    // Nearest match first: upcoming ones soonest-first, then past ones most-recent-first.
+    const today = new Date().toLocaleDateString("sv-SE");
+    const rows = data ?? [];
+    setFixtures([
+      ...rows.filter((f) => f.played_at >= today),
+      ...rows.filter((f) => f.played_at < today).reverse(),
+    ]);
   };
 
   useEffect(() => { setFixtures([]); load(); }, [seasonId]);
@@ -140,6 +149,20 @@ function FixturesPage() {
                 <div className="text-xs text-muted-foreground">
                   {new Date(f.played_at).toLocaleDateString("da-DK")} · {f.formation}
                 </div>
+                {(f.kickoff_time || f.meeting_time) && (
+                  <div className="flex items-center gap-3 mt-1 text-xs">
+                    {f.kickoff_time && (
+                      <span className="inline-flex items-center gap-1 text-primary font-semibold" title="Kampstart">
+                        <Clock className="h-3 w-3" /> {f.kickoff_time.slice(0, 5)}
+                      </span>
+                    )}
+                    {f.meeting_time && (
+                      <span className="inline-flex items-center gap-1 text-muted-foreground" title="Mødetid">
+                        <Users className="h-3 w-3" /> Mødetid {f.meeting_time.slice(0, 5)}
+                      </span>
+                    )}
+                  </div>
+                )}
               </div>
               <div className="font-display text-xl shrink-0">
                 {played

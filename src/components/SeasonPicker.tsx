@@ -5,10 +5,22 @@ import { useAuth } from "@/contexts/AuthContext";
 const NEW_SEASON = "__new_season__";
 
 export function SeasonPicker({ className }: { className?: string }) {
-  const { seasons, seasonId, setSeasonId, openNewSeasonDialog } = useSeason();
+  const { seasons, seasonId, setSeasonId, openNewSeasonDialog, loading } = useSeason();
   const { user, openLoginDialog } = useAuth();
 
-  if (!seasonId) return null;
+  if (loading) return null;
+
+  // No seasons at all almost always means the seasons migration has not been applied yet.
+  if (!seasonId) {
+    return (
+      <span
+        title="Ingen sæsoner fundet — kør databasemigrationen (supabase db push)"
+        className={`inline-flex h-8 items-center rounded-md border border-dashed border-border px-2.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground ${className ?? ""}`}
+      >
+        Ingen sæsoner
+      </span>
+    );
+  }
 
   const onChange = (value: string) => {
     if (value !== NEW_SEASON) return setSeasonId(value);

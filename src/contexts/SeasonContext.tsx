@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 
-export type Season = { id: string; name: string; sort_order: number; is_active: boolean };
+export type Season = { id: string; name: string; sort_order: number; is_active: boolean; attendance_enabled: boolean };
 
 const STORAGE_KEY = "sabbat.season_id";
 
@@ -39,14 +39,15 @@ export function SeasonProvider({ children }: { children: React.ReactNode }) {
   const load = async (preferId?: string) => {
     const { data, error } = await supabase
       .from("seasons")
-      .select("id,name,sort_order,is_active")
+      .select("*")
       .order("sort_order", { ascending: false });
     if (error) {
       toast.error(error.message);
       setLoading(false);
       return [];
     }
-    const rows = (data ?? []) as Season[];
+    // attendance_enabled is missing until the Vinterbold migration has run.
+    const rows = (data ?? []).map((s) => ({ ...s, attendance_enabled: s.attendance_enabled ?? false })) as Season[];
     setSeasons(rows);
     setSeasonIdState((current) => {
       const stored = typeof window !== "undefined" ? localStorage.getItem(STORAGE_KEY) : null;

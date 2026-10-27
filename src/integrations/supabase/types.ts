@@ -49,6 +49,45 @@ export type Database = {
           },
         ]
       }
+      fixture_attendance: {
+        Row: {
+          fixture_id: string
+          id: string
+          player_id: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          fixture_id: string
+          id?: string
+          player_id: string
+          status: string
+          updated_at?: string
+        }
+        Update: {
+          fixture_id?: string
+          id?: string
+          player_id?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fixture_attendance_fixture_id_fkey"
+            columns: ["fixture_id"]
+            isOneToOne: false
+            referencedRelation: "fixtures"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "fixture_attendance_player_id_fkey"
+            columns: ["player_id"]
+            isOneToOne: false
+            referencedRelation: "players"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       fixture_events: {
         Row: {
           created_at: string
@@ -210,8 +249,42 @@ export type Database = {
         }
         Relationships: []
       }
+      season_players: {
+        Row: {
+          created_at: string
+          player_id: string
+          season_id: string
+        }
+        Insert: {
+          created_at?: string
+          player_id: string
+          season_id: string
+        }
+        Update: {
+          created_at?: string
+          player_id?: string
+          season_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "season_players_player_id_fkey"
+            columns: ["player_id"]
+            isOneToOne: false
+            referencedRelation: "players"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "season_players_season_id_fkey"
+            columns: ["season_id"]
+            isOneToOne: false
+            referencedRelation: "seasons"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       seasons: {
         Row: {
+          attendance_enabled: boolean
           created_at: string
           id: string
           is_active: boolean
@@ -219,6 +292,7 @@ export type Database = {
           sort_order: number
         }
         Insert: {
+          attendance_enabled?: boolean
           created_at?: string
           id?: string
           is_active?: boolean
@@ -226,6 +300,7 @@ export type Database = {
           sort_order?: number
         }
         Update: {
+          attendance_enabled?: boolean
           created_at?: string
           id?: string
           is_active?: boolean
