@@ -23,7 +23,7 @@ export const Route = createFileRoute("/kalender/$seasonId")({
 
         const origin = new URL(request.url).origin;
         const body = buildSeasonCalendar({
-          calendarName: `FC Sabbatår — ${season.name}`,
+          calendarName: `FC Sabbatår ${season.name}`,
           fixtures: fixtures ?? [],
           // 11-a-side is 2×45 plus the break; the 7-a-side Vinterbold matches are short.
           matchMinutes: (season.team_size ?? 11) >= 11 ? 105 : 60,
