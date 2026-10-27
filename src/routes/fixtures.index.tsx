@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Trash2, Plus, ChevronRight, Trophy, Clock, Users } from "lucide-react";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { Trash2, Plus, ChevronRight, Trophy, Clock, Users, List, CalendarDays } from "lucide-react";
 import { toast } from "sonner";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSeason } from "@/contexts/SeasonContext";
+import { FixtureCalendar } from "@/components/FixtureCalendar";
 
 export const Route = createFileRoute("/fixtures/")({
   component: FixturesPage,
@@ -31,6 +33,7 @@ function FixturesPage() {
   const [opponent, setOpponent] = useState("");
   const [playedAt, setPlayedAt] = useState("");
   const [loading, setLoading] = useState(false);
+  const [view, setView] = useState<"list" | "calendar">("list");
 
   // Filled after mount so the server-rendered markup does not disagree about "today".
   useEffect(() => { setPlayedAt(new Date().toLocaleDateString("sv-SE")); }, []);
@@ -123,7 +126,30 @@ function FixturesPage() {
         </div>
       </form>
 
-      <div className="space-y-2">
+      <div className="flex items-center justify-between gap-2">
+        <span className="text-xs uppercase tracking-wider text-muted-foreground">
+          {fixtures.length} {fixtures.length === 1 ? "kamp" : "kampe"}
+        </span>
+        <ToggleGroup
+          type="single"
+          variant="outline"
+          size="sm"
+          value={view}
+          onValueChange={(v) => v && setView(v as "list" | "calendar")}
+          aria-label="Visning"
+        >
+          <ToggleGroupItem value="list" aria-label="Liste" className="gap-1.5 px-3">
+            <List className="h-4 w-4" /> Liste
+          </ToggleGroupItem>
+          <ToggleGroupItem value="calendar" aria-label="Kalender" className="gap-1.5 px-3">
+            <CalendarDays className="h-4 w-4" /> Kalender
+          </ToggleGroupItem>
+        </ToggleGroup>
+      </div>
+
+      {view === "calendar" && fixtures.length > 0 && <FixtureCalendar key={seasonId} fixtures={fixtures} />}
+
+      <div className={`space-y-2 ${view === "calendar" && fixtures.length > 0 ? "hidden" : ""}`}>
         {fixtures.map((f) => {
           const played = f.our_score != null && f.their_score != null;
           const result = played
