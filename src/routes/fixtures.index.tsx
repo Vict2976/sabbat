@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSeason } from "@/contexts/SeasonContext";
 import { FixtureCalendar } from "@/components/FixtureCalendar";
+import { defaultFormation } from "@/lib/formations";
 
 export const Route = createFileRoute("/fixtures/")({
   component: FixturesPage,
@@ -68,7 +69,12 @@ function FixturesPage() {
     setLoading(true);
     const { error } = await supabase
       .from("fixtures")
-      .insert({ opponent: trimmed, season_id: seasonId, ...(playedAt ? { played_at: playedAt } : {}) });
+      .insert({
+        opponent: trimmed,
+        season_id: seasonId,
+        formation: defaultFormation(season?.team_size ?? 11),
+        ...(playedAt ? { played_at: playedAt } : {}),
+      });
     setLoading(false);
     if (error) toast.error(error.message);
     else { setOpponent(""); toast.success("Kamp tilføjet"); load(); }

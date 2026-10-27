@@ -8,7 +8,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command";
 import { ArrowLeft, Save, X, ChevronsUpDown, Pencil, CalendarDays, Clock, Users, MapPin } from "lucide-react";
 import { toast } from "sonner";
-import { FORMATIONS, formationPositions, parseFormation, parseFormationPattern } from "@/lib/formations";
+import { FORMATIONS, FORMATIONS_7, formationsFor, formationPositions, parseFormation, parseFormationPattern } from "@/lib/formations";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSeason } from "@/contexts/SeasonContext";
 import { AttendancePanel } from "@/components/AttendancePanel";
@@ -75,7 +75,7 @@ function FixtureDetail() {
       setOurScore(f.our_score?.toString() ?? "");
       setTheirScore(f.their_score?.toString() ?? "");
       setFormation(f.formation);
-      setCustomFormation(FORMATIONS[f.formation] ? "" : f.formation);
+      setCustomFormation(FORMATIONS[f.formation] || FORMATIONS_7[f.formation] ? "" : f.formation);
       setKickoff(f.kickoff_time?.slice(0, 5) ?? "");
       setMeeting(f.meeting_time?.slice(0, 5) ?? "");
       setPlace(f.place ?? "");
@@ -87,8 +87,11 @@ function FixtureDetail() {
 
   useEffect(() => { load(); }, [fixtureId]);
 
-  const positions = useMemo(() => formationPositions(formation), [formation]);
-  const editFormation = useMemo(() => parseFormation(formation), [formation]);
+  // 11-a-side unless the fixture's season says otherwise (Vinterbold is 7-a-side).
+  const teamSize = seasons.find((s) => s.id === fixture?.season_id)?.team_size ?? 11;
+  const presets = formationsFor(teamSize);
+  const positions = useMemo(() => formationPositions(formation, teamSize), [formation, teamSize]);
+  const editFormation = useMemo(() => parseFormation(formation, teamSize), [formation, teamSize]);
   const totalSlots = positions.length + SUB_COUNT;
 
   const lineupBySlot = useMemo(() => {
@@ -176,8 +179,8 @@ function FixtureDetail() {
   const applyCustomFormation = (e: React.FormEvent) => {
     e.preventDefault();
     const pattern = customFormation.trim();
-    if (!parseFormationPattern(pattern)) {
-      toast.error("Ugyldig formation — tallene skal give 10 i alt (fx 4-4-1-1).");
+    if (!parseFormationPattern(pattern, teamSize)) {
+      toast.error(`Ugyldig formation — tallene skal give ${teamSize - 1} i alt (fx ${teamSize === 7 ? "2-2-1-1" : "4-4-1-1"}).`);
       return;
     }
     changeFormation(pattern);
@@ -189,7 +192,7 @@ function FixtureDetail() {
   const isPlayed = fixture.our_score !== null && fixture.their_score !== null;
   const startersFilled = lineup.filter((r) => !r.is_sub).length;
   const subsFilled = lineup.filter((r) => r.is_sub).length;
-  const pitchFormation = parseFormation(fixture.formation);
+  const pitchFormation = parseFormation(fixture.formation, teamSize);
 
   const fixtureSeason = seasons.find((s) => s.id === fixture.season_id);
   const seasonName = fixtureSeason?.name ?? null;
@@ -253,7 +256,10 @@ function FixtureDetail() {
 
         <section>
           <h3 className="font-display text-xl mb-3">
-            Opstilling <span className="text-muted-foreground text-sm ml-1">{fixture.formation}</span>
+            Opstilling{" "}
+            <span className="text-muted-foreground text-sm ml-1">
+              {fixture.formation}{teamSize !== 11 && ` · ${teamSize} mod ${teamSize}`}
+            </span>
           </h3>
 
           <div className="relative rounded-2xl overflow-hidden border-2 border-primary/20 p-3 sm:p-5 min-h-[460px] sm:min-h-[560px]" style={{
@@ -443,10 +449,10 @@ function FixtureDetail() {
           <div className="flex flex-col items-end gap-2">
             <div className="flex items-center gap-2">
               <span className="text-xs uppercase text-muted-foreground tracking-wider">Formation</span>
-              <Select value={FORMATIONS[formation] ? formation : undefined} onValueChange={changeFormation}>
+              <Select value={presets[formation] ? formation : undefined} onValueChange={changeFormation}>
                 <SelectTrigger className="w-32 bg-card border-border"><SelectValue placeholder="Egen" /></SelectTrigger>
                 <SelectContent>
-                  {Object.keys(FORMATIONS).map((f) => <SelectItem key={f} value={f}>{f}</SelectItem>)}
+                  {Object.keys(presets).map((f) => <SelectItem key={f} value={f}>{f}</SelectItem>)}
                 </SelectContent>
               </Select>
             </div>
@@ -454,7 +460,7 @@ function FixtureDetail() {
               <Input
                 value={customFormation}
                 onChange={(e) => setCustomFormation(e.target.value)}
-                placeholder="Egen, fx 4-4-1-1"
+                placeholder={`Egen, fx ${teamSize === 7 ? "2-2-1-1" : "4-4-1-1"}`}
                 className="w-32 h-9 bg-card border-border"
               />
               <Button type="submit" variant="outline" size="sm">Brug</Button>

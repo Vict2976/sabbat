@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 
-export type Season = { id: string; name: string; sort_order: number; is_active: boolean; attendance_enabled: boolean };
+export type Season = { id: string; name: string; sort_order: number; is_active: boolean; attendance_enabled: boolean; team_size: number };
 
 const STORAGE_KEY = "sabbat.season_id";
 
@@ -46,8 +46,12 @@ export function SeasonProvider({ children }: { children: React.ReactNode }) {
       setLoading(false);
       return [];
     }
-    // attendance_enabled is missing until the Vinterbold migration has run.
-    const rows = (data ?? []).map((s) => ({ ...s, attendance_enabled: s.attendance_enabled ?? false })) as Season[];
+    // Columns added by later migrations may be missing until those have run.
+    const rows = (data ?? []).map((s) => ({
+      ...s,
+      attendance_enabled: s.attendance_enabled ?? false,
+      team_size: s.team_size ?? 11,
+    })) as Season[];
     setSeasons(rows);
     setSeasonIdState((current) => {
       const stored = typeof window !== "undefined" ? localStorage.getItem(STORAGE_KEY) : null;

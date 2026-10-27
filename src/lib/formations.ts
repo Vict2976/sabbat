@@ -1,5 +1,5 @@
-// Formation definitions: rows of position labels (excluding GK row which is implicit)
-// All formations have exactly 11 starters (GK + 10 outfield)
+// Formation definitions: rows of position labels (excluding GK row which is implicit).
+// FORMATIONS are 11-a-side (GK + 10 outfield); FORMATIONS_7 are 7-a-side (GK + 6 outfield).
 export type Formation = {
   name: string;
   // rows from defense -> attack (after GK)
@@ -59,18 +59,75 @@ export const FORMATIONS: Record<string, Formation> = {
   },
 };
 
-const OUTFIELD = 10; // players on the pitch excluding the keeper
+export const FORMATIONS_7: Record<string, Formation> = {
+  "2-3-1": {
+    name: "2-3-1",
+    rows: [
+      ["LCB", "RCB"],
+      ["LM", "CM", "RM"],
+      ["ST"],
+    ],
+  },
+  "3-2-1": {
+    name: "3-2-1",
+    rows: [
+      ["LCB", "CB", "RCB"],
+      ["LCM", "RCM"],
+      ["ST"],
+    ],
+  },
+  "2-1-2-1": {
+    name: "2-1-2-1",
+    rows: [
+      ["LCB", "RCB"],
+      ["CDM"],
+      ["LAM", "RAM"],
+      ["ST"],
+    ],
+  },
+  "3-1-2": {
+    name: "3-1-2",
+    rows: [
+      ["LCB", "CB", "RCB"],
+      ["CM"],
+      ["LST", "RST"],
+    ],
+  },
+  "2-2-2": {
+    name: "2-2-2",
+    rows: [
+      ["LCB", "RCB"],
+      ["LCM", "RCM"],
+      ["LST", "RST"],
+    ],
+  },
+};
 
-// Parses a dash-separated pattern like "4-4-1-1" into per-row counts.
-// Returns null when the string isn't a valid formation (must be 2+ rows,
-// each row 1-6 players, and the outfield total must equal 10).
-export function parseFormationPattern(input: string): number[] | null {
+// Team size is players per side including the keeper (seasons.team_size).
+export function formationsFor(teamSize: number): Record<string, Formation> {
+  return teamSize === 7 ? FORMATIONS_7 : FORMATIONS;
+}
+
+export function defaultFormation(teamSize: number): string {
+  return teamSize === 7 ? "2-3-1" : "4-3-3";
+}
+
+// Splits "4-4-1-1" into row counts without checking the total.
+function patternCounts(input: string): number[] | null {
   const trimmed = input.trim();
   if (!/^\d+(\s*-\s*\d+)+$/.test(trimmed)) return null;
   const counts = trimmed.split("-").map((n) => Number(n.trim()));
   if (counts.length < 2) return null;
   if (counts.some((n) => !Number.isInteger(n) || n < 1 || n > 6)) return null;
-  if (counts.reduce((a, b) => a + b, 0) !== OUTFIELD) return null;
+  return counts;
+}
+
+// Parses a dash-separated pattern like "4-4-1-1" into per-row counts.
+// Returns null when the string isn't a valid formation (must be 2+ rows,
+// each row 1-6 players, and the outfield total must equal teamSize - 1).
+export function parseFormationPattern(input: string, teamSize = 11): number[] | null {
+  const counts = patternCounts(input);
+  if (!counts || counts.reduce((a, b) => a + b, 0) !== teamSize - 1) return null;
   return counts;
 }
 
@@ -142,16 +199,20 @@ function buildFormation(name: string, counts: number[]): Formation {
 }
 
 // Resolves a formation name to a Formation: known presets first, then any
-// valid custom pattern (e.g. "4-4-1-1"), falling back to 4-3-3.
-export function parseFormation(name: string): Formation {
-  if (FORMATIONS[name]) return FORMATIONS[name];
-  const counts = parseFormationPattern(name);
-  if (counts) return buildFormation(name, counts);
-  return FORMATIONS["4-3-3"];
+// valid custom pattern (e.g. "4-4-1-1"), falling back to the team size's default.
+// Without a team size, any pattern of 4-10 outfielders is accepted (for display).
+export function parseFormation(name: string, teamSize?: number): Formation {
+  const preset = FORMATIONS[name] ?? FORMATIONS_7[name];
+  const counts = patternCounts(name);
+  const outfield = counts?.reduce((a, b) => a + b, 0) ?? 0;
+  const fits = teamSize ? outfield === teamSize - 1 : outfield >= 4 && outfield <= 10;
+  if (preset && fits) return preset;
+  if (counts && fits) return buildFormation(name, counts);
+  return formationsFor(teamSize ?? 11)[defaultFormation(teamSize ?? 11)];
 }
 
 // Returns ordered list of position labels for a formation (GK first, then rows defense->attack)
-export function formationPositions(name: string): string[] {
-  const f = parseFormation(name);
+export function formationPositions(name: string, teamSize?: number): string[] {
+  const f = parseFormation(name, teamSize);
   return ["GK", ...f.rows.flat()];
 }

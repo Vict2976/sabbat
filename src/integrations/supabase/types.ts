@@ -290,6 +290,7 @@ export type Database = {
           is_active: boolean
           name: string
           sort_order: number
+          team_size: number
         }
         Insert: {
           attendance_enabled?: boolean
@@ -298,6 +299,7 @@ export type Database = {
           is_active?: boolean
           name: string
           sort_order?: number
+          team_size?: number
         }
         Update: {
           attendance_enabled?: boolean
@@ -306,6 +308,7 @@ export type Database = {
           is_active?: boolean
           name?: string
           sort_order?: number
+          team_size?: number
         }
         Relationships: []
       }
