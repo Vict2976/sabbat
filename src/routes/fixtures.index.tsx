@@ -4,7 +4,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { Trash2, Plus, ChevronRight, Trophy, Clock, Users, List, CalendarDays } from "lucide-react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Trash2, Plus, ChevronRight, Trophy, Clock, Users, List, CalendarDays, CalendarPlus, Download } from "lucide-react";
 import { toast } from "sonner";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSeason } from "@/contexts/SeasonContext";
@@ -136,6 +137,8 @@ function FixturesPage() {
         <span className="text-xs uppercase tracking-wider text-muted-foreground">
           {fixtures.length} {fixtures.length === 1 ? "kamp" : "kampe"}
         </span>
+        <div className="flex items-center gap-2">
+        {seasonId && fixtures.length > 0 && <CalendarExport seasonId={seasonId} />}
         <ToggleGroup
           type="single"
           variant="outline"
@@ -151,6 +154,7 @@ function FixturesPage() {
             <CalendarDays className="h-4 w-4" /> Kalender
           </ToggleGroupItem>
         </ToggleGroup>
+        </div>
       </div>
 
       {view === "calendar" && fixtures.length > 0 && <FixtureCalendar key={seasonId} fixtures={fixtures} />}
@@ -219,6 +223,42 @@ function FixturesPage() {
         )}
       </div>
     </div>
+  );
+}
+
+// Subscriptions stay in sync: new matches, times and results show up in the phone's calendar.
+function CalendarExport({ seasonId }: { seasonId: string }) {
+  // Only rendered once the menu opens, so window is available.
+  const feed = () => `${window.location.host}/kalender/${seasonId}`;
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline" size="sm" className="gap-1.5 px-3" aria-label="Tilføj til kalender">
+          <CalendarPlus className="h-4 w-4" /> <span className="hidden sm:inline">Til kalender</span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        <DropdownMenuItem asChild>
+          <a href={`webcal://${feed()}`}>
+            <CalendarPlus className="h-4 w-4" /> iPhone / Apple Kalender
+          </a>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <a
+            href={`https://calendar.google.com/calendar/render?cid=${encodeURIComponent(`webcal://${feed()}`)}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <CalendarPlus className="h-4 w-4" /> Google Kalender
+          </a>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <a href={`${window.location.protocol}//${feed()}?download`}>
+            <Download className="h-4 w-4" /> Download .ics-fil
+          </a>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
 

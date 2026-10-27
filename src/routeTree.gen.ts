@@ -9,21 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as StatsRouteImport } from './routes/stats'
-import { Route as SquadRouteImport } from './routes/squad'
-import { Route as BodekasseRouteImport } from './routes/bodekasse'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BodekasseRouteImport } from './routes/bodekasse'
+import { Route as SquadRouteImport } from './routes/squad'
+import { Route as StatsRouteImport } from './routes/stats'
 import { Route as FixturesIndexRouteImport } from './routes/fixtures.index'
 import { Route as FixturesFixtureIdRouteImport } from './routes/fixtures.$fixtureId'
+import { Route as KalenderSeasonIdRouteImport } from './routes/kalender.$seasonId'
 
-const StatsRoute = StatsRouteImport.update({
-  id: '/stats',
-  path: '/stats',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SquadRoute = SquadRouteImport.update({
-  id: '/squad',
-  path: '/squad',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BodekasseRoute = BodekasseRouteImport.update({
@@ -31,9 +27,14 @@ const BodekasseRoute = BodekasseRouteImport.update({
   path: '/bodekasse',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const SquadRoute = SquadRouteImport.update({
+  id: '/squad',
+  path: '/squad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StatsRoute = StatsRouteImport.update({
+  id: '/stats',
+  path: '/stats',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FixturesIndexRoute = FixturesIndexRouteImport.update({
@@ -46,6 +47,11 @@ const FixturesFixtureIdRoute = FixturesFixtureIdRouteImport.update({
   path: '/fixtures/$fixtureId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KalenderSeasonIdRoute = KalenderSeasonIdRouteImport.update({
+  id: '/kalender/$seasonId',
+  path: '/kalender/$seasonId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/squad': typeof SquadRoute
   '/stats': typeof StatsRoute
   '/fixtures/$fixtureId': typeof FixturesFixtureIdRoute
+  '/kalender/$seasonId': typeof KalenderSeasonIdRoute
   '/fixtures/': typeof FixturesIndexRoute
 }
 export interface FileRoutesByTo {
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/squad': typeof SquadRoute
   '/stats': typeof StatsRoute
   '/fixtures/$fixtureId': typeof FixturesFixtureIdRoute
+  '/kalender/$seasonId': typeof KalenderSeasonIdRoute
   '/fixtures': typeof FixturesIndexRoute
 }
 export interface FileRoutesById {
@@ -70,6 +78,7 @@ export interface FileRoutesById {
   '/squad': typeof SquadRoute
   '/stats': typeof StatsRoute
   '/fixtures/$fixtureId': typeof FixturesFixtureIdRoute
+  '/kalender/$seasonId': typeof KalenderSeasonIdRoute
   '/fixtures/': typeof FixturesIndexRoute
 }
 export interface FileRouteTypes {
@@ -80,6 +89,7 @@ export interface FileRouteTypes {
     | '/squad'
     | '/stats'
     | '/fixtures/$fixtureId'
+    | '/kalender/$seasonId'
     | '/fixtures/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -88,6 +98,7 @@ export interface FileRouteTypes {
     | '/squad'
     | '/stats'
     | '/fixtures/$fixtureId'
+    | '/kalender/$seasonId'
     | '/fixtures'
   id:
     | '__root__'
@@ -96,6 +107,7 @@ export interface FileRouteTypes {
     | '/squad'
     | '/stats'
     | '/fixtures/$fixtureId'
+    | '/kalender/$seasonId'
     | '/fixtures/'
   fileRoutesById: FileRoutesById
 }
@@ -105,23 +117,17 @@ export interface RootRouteChildren {
   SquadRoute: typeof SquadRoute
   StatsRoute: typeof StatsRoute
   FixturesFixtureIdRoute: typeof FixturesFixtureIdRoute
+  KalenderSeasonIdRoute: typeof KalenderSeasonIdRoute
   FixturesIndexRoute: typeof FixturesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/stats': {
-      id: '/stats'
-      path: '/stats'
-      fullPath: '/stats'
-      preLoaderRoute: typeof StatsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/squad': {
-      id: '/squad'
-      path: '/squad'
-      fullPath: '/squad'
-      preLoaderRoute: typeof SquadRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/bodekasse': {
@@ -131,11 +137,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BodekasseRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/squad': {
+      id: '/squad'
+      path: '/squad'
+      fullPath: '/squad'
+      preLoaderRoute: typeof SquadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stats': {
+      id: '/stats'
+      path: '/stats'
+      fullPath: '/stats'
+      preLoaderRoute: typeof StatsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/fixtures/': {
@@ -152,6 +165,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FixturesFixtureIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kalender/$seasonId': {
+      id: '/kalender/$seasonId'
+      path: '/kalender/$seasonId'
+      fullPath: '/kalender/$seasonId'
+      preLoaderRoute: typeof KalenderSeasonIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -161,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   SquadRoute: SquadRoute,
   StatsRoute: StatsRoute,
   FixturesFixtureIdRoute: FixturesFixtureIdRoute,
+  KalenderSeasonIdRoute: KalenderSeasonIdRoute,
   FixturesIndexRoute: FixturesIndexRoute,
 }
 export const routeTree = rootRouteImport
