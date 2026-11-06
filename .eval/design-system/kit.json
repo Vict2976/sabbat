@@ -1,0 +1,3473 @@
+{
+  "dir": "src/components/ui",
+  "evidence": "the registry's `aliases.ui` (@/components/ui)",
+  "components": [
+    {
+      "name": "Button",
+      "id": "Button",
+      "file": "src/components/ui/button.tsx",
+      "line": 40,
+      "axes": [
+        {
+          "name": "variant",
+          "values": [
+            "default",
+            "destructive",
+            "outline",
+            "secondary",
+            "ghost",
+            "link"
+          ],
+          "defaultValue": "default"
+        },
+        {
+          "name": "size",
+          "values": [
+            "default",
+            "sm",
+            "lg",
+            "icon"
+          ],
+          "defaultValue": "default"
+        }
+      ],
+      "states": [
+        "disabled",
+        "focus-visible",
+        "hover"
+      ],
+      "uses": 16,
+      "usedInFiles": 11
+    },
+    {
+      "name": "Input",
+      "id": "Input",
+      "file": "src/components/ui/input.tsx",
+      "line": 6,
+      "axes": [],
+      "states": [
+        "disabled",
+        "file",
+        "focus-visible",
+        "placeholder"
+      ],
+      "uses": 18,
+      "usedInFiles": 8
+    },
+    {
+      "name": "DialogContent",
+      "id": "DialogContent",
+      "file": "src/components/ui/dialog.tsx",
+      "line": 34,
+      "axes": [],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]",
+        "disabled",
+        "focus",
+        "hover"
+      ],
+      "uses": 3,
+      "usedInFiles": 3
+    },
+    {
+      "name": "SelectContent",
+      "id": "SelectContent",
+      "file": "src/components/ui/select.tsx",
+      "line": 67,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[placeholder]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "disabled",
+        "focus"
+      ],
+      "uses": 3,
+      "usedInFiles": 3
+    },
+    {
+      "name": "SelectItem",
+      "id": "SelectItem",
+      "file": "src/components/ui/select.tsx",
+      "line": 113,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[placeholder]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "disabled",
+        "focus"
+      ],
+      "uses": 4,
+      "usedInFiles": 3
+    },
+    {
+      "name": "SelectTrigger",
+      "id": "SelectTrigger",
+      "file": "src/components/ui/select.tsx",
+      "line": 16,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[placeholder]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "disabled",
+        "focus"
+      ],
+      "uses": 3,
+      "usedInFiles": 3
+    },
+    {
+      "name": "Checkbox",
+      "id": "Checkbox",
+      "file": "src/components/ui/checkbox.tsx",
+      "line": 8,
+      "axes": [],
+      "states": [
+        "data-[state=checked]",
+        "disabled",
+        "focus-visible"
+      ],
+      "uses": 3,
+      "usedInFiles": 2
+    },
+    {
+      "name": "DialogHeader",
+      "id": "DialogHeader",
+      "file": "src/components/ui/dialog.tsx",
+      "line": 59,
+      "axes": [],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]",
+        "disabled",
+        "focus",
+        "hover"
+      ],
+      "uses": 2,
+      "usedInFiles": 2
+    },
+    {
+      "name": "DialogTitle",
+      "id": "DialogTitle",
+      "file": "src/components/ui/dialog.tsx",
+      "line": 74,
+      "axes": [],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]",
+        "disabled",
+        "focus",
+        "hover"
+      ],
+      "uses": 2,
+      "usedInFiles": 2
+    },
+    {
+      "name": "Separator",
+      "id": "Separator",
+      "file": "src/components/ui/separator.tsx",
+      "line": 7,
+      "axes": [],
+      "states": [],
+      "uses": 2,
+      "usedInFiles": 2
+    },
+    {
+      "name": "Command",
+      "id": "Command",
+      "file": "src/components/ui/command.tsx",
+      "line": 12,
+      "axes": [],
+      "states": [
+        "data-[disabled=true]",
+        "data-[selected=true]",
+        "disabled",
+        "placeholder"
+      ],
+      "uses": 1,
+      "usedInFiles": 1
+    },
+    {
+      "name": "CommandEmpty",
+      "id": "CommandEmpty",
+      "file": "src/components/ui/command.tsx",
+      "line": 75,
+      "axes": [],
+      "states": [
+        "data-[disabled=true]",
+        "data-[selected=true]",
+        "disabled",
+        "placeholder"
+      ],
+      "uses": 1,
+      "usedInFiles": 1
+    },
+    {
+      "name": "CommandGroup",
+      "id": "CommandGroup",
+      "file": "src/components/ui/command.tsx",
+      "line": 85,
+      "axes": [],
+      "states": [
+        "data-[disabled=true]",
+        "data-[selected=true]",
+        "disabled",
+        "placeholder"
+      ],
+      "uses": 1,
+      "usedInFiles": 1
+    },
+    {
+      "name": "CommandInput",
+      "id": "CommandInput",
+      "file": "src/components/ui/command.tsx",
+      "line": 41,
+      "axes": [],
+      "states": [
+        "data-[disabled=true]",
+        "data-[selected=true]",
+        "disabled",
+        "placeholder"
+      ],
+      "uses": 1,
+      "usedInFiles": 1
+    },
+    {
+      "name": "CommandItem",
+      "id": "CommandItem",
+      "file": "src/components/ui/command.tsx",
+      "line": 115,
+      "axes": [],
+      "states": [
+        "data-[disabled=true]",
+        "data-[selected=true]",
+        "disabled",
+        "placeholder"
+      ],
+      "uses": 1,
+      "usedInFiles": 1
+    },
+    {
+      "name": "ContextMenuContent",
+      "id": "ContextMenuContent",
+      "file": "src/components/ui/context-menu.tsx",
+      "line": 58,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 1,
+      "usedInFiles": 1
+    },
+    {
+      "name": "ContextMenuItem",
+      "id": "ContextMenuItem",
+      "file": "src/components/ui/context-menu.tsx",
+      "line": 76,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 3,
+      "usedInFiles": 1
+    },
+    {
+      "name": "ContextMenuSeparator",
+      "id": "ContextMenuSeparator",
+      "file": "src/components/ui/context-menu.tsx",
+      "line": 157,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 2,
+      "usedInFiles": 1
+    },
+    {
+      "name": "DropdownMenuContent",
+      "id": "DropdownMenuContent",
+      "file": "src/components/ui/dropdown-menu.tsx",
+      "line": 60,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 1,
+      "usedInFiles": 1
+    },
+    {
+      "name": "DropdownMenuItem",
+      "id": "DropdownMenuItem",
+      "file": "src/components/ui/dropdown-menu.tsx",
+      "line": 80,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 3,
+      "usedInFiles": 1
+    },
+    {
+      "name": "Label",
+      "id": "Label",
+      "file": "src/components/ui/label.tsx",
+      "line": 14,
+      "axes": [],
+      "states": [
+        "peer-disabled"
+      ],
+      "uses": 1,
+      "usedInFiles": 1
+    },
+    {
+      "name": "PopoverContent",
+      "id": "PopoverContent",
+      "file": "src/components/ui/popover.tsx",
+      "line": 13,
+      "axes": [],
+      "states": [
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]"
+      ],
+      "uses": 1,
+      "usedInFiles": 1
+    },
+    {
+      "name": "SelectSeparator",
+      "id": "SelectSeparator",
+      "file": "src/components/ui/select.tsx",
+      "line": 136,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[placeholder]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "disabled",
+        "focus"
+      ],
+      "uses": 1,
+      "usedInFiles": 1
+    },
+    {
+      "name": "SheetContent",
+      "id": "SheetContent",
+      "file": "src/components/ui/sheet.tsx",
+      "line": 59,
+      "axes": [],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]",
+        "disabled",
+        "focus",
+        "hover"
+      ],
+      "uses": 1,
+      "usedInFiles": 1
+    },
+    {
+      "name": "SheetDescription",
+      "id": "SheetDescription",
+      "file": "src/components/ui/sheet.tsx",
+      "line": 105,
+      "axes": [],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]",
+        "disabled",
+        "focus",
+        "hover"
+      ],
+      "uses": 1,
+      "usedInFiles": 1
+    },
+    {
+      "name": "SheetHeader",
+      "id": "SheetHeader",
+      "file": "src/components/ui/sheet.tsx",
+      "line": 77,
+      "axes": [],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]",
+        "disabled",
+        "focus",
+        "hover"
+      ],
+      "uses": 1,
+      "usedInFiles": 1
+    },
+    {
+      "name": "SheetTitle",
+      "id": "SheetTitle",
+      "file": "src/components/ui/sheet.tsx",
+      "line": 92,
+      "axes": [],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]",
+        "disabled",
+        "focus",
+        "hover"
+      ],
+      "uses": 1,
+      "usedInFiles": 1
+    },
+    {
+      "name": "Skeleton",
+      "id": "Skeleton",
+      "file": "src/components/ui/skeleton.tsx",
+      "line": 4,
+      "axes": [],
+      "states": [],
+      "uses": 2,
+      "usedInFiles": 1
+    },
+    {
+      "name": "Toaster",
+      "id": "Toaster",
+      "file": "src/components/ui/sonner.tsx",
+      "line": 6,
+      "axes": [],
+      "states": [
+        "group-[.toast]",
+        "group-[.toaster]"
+      ],
+      "uses": 1,
+      "usedInFiles": 1
+    },
+    {
+      "name": "ToggleGroup",
+      "id": "ToggleGroup",
+      "file": "src/components/ui/toggle-group.tsx",
+      "line": 16,
+      "axes": [],
+      "states": [],
+      "uses": 1,
+      "usedInFiles": 1
+    },
+    {
+      "name": "ToggleGroupItem",
+      "id": "ToggleGroupItem",
+      "file": "src/components/ui/toggle-group.tsx",
+      "line": 33,
+      "axes": [],
+      "states": [],
+      "uses": 2,
+      "usedInFiles": 1
+    },
+    {
+      "name": "TooltipContent",
+      "id": "TooltipContent",
+      "file": "src/components/ui/tooltip.tsx",
+      "line": 15,
+      "axes": [],
+      "states": [
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]"
+      ],
+      "uses": 1,
+      "usedInFiles": 1
+    },
+    {
+      "name": "AccordionContent",
+      "id": "AccordionContent",
+      "file": "src/components/ui/accordion.tsx",
+      "line": 40,
+      "axes": [],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]",
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "AccordionItem",
+      "id": "AccordionItem",
+      "file": "src/components/ui/accordion.tsx",
+      "line": 10,
+      "axes": [],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]",
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "AccordionTrigger",
+      "id": "AccordionTrigger",
+      "file": "src/components/ui/accordion.tsx",
+      "line": 19,
+      "axes": [],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]",
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "Alert",
+      "id": "Alert",
+      "file": "src/components/ui/alert.tsx",
+      "line": 23,
+      "axes": [
+        {
+          "name": "variant",
+          "values": [
+            "default",
+            "destructive"
+          ],
+          "defaultValue": "default"
+        }
+      ],
+      "states": [
+        "dark"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "AlertDescription",
+      "id": "AlertDescription",
+      "file": "src/components/ui/alert.tsx",
+      "line": 44,
+      "axes": [],
+      "states": [
+        "dark"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "AlertDialogAction",
+      "id": "AlertDialogAction",
+      "file": "src/components/ui/alert-dialog.tsx",
+      "line": 90,
+      "axes": [],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "AlertDialogCancel",
+      "id": "AlertDialogCancel",
+      "file": "src/components/ui/alert-dialog.tsx",
+      "line": 99,
+      "axes": [],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "AlertDialogContent",
+      "id": "AlertDialogContent",
+      "file": "src/components/ui/alert-dialog.tsx",
+      "line": 30,
+      "axes": [],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "AlertDialogDescription",
+      "id": "AlertDialogDescription",
+      "file": "src/components/ui/alert-dialog.tsx",
+      "line": 77,
+      "axes": [],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "AlertDialogFooter",
+      "id": "AlertDialogFooter",
+      "file": "src/components/ui/alert-dialog.tsx",
+      "line": 55,
+      "axes": [],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "AlertDialogHeader",
+      "id": "AlertDialogHeader",
+      "file": "src/components/ui/alert-dialog.tsx",
+      "line": 49,
+      "axes": [],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "AlertDialogOverlay",
+      "id": "AlertDialogOverlay",
+      "file": "src/components/ui/alert-dialog.tsx",
+      "line": 14,
+      "axes": [],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "AlertDialogTitle",
+      "id": "AlertDialogTitle",
+      "file": "src/components/ui/alert-dialog.tsx",
+      "line": 64,
+      "axes": [],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "AlertTitle",
+      "id": "AlertTitle",
+      "file": "src/components/ui/alert.tsx",
+      "line": 32,
+      "axes": [],
+      "states": [
+        "dark"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "Avatar",
+      "id": "Avatar",
+      "file": "src/components/ui/avatar.tsx",
+      "line": 9,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "AvatarFallback",
+      "id": "AvatarFallback",
+      "file": "src/components/ui/avatar.tsx",
+      "line": 35,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "AvatarImage",
+      "id": "AvatarImage",
+      "file": "src/components/ui/avatar.tsx",
+      "line": 22,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "Badge",
+      "id": "Badge",
+      "file": "src/components/ui/badge.tsx",
+      "line": 29,
+      "axes": [
+        {
+          "name": "variant",
+          "values": [
+            "default",
+            "secondary",
+            "destructive",
+            "outline"
+          ],
+          "defaultValue": "default"
+        }
+      ],
+      "states": [
+        "focus",
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "Breadcrumb",
+      "id": "Breadcrumb",
+      "file": "src/components/ui/breadcrumb.tsx",
+      "line": 8,
+      "axes": [],
+      "states": [
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "BreadcrumbEllipsis",
+      "id": "BreadcrumbEllipsis",
+      "file": "src/components/ui/breadcrumb.tsx",
+      "line": 87,
+      "axes": [],
+      "states": [
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "BreadcrumbItem",
+      "id": "BreadcrumbItem",
+      "file": "src/components/ui/breadcrumb.tsx",
+      "line": 32,
+      "axes": [],
+      "states": [
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "BreadcrumbLink",
+      "id": "BreadcrumbLink",
+      "file": "src/components/ui/breadcrumb.tsx",
+      "line": 40,
+      "axes": [],
+      "states": [
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "BreadcrumbList",
+      "id": "BreadcrumbList",
+      "file": "src/components/ui/breadcrumb.tsx",
+      "line": 17,
+      "axes": [],
+      "states": [
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "BreadcrumbPage",
+      "id": "BreadcrumbPage",
+      "file": "src/components/ui/breadcrumb.tsx",
+      "line": 59,
+      "axes": [],
+      "states": [
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "BreadcrumbSeparator",
+      "id": "BreadcrumbSeparator",
+      "file": "src/components/ui/breadcrumb.tsx",
+      "line": 74,
+      "axes": [],
+      "states": [
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "Calendar",
+      "id": "Calendar",
+      "file": "src/components/ui/calendar.tsx",
+      "line": 11,
+      "axes": [],
+      "states": [
+        "aria-disabled",
+        "aria-selected",
+        "data-[range-end=true]",
+        "data-[range-middle=true]",
+        "data-[range-start=true]",
+        "data-[selected-single=true]",
+        "data-[selected=true]",
+        "disabled",
+        "group-data-[focused=true]/day",
+        "has-focus",
+        "rtl"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "CalendarDayButton",
+      "id": "CalendarDayButton",
+      "file": "src/components/ui/calendar.tsx",
+      "line": 141,
+      "axes": [],
+      "states": [
+        "aria-disabled",
+        "aria-selected",
+        "data-[range-end=true]",
+        "data-[range-middle=true]",
+        "data-[range-start=true]",
+        "data-[selected-single=true]",
+        "data-[selected=true]",
+        "disabled",
+        "group-data-[focused=true]/day",
+        "has-focus",
+        "rtl"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "Card",
+      "id": "Card",
+      "file": "src/components/ui/card.tsx",
+      "line": 6,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "CardContent",
+      "id": "CardContent",
+      "file": "src/components/ui/card.tsx",
+      "line": 46,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "CardDescription",
+      "id": "CardDescription",
+      "file": "src/components/ui/card.tsx",
+      "line": 38,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "CardFooter",
+      "id": "CardFooter",
+      "file": "src/components/ui/card.tsx",
+      "line": 54,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "CardHeader",
+      "id": "CardHeader",
+      "file": "src/components/ui/card.tsx",
+      "line": 18,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "CardTitle",
+      "id": "CardTitle",
+      "file": "src/components/ui/card.tsx",
+      "line": 26,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "Carousel",
+      "id": "Carousel",
+      "file": "src/components/ui/carousel.tsx",
+      "line": 42,
+      "axes": [
+        {
+          "name": "orientation",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "defaultValue": null
+        }
+      ],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "CarouselContent",
+      "id": "CarouselContent",
+      "file": "src/components/ui/carousel.tsx",
+      "line": 137,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "CarouselItem",
+      "id": "CarouselItem",
+      "file": "src/components/ui/carousel.tsx",
+      "line": 159,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "CarouselNext",
+      "id": "CarouselNext",
+      "file": "src/components/ui/carousel.tsx",
+      "line": 210,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "CarouselPrevious",
+      "id": "CarouselPrevious",
+      "file": "src/components/ui/carousel.tsx",
+      "line": 181,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "ChartContainer",
+      "id": "ChartContainer",
+      "file": "src/components/ui/chart.tsx",
+      "line": 36,
+      "axes": [
+        {
+          "name": "indicator",
+          "values": [
+            "line",
+            "dot",
+            "dashed"
+          ],
+          "defaultValue": null
+        }
+      ],
+      "states": [
+        "dark"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "ChartLegendContent",
+      "id": "ChartLegendContent",
+      "file": "src/components/ui/chart.tsx",
+      "line": 247,
+      "axes": [],
+      "states": [
+        "dark"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "ChartStyle",
+      "id": "ChartStyle",
+      "file": "src/components/ui/chart.tsx",
+      "line": 66,
+      "axes": [],
+      "states": [
+        "dark"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "ChartTooltipContent",
+      "id": "ChartTooltipContent",
+      "file": "src/components/ui/chart.tsx",
+      "line": 98,
+      "axes": [],
+      "states": [
+        "dark"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "CommandDialog",
+      "id": "CommandDialog",
+      "file": "src/components/ui/command.tsx",
+      "line": 28,
+      "axes": [],
+      "states": [
+        "data-[disabled=true]",
+        "data-[selected=true]",
+        "disabled",
+        "placeholder"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "CommandList",
+      "id": "CommandList",
+      "file": "src/components/ui/command.tsx",
+      "line": 61,
+      "axes": [],
+      "states": [
+        "data-[disabled=true]",
+        "data-[selected=true]",
+        "disabled",
+        "placeholder"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "CommandSeparator",
+      "id": "CommandSeparator",
+      "file": "src/components/ui/command.tsx",
+      "line": 102,
+      "axes": [],
+      "states": [
+        "data-[disabled=true]",
+        "data-[selected=true]",
+        "disabled",
+        "placeholder"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "CommandShortcut",
+      "id": "CommandShortcut",
+      "file": "src/components/ui/command.tsx",
+      "line": 132,
+      "axes": [],
+      "states": [
+        "data-[disabled=true]",
+        "data-[selected=true]",
+        "disabled",
+        "placeholder"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "ContextMenuCheckboxItem",
+      "id": "ContextMenuCheckboxItem",
+      "file": "src/components/ui/context-menu.tsx",
+      "line": 95,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "ContextMenuLabel",
+      "id": "ContextMenuLabel",
+      "file": "src/components/ui/context-menu.tsx",
+      "line": 142,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "ContextMenuRadioItem",
+      "id": "ContextMenuRadioItem",
+      "file": "src/components/ui/context-menu.tsx",
+      "line": 119,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "ContextMenuShortcut",
+      "id": "ContextMenuShortcut",
+      "file": "src/components/ui/context-menu.tsx",
+      "line": 170,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "ContextMenuSubContent",
+      "id": "ContextMenuSubContent",
+      "file": "src/components/ui/context-menu.tsx",
+      "line": 42,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "ContextMenuSubTrigger",
+      "id": "ContextMenuSubTrigger",
+      "file": "src/components/ui/context-menu.tsx",
+      "line": 20,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "DialogDescription",
+      "id": "DialogDescription",
+      "file": "src/components/ui/dialog.tsx",
+      "line": 87,
+      "axes": [],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]",
+        "disabled",
+        "focus",
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "DialogFooter",
+      "id": "DialogFooter",
+      "file": "src/components/ui/dialog.tsx",
+      "line": 65,
+      "axes": [],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]",
+        "disabled",
+        "focus",
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "DialogOverlay",
+      "id": "DialogOverlay",
+      "file": "src/components/ui/dialog.tsx",
+      "line": 18,
+      "axes": [],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]",
+        "disabled",
+        "focus",
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "Drawer",
+      "id": "Drawer",
+      "file": "src/components/ui/drawer.tsx",
+      "line": 7,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "DrawerContent",
+      "id": "DrawerContent",
+      "file": "src/components/ui/drawer.tsx",
+      "line": 35,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "DrawerDescription",
+      "id": "DrawerDescription",
+      "file": "src/components/ui/drawer.tsx",
+      "line": 82,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "DrawerFooter",
+      "id": "DrawerFooter",
+      "file": "src/components/ui/drawer.tsx",
+      "line": 63,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "DrawerHeader",
+      "id": "DrawerHeader",
+      "file": "src/components/ui/drawer.tsx",
+      "line": 57,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "DrawerOverlay",
+      "id": "DrawerOverlay",
+      "file": "src/components/ui/drawer.tsx",
+      "line": 22,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "DrawerTitle",
+      "id": "DrawerTitle",
+      "file": "src/components/ui/drawer.tsx",
+      "line": 69,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "DropdownMenuCheckboxItem",
+      "id": "DropdownMenuCheckboxItem",
+      "file": "src/components/ui/dropdown-menu.tsx",
+      "line": 99,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "DropdownMenuLabel",
+      "id": "DropdownMenuLabel",
+      "file": "src/components/ui/dropdown-menu.tsx",
+      "line": 146,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "DropdownMenuRadioItem",
+      "id": "DropdownMenuRadioItem",
+      "file": "src/components/ui/dropdown-menu.tsx",
+      "line": 123,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "DropdownMenuSeparator",
+      "id": "DropdownMenuSeparator",
+      "file": "src/components/ui/dropdown-menu.tsx",
+      "line": 161,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "DropdownMenuShortcut",
+      "id": "DropdownMenuShortcut",
+      "file": "src/components/ui/dropdown-menu.tsx",
+      "line": 174,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "DropdownMenuSubContent",
+      "id": "DropdownMenuSubContent",
+      "file": "src/components/ui/dropdown-menu.tsx",
+      "line": 44,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "DropdownMenuSubTrigger",
+      "id": "DropdownMenuSubTrigger",
+      "file": "src/components/ui/dropdown-menu.tsx",
+      "line": 22,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "FormControl",
+      "id": "FormControl",
+      "file": "src/components/ui/form.tsx",
+      "line": 107,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "FormDescription",
+      "id": "FormDescription",
+      "file": "src/components/ui/form.tsx",
+      "line": 126,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "FormItem",
+      "id": "FormItem",
+      "file": "src/components/ui/form.tsx",
+      "line": 75,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "FormLabel",
+      "id": "FormLabel",
+      "file": "src/components/ui/form.tsx",
+      "line": 89,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "FormMessage",
+      "id": "FormMessage",
+      "file": "src/components/ui/form.tsx",
+      "line": 144,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "HoverCardContent",
+      "id": "HoverCardContent",
+      "file": "src/components/ui/hover-card.tsx",
+      "line": 11,
+      "axes": [],
+      "states": [
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "InputOTP",
+      "id": "InputOTP",
+      "file": "src/components/ui/input-otp.tsx",
+      "line": 8,
+      "axes": [],
+      "states": [
+        "disabled",
+        "first",
+        "has-[:disabled]",
+        "last"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "InputOTPGroup",
+      "id": "InputOTPGroup",
+      "file": "src/components/ui/input-otp.tsx",
+      "line": 25,
+      "axes": [],
+      "states": [
+        "disabled",
+        "first",
+        "has-[:disabled]",
+        "last"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "InputOTPSeparator",
+      "id": "InputOTPSeparator",
+      "file": "src/components/ui/input-otp.tsx",
+      "line": 63,
+      "axes": [],
+      "states": [
+        "disabled",
+        "first",
+        "has-[:disabled]",
+        "last"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "InputOTPSlot",
+      "id": "InputOTPSlot",
+      "file": "src/components/ui/input-otp.tsx",
+      "line": 34,
+      "axes": [],
+      "states": [
+        "disabled",
+        "first",
+        "has-[:disabled]",
+        "last"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "Menubar",
+      "id": "Menubar",
+      "file": "src/components/ui/menubar.tsx",
+      "line": 33,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "MenubarCheckboxItem",
+      "id": "MenubarCheckboxItem",
+      "file": "src/components/ui/menubar.tsx",
+      "line": 143,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "MenubarContent",
+      "id": "MenubarContent",
+      "file": "src/components/ui/menubar.tsx",
+      "line": 103,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "MenubarGroup",
+      "id": "MenubarGroup",
+      "file": "src/components/ui/menubar.tsx",
+      "line": 13,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "MenubarItem",
+      "id": "MenubarItem",
+      "file": "src/components/ui/menubar.tsx",
+      "line": 124,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "MenubarLabel",
+      "id": "MenubarLabel",
+      "file": "src/components/ui/menubar.tsx",
+      "line": 190,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "MenubarMenu",
+      "id": "MenubarMenu",
+      "file": "src/components/ui/menubar.tsx",
+      "line": 8,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "MenubarPortal",
+      "id": "MenubarPortal",
+      "file": "src/components/ui/menubar.tsx",
+      "line": 18,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "MenubarRadioGroup",
+      "id": "MenubarRadioGroup",
+      "file": "src/components/ui/menubar.tsx",
+      "line": 23,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "MenubarRadioItem",
+      "id": "MenubarRadioItem",
+      "file": "src/components/ui/menubar.tsx",
+      "line": 167,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "MenubarSeparator",
+      "id": "MenubarSeparator",
+      "file": "src/components/ui/menubar.tsx",
+      "line": 205,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "MenubarShortcut",
+      "id": "MenubarShortcut",
+      "file": "src/components/ui/menubar.tsx",
+      "line": 218,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "MenubarSub",
+      "id": "MenubarSub",
+      "file": "src/components/ui/menubar.tsx",
+      "line": 28,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "MenubarSubContent",
+      "id": "MenubarSubContent",
+      "file": "src/components/ui/menubar.tsx",
+      "line": 87,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "MenubarSubTrigger",
+      "id": "MenubarSubTrigger",
+      "file": "src/components/ui/menubar.tsx",
+      "line": 65,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "MenubarTrigger",
+      "id": "MenubarTrigger",
+      "file": "src/components/ui/menubar.tsx",
+      "line": 49,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "NavigationMenu",
+      "id": "NavigationMenu",
+      "file": "src/components/ui/navigation-menu.tsx",
+      "line": 9,
+      "axes": [],
+      "states": [
+        "data-[motion=from-end]",
+        "data-[motion=from-start]",
+        "data-[motion=to-end]",
+        "data-[motion=to-start]",
+        "data-[motion^=from-]",
+        "data-[motion^=to-]",
+        "data-[state=closed]",
+        "data-[state=hidden]",
+        "data-[state=open]",
+        "data-[state=visible]",
+        "disabled",
+        "focus",
+        "group-data-[state=open]",
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "NavigationMenuContent",
+      "id": "NavigationMenuContent",
+      "file": "src/components/ui/navigation-menu.tsx",
+      "line": 63,
+      "axes": [],
+      "states": [
+        "data-[motion=from-end]",
+        "data-[motion=from-start]",
+        "data-[motion=to-end]",
+        "data-[motion=to-start]",
+        "data-[motion^=from-]",
+        "data-[motion^=to-]",
+        "data-[state=closed]",
+        "data-[state=hidden]",
+        "data-[state=open]",
+        "data-[state=visible]",
+        "disabled",
+        "focus",
+        "group-data-[state=open]",
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "NavigationMenuIndicator",
+      "id": "NavigationMenuIndicator",
+      "file": "src/components/ui/navigation-menu.tsx",
+      "line": 99,
+      "axes": [],
+      "states": [
+        "data-[motion=from-end]",
+        "data-[motion=from-start]",
+        "data-[motion=to-end]",
+        "data-[motion=to-start]",
+        "data-[motion^=from-]",
+        "data-[motion^=to-]",
+        "data-[state=closed]",
+        "data-[state=hidden]",
+        "data-[state=open]",
+        "data-[state=visible]",
+        "disabled",
+        "focus",
+        "group-data-[state=open]",
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "NavigationMenuList",
+      "id": "NavigationMenuList",
+      "file": "src/components/ui/navigation-menu.tsx",
+      "line": 25,
+      "axes": [],
+      "states": [
+        "data-[motion=from-end]",
+        "data-[motion=from-start]",
+        "data-[motion=to-end]",
+        "data-[motion=to-start]",
+        "data-[motion^=from-]",
+        "data-[motion^=to-]",
+        "data-[state=closed]",
+        "data-[state=hidden]",
+        "data-[state=open]",
+        "data-[state=visible]",
+        "disabled",
+        "focus",
+        "group-data-[state=open]",
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "NavigationMenuTrigger",
+      "id": "NavigationMenuTrigger",
+      "file": "src/components/ui/navigation-menu.tsx",
+      "line": 44,
+      "axes": [],
+      "states": [
+        "data-[motion=from-end]",
+        "data-[motion=from-start]",
+        "data-[motion=to-end]",
+        "data-[motion=to-start]",
+        "data-[motion^=from-]",
+        "data-[motion^=to-]",
+        "data-[state=closed]",
+        "data-[state=hidden]",
+        "data-[state=open]",
+        "data-[state=visible]",
+        "disabled",
+        "focus",
+        "group-data-[state=open]",
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "NavigationMenuViewport",
+      "id": "NavigationMenuViewport",
+      "file": "src/components/ui/navigation-menu.tsx",
+      "line": 81,
+      "axes": [],
+      "states": [
+        "data-[motion=from-end]",
+        "data-[motion=from-start]",
+        "data-[motion=to-end]",
+        "data-[motion=to-start]",
+        "data-[motion^=from-]",
+        "data-[motion^=to-]",
+        "data-[state=closed]",
+        "data-[state=hidden]",
+        "data-[state=open]",
+        "data-[state=visible]",
+        "disabled",
+        "focus",
+        "group-data-[state=open]",
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "Pagination",
+      "id": "Pagination",
+      "file": "src/components/ui/pagination.tsx",
+      "line": 8,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "PaginationContent",
+      "id": "PaginationContent",
+      "file": "src/components/ui/pagination.tsx",
+      "line": 19,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "PaginationEllipsis",
+      "id": "PaginationEllipsis",
+      "file": "src/components/ui/pagination.tsx",
+      "line": 85,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "PaginationItem",
+      "id": "PaginationItem",
+      "file": "src/components/ui/pagination.tsx",
+      "line": 27,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "PaginationLink",
+      "id": "PaginationLink",
+      "file": "src/components/ui/pagination.tsx",
+      "line": 38,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "PaginationNext",
+      "id": "PaginationNext",
+      "file": "src/components/ui/pagination.tsx",
+      "line": 71,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "PaginationPrevious",
+      "id": "PaginationPrevious",
+      "file": "src/components/ui/pagination.tsx",
+      "line": 54,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "Progress",
+      "id": "Progress",
+      "file": "src/components/ui/progress.tsx",
+      "line": 9,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "RadioGroup",
+      "id": "RadioGroup",
+      "file": "src/components/ui/radio-group.tsx",
+      "line": 8,
+      "axes": [],
+      "states": [
+        "disabled",
+        "focus",
+        "focus-visible"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "RadioGroupItem",
+      "id": "RadioGroupItem",
+      "file": "src/components/ui/radio-group.tsx",
+      "line": 17,
+      "axes": [],
+      "states": [
+        "disabled",
+        "focus",
+        "focus-visible"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "ResizableHandle",
+      "id": "ResizableHandle",
+      "file": "src/components/ui/resizable.tsx",
+      "line": 17,
+      "axes": [],
+      "states": [
+        "after",
+        "data-[panel-group-direction=vertical]",
+        "focus-visible"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "ResizablePanelGroup",
+      "id": "ResizablePanelGroup",
+      "file": "src/components/ui/resizable.tsx",
+      "line": 7,
+      "axes": [],
+      "states": [
+        "after",
+        "data-[panel-group-direction=vertical]",
+        "focus-visible"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "ScrollArea",
+      "id": "ScrollArea",
+      "file": "src/components/ui/scroll-area.tsx",
+      "line": 7,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "ScrollBar",
+      "id": "ScrollBar",
+      "file": "src/components/ui/scroll-area.tsx",
+      "line": 26,
+      "axes": [],
+      "states": [],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SelectLabel",
+      "id": "SelectLabel",
+      "file": "src/components/ui/select.tsx",
+      "line": 100,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[placeholder]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "disabled",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SelectScrollDownButton",
+      "id": "SelectScrollDownButton",
+      "file": "src/components/ui/select.tsx",
+      "line": 52,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[placeholder]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "disabled",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SelectScrollUpButton",
+      "id": "SelectScrollUpButton",
+      "file": "src/components/ui/select.tsx",
+      "line": 37,
+      "axes": [],
+      "states": [
+        "data-[disabled]",
+        "data-[placeholder]",
+        "data-[side=bottom]",
+        "data-[side=left]",
+        "data-[side=right]",
+        "data-[side=top]",
+        "data-[state=closed]",
+        "data-[state=open]",
+        "disabled",
+        "focus"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SheetFooter",
+      "id": "SheetFooter",
+      "file": "src/components/ui/sheet.tsx",
+      "line": 83,
+      "axes": [],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]",
+        "disabled",
+        "focus",
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SheetOverlay",
+      "id": "SheetOverlay",
+      "file": "src/components/ui/sheet.tsx",
+      "line": 19,
+      "axes": [
+        {
+          "name": "side",
+          "values": [
+            "top",
+            "bottom",
+            "left",
+            "right"
+          ],
+          "defaultValue": "right"
+        }
+      ],
+      "states": [
+        "data-[state=closed]",
+        "data-[state=open]",
+        "disabled",
+        "focus",
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "Sidebar",
+      "id": "Sidebar",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 155,
+      "axes": [],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SidebarContent",
+      "id": "SidebarContent",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 402,
+      "axes": [],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SidebarFooter",
+      "id": "SidebarFooter",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 371,
+      "axes": [],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SidebarGroup",
+      "id": "SidebarGroup",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 420,
+      "axes": [],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SidebarGroupAction",
+      "id": "SidebarGroupAction",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 457,
+      "axes": [],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SidebarGroupContent",
+      "id": "SidebarGroupContent",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 481,
+      "axes": [],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SidebarGroupLabel",
+      "id": "SidebarGroupLabel",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 435,
+      "axes": [],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SidebarHeader",
+      "id": "SidebarHeader",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 356,
+      "axes": [],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SidebarInput",
+      "id": "SidebarInput",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 337,
+      "axes": [],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SidebarInset",
+      "id": "SidebarInset",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 319,
+      "axes": [],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SidebarMenu",
+      "id": "SidebarMenu",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 494,
+      "axes": [],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SidebarMenuAction",
+      "id": "SidebarMenuAction",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 602,
+      "axes": [],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SidebarMenuBadge",
+      "id": "SidebarMenuBadge",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 634,
+      "axes": [],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SidebarMenuButton",
+      "id": "SidebarMenuButton",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 542,
+      "axes": [
+        {
+          "name": "variant",
+          "values": [
+            "default",
+            "outline"
+          ],
+          "defaultValue": "default"
+        },
+        {
+          "name": "size",
+          "values": [
+            "default",
+            "sm",
+            "lg"
+          ],
+          "defaultValue": "default"
+        }
+      ],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SidebarMenuItem",
+      "id": "SidebarMenuItem",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 507,
+      "axes": [],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SidebarMenuSkeleton",
+      "id": "SidebarMenuSkeleton",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 655,
+      "axes": [],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SidebarMenuSub",
+      "id": "SidebarMenuSub",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 689,
+      "axes": [],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SidebarMenuSubButton",
+      "id": "SidebarMenuSubButton",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 712,
+      "axes": [],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SidebarMenuSubItem",
+      "id": "SidebarMenuSubItem",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 706,
+      "axes": [],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SidebarProvider",
+      "id": "SidebarProvider",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 50,
+      "axes": [
+        {
+          "name": "state",
+          "values": [
+            "expanded",
+            "collapsed"
+          ],
+          "defaultValue": null
+        },
+        {
+          "name": "side",
+          "values": [
+            "left",
+            "right"
+          ],
+          "defaultValue": null
+        },
+        {
+          "name": "variant",
+          "values": [
+            "sidebar",
+            "floating",
+            "inset"
+          ],
+          "defaultValue": null
+        },
+        {
+          "name": "collapsible",
+          "values": [
+            "offcanvas",
+            "icon",
+            "none"
+          ],
+          "defaultValue": null
+        },
+        {
+          "name": "size",
+          "values": [
+            "sm",
+            "md"
+          ],
+          "defaultValue": null
+        }
+      ],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SidebarRail",
+      "id": "SidebarRail",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 290,
+      "axes": [],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SidebarSeparator",
+      "id": "SidebarSeparator",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 386,
+      "axes": [],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "SidebarTrigger",
+      "id": "SidebarTrigger",
+      "file": "src/components/ui/sidebar.tsx",
+      "line": 263,
+      "axes": [],
+      "states": [
+        "active",
+        "after",
+        "aria-disabled",
+        "data-[active=true]",
+        "data-[state=open]",
+        "disabled",
+        "focus-visible",
+        "group-data-[collapsible=icon]",
+        "group-data-[collapsible=offcanvas]",
+        "group-data-[side=left]",
+        "group-data-[side=right]",
+        "group-data-[variant=floating]",
+        "group-focus-within/menu-item",
+        "group-has-[[data-sidebar=menu-action]]/menu-item",
+        "group-hover/menu-item",
+        "has-[[data-variant=inset]]",
+        "hover",
+        "open",
+        "peer-data-[active=true]/menu-button",
+        "peer-data-[size=default]/menu-button",
+        "peer-data-[size=lg]/menu-button",
+        "peer-data-[size=sm]/menu-button",
+        "peer-data-[state=collapsed]",
+        "peer-data-[variant=inset]",
+        "peer-hover/menu-button"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "Slider",
+      "id": "Slider",
+      "file": "src/components/ui/slider.tsx",
+      "line": 7,
+      "axes": [],
+      "states": [
+        "disabled",
+        "focus-visible"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "Switch",
+      "id": "Switch",
+      "file": "src/components/ui/switch.tsx",
+      "line": 7,
+      "axes": [],
+      "states": [
+        "data-[state=checked]",
+        "data-[state=unchecked]",
+        "disabled",
+        "focus-visible"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "Table",
+      "id": "Table",
+      "file": "src/components/ui/table.tsx",
+      "line": 6,
+      "axes": [],
+      "states": [
+        "data-[state=selected]",
+        "hover",
+        "last"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "TableBody",
+      "id": "TableBody",
+      "file": "src/components/ui/table.tsx",
+      "line": 25,
+      "axes": [],
+      "states": [
+        "data-[state=selected]",
+        "hover",
+        "last"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "TableCaption",
+      "id": "TableCaption",
+      "file": "src/components/ui/table.tsx",
+      "line": 94,
+      "axes": [],
+      "states": [
+        "data-[state=selected]",
+        "hover",
+        "last"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "TableCell",
+      "id": "TableCell",
+      "file": "src/components/ui/table.tsx",
+      "line": 78,
+      "axes": [],
+      "states": [
+        "data-[state=selected]",
+        "hover",
+        "last"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "TableFooter",
+      "id": "TableFooter",
+      "file": "src/components/ui/table.tsx",
+      "line": 34,
+      "axes": [],
+      "states": [
+        "data-[state=selected]",
+        "hover",
+        "last"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "TableHead",
+      "id": "TableHead",
+      "file": "src/components/ui/table.tsx",
+      "line": 62,
+      "axes": [],
+      "states": [
+        "data-[state=selected]",
+        "hover",
+        "last"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "TableHeader",
+      "id": "TableHeader",
+      "file": "src/components/ui/table.tsx",
+      "line": 16,
+      "axes": [],
+      "states": [
+        "data-[state=selected]",
+        "hover",
+        "last"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "TableRow",
+      "id": "TableRow",
+      "file": "src/components/ui/table.tsx",
+      "line": 47,
+      "axes": [],
+      "states": [
+        "data-[state=selected]",
+        "hover",
+        "last"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "TabsContent",
+      "id": "TabsContent",
+      "file": "src/components/ui/tabs.tsx",
+      "line": 41,
+      "axes": [],
+      "states": [
+        "data-[state=active]",
+        "disabled",
+        "focus-visible"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "TabsList",
+      "id": "TabsList",
+      "file": "src/components/ui/tabs.tsx",
+      "line": 9,
+      "axes": [],
+      "states": [
+        "data-[state=active]",
+        "disabled",
+        "focus-visible"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "TabsTrigger",
+      "id": "TabsTrigger",
+      "file": "src/components/ui/tabs.tsx",
+      "line": 25,
+      "axes": [],
+      "states": [
+        "data-[state=active]",
+        "disabled",
+        "focus-visible"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "Textarea",
+      "id": "Textarea",
+      "file": "src/components/ui/textarea.tsx",
+      "line": 6,
+      "axes": [],
+      "states": [
+        "disabled",
+        "focus-visible",
+        "placeholder"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    },
+    {
+      "name": "Toggle",
+      "id": "Toggle",
+      "file": "src/components/ui/toggle.tsx",
+      "line": 30,
+      "axes": [
+        {
+          "name": "variant",
+          "values": [
+            "default",
+            "outline"
+          ],
+          "defaultValue": "default"
+        },
+        {
+          "name": "size",
+          "values": [
+            "default",
+            "sm",
+            "lg"
+          ],
+          "defaultValue": "default"
+        }
+      ],
+      "states": [
+        "data-[state=on]",
+        "disabled",
+        "focus-visible",
+        "hover"
+      ],
+      "uses": 0,
+      "usedInFiles": 0
+    }
+  ],
+  "outside": []
+}

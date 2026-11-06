@@ -1,0 +1,738 @@
+{
+  "sections": [
+    {
+      "key": "/",
+      "label": "/"
+    },
+    {
+      "key": "bodekasse",
+      "label": "Bodekasse"
+    },
+    {
+      "key": "squad",
+      "label": "Squad"
+    },
+    {
+      "key": "stats",
+      "label": "Stats"
+    },
+    {
+      "key": "fixtures",
+      "label": "Fixtures"
+    }
+  ],
+  "sectionsFrom": "navigation",
+  "navigation": "src/routeTree.gen.ts",
+  "pages": [
+    {
+      "id": "/",
+      "label": "/",
+      "section": "/",
+      "file": "src/routes/index.tsx",
+      "groups": [
+        "src/routes/index"
+      ],
+      "tables": {
+        "fixtures": "read",
+        "players": "read",
+        "fixture_lineups": "read"
+      },
+      "components": [
+        "src/routes/index::InfoCard",
+        "src/routes/index::PitchPlayer",
+        "src/routes/index::UpcomingPage"
+      ]
+    },
+    {
+      "id": "/bodekasse",
+      "label": "Bodekasse",
+      "section": "bodekasse",
+      "file": "src/routes/bodekasse.tsx",
+      "groups": [
+        "src/routes/bodekasse"
+      ],
+      "tables": {
+        "players": "read",
+        "fines": "write"
+      },
+      "components": [
+        "src/components/ui/button::Button",
+        "src/components/ui/checkbox::Checkbox",
+        "src/components/ui/input::Input",
+        "src/components/ui/select::SelectContent",
+        "src/components/ui/select::SelectItem",
+        "src/components/ui/select::SelectScrollDownButton",
+        "src/components/ui/select::SelectScrollUpButton",
+        "src/components/ui/select::SelectTrigger",
+        "src/routes/bodekasse::BodekassePage"
+      ]
+    },
+    {
+      "id": "/squad",
+      "label": "Squad",
+      "section": "squad",
+      "file": "src/routes/squad.tsx",
+      "groups": [
+        "src/routes/squad"
+      ],
+      "tables": {
+        "players": "write",
+        "season_players": "write"
+      },
+      "components": [
+        "src/components/ui/button::Button",
+        "src/components/ui/input::Input",
+        "src/routes/squad::SquadPage"
+      ]
+    },
+    {
+      "id": "/stats",
+      "label": "Stats",
+      "section": "stats",
+      "file": "src/routes/stats.tsx",
+      "groups": [
+        "src/routes/stats"
+      ],
+      "tables": {
+        "players": "read",
+        "fixtures": "read",
+        "fixture_events": "read"
+      },
+      "components": [
+        "src/components/ui/button::Button",
+        "src/components/ui/input::Input",
+        "src/routes/stats::EmptyState",
+        "src/routes/stats::Stat",
+        "src/routes/stats::StatsPage",
+        "src/routes/stats::TotalCard"
+      ]
+    },
+    {
+      "id": "/fixtures",
+      "label": "Fixtures",
+      "section": "fixtures",
+      "file": "src/routes/fixtures.index.tsx",
+      "groups": [
+        "src/components/AttendancePanel",
+        "src/components/FixtureCalendar",
+        "src/routes/fixtures.$fixtureId",
+        "src/routes/fixtures.index"
+      ],
+      "tables": {
+        "fixtures": "write",
+        "players": "read",
+        "fixture_lineups": "write",
+        "fixture_events": "write",
+        "season_players": "read",
+        "fixture_attendance": "write"
+      },
+      "components": [
+        "src/components/AttendancePanel::AnswerButton",
+        "src/components/AttendancePanel::AttendanceColumn",
+        "src/components/AttendancePanel::AttendancePanel",
+        "src/components/AttendancePanel::PlayerRow",
+        "src/components/AttendancePanel::SignupCountdown",
+        "src/components/FixtureCalendar::FixtureCalendar",
+        "src/components/ui/button::Button",
+        "src/components/ui/command::Command",
+        "src/components/ui/command::CommandEmpty",
+        "src/components/ui/command::CommandGroup",
+        "src/components/ui/command::CommandInput",
+        "src/components/ui/command::CommandItem",
+        "src/components/ui/context-menu::ContextMenuContent",
+        "src/components/ui/context-menu::ContextMenuItem",
+        "src/components/ui/context-menu::ContextMenuSeparator",
+        "src/components/ui/dropdown-menu::DropdownMenuContent",
+        "src/components/ui/dropdown-menu::DropdownMenuItem",
+        "src/components/ui/input::Input",
+        "src/components/ui/popover::PopoverContent",
+        "src/components/ui/select::SelectContent",
+        "src/components/ui/select::SelectItem",
+        "src/components/ui/select::SelectScrollDownButton",
+        "src/components/ui/select::SelectScrollUpButton",
+        "src/components/ui/select::SelectTrigger",
+        "src/components/ui/separator::Separator",
+        "src/components/ui/toggle-group::ToggleGroup",
+        "src/components/ui/toggle-group::ToggleGroupItem",
+        "src/routes/fixtures.$fixtureId::EventViewRow",
+        "src/routes/fixtures.$fixtureId::FixtureDetail",
+        "src/routes/fixtures.$fixtureId::InfoCard",
+        "src/routes/fixtures.$fixtureId::PitchPlayer",
+        "src/routes/fixtures.$fixtureId::SlotCard",
+        "src/routes/fixtures.index::CalendarExport",
+        "src/routes/fixtures.index::FixturesPage",
+        "src/routes/fixtures.index::RecordCard"
+      ]
+    }
+  ],
+  "actions": [],
+  "groups": [
+    {
+      "id": "src/components/AttendancePanel",
+      "label": "AttendancePanel",
+      "section": "fixtures",
+      "files": 1,
+      "tables": {
+        "fixture_attendance": "write"
+      },
+      "pages": [
+        "/fixtures"
+      ],
+      "calls": [],
+      "components": [
+        "src/components/AttendancePanel::AnswerButton",
+        "src/components/AttendancePanel::AttendanceColumn",
+        "src/components/AttendancePanel::AttendancePanel",
+        "src/components/AttendancePanel::PlayerRow",
+        "src/components/AttendancePanel::SignupCountdown"
+      ]
+    },
+    {
+      "id": "src/components/FixtureCalendar",
+      "label": "FixtureCalendar",
+      "section": "fixtures",
+      "files": 1,
+      "tables": {},
+      "pages": [
+        "/fixtures"
+      ],
+      "calls": [],
+      "components": [
+        "src/components/FixtureCalendar::FixtureCalendar"
+      ]
+    },
+    {
+      "id": "src/routes/bodekasse",
+      "label": "bodekasse",
+      "section": "bodekasse",
+      "files": 1,
+      "tables": {
+        "players": "read",
+        "fines": "write"
+      },
+      "pages": [
+        "/bodekasse"
+      ],
+      "calls": [],
+      "components": [
+        "src/routes/bodekasse::BodekassePage"
+      ]
+    },
+    {
+      "id": "src/routes/fixtures.$fixtureId",
+      "label": "fixtures.$fixtureId",
+      "section": "fixtures",
+      "files": 1,
+      "tables": {
+        "fixtures": "write",
+        "players": "read",
+        "fixture_lineups": "write",
+        "fixture_events": "write",
+        "season_players": "read"
+      },
+      "pages": [
+        "/fixtures"
+      ],
+      "calls": [],
+      "components": [
+        "src/routes/fixtures.$fixtureId::EventViewRow",
+        "src/routes/fixtures.$fixtureId::FixtureDetail",
+        "src/routes/fixtures.$fixtureId::InfoCard",
+        "src/routes/fixtures.$fixtureId::PitchPlayer",
+        "src/routes/fixtures.$fixtureId::SlotCard"
+      ]
+    },
+    {
+      "id": "src/routes/fixtures.index",
+      "label": "fixtures.index",
+      "section": "fixtures",
+      "files": 1,
+      "tables": {
+        "fixtures": "write"
+      },
+      "pages": [
+        "/fixtures"
+      ],
+      "calls": [],
+      "components": [
+        "src/routes/fixtures.index::CalendarExport",
+        "src/routes/fixtures.index::FixturesPage",
+        "src/routes/fixtures.index::RecordCard"
+      ]
+    },
+    {
+      "id": "src/routes/index",
+      "label": "index",
+      "section": "/",
+      "files": 1,
+      "tables": {
+        "fixtures": "read",
+        "players": "read",
+        "fixture_lineups": "read"
+      },
+      "pages": [
+        "/"
+      ],
+      "calls": [],
+      "components": [
+        "src/routes/index::InfoCard",
+        "src/routes/index::PitchPlayer",
+        "src/routes/index::UpcomingPage"
+      ]
+    },
+    {
+      "id": "src/routes/kalender.$seasonId",
+      "label": "kalender.$seasonId",
+      "section": null,
+      "files": 1,
+      "tables": {
+        "seasons": "read",
+        "fixtures": "read"
+      },
+      "pages": [],
+      "calls": [],
+      "components": []
+    },
+    {
+      "id": "src/routes/squad",
+      "label": "squad",
+      "section": "squad",
+      "files": 1,
+      "tables": {
+        "players": "write",
+        "season_players": "write"
+      },
+      "pages": [
+        "/squad"
+      ],
+      "calls": [],
+      "components": [
+        "src/routes/squad::SquadPage"
+      ]
+    },
+    {
+      "id": "src/routes/stats",
+      "label": "stats",
+      "section": "stats",
+      "files": 1,
+      "tables": {
+        "players": "read",
+        "fixtures": "read",
+        "fixture_events": "read"
+      },
+      "pages": [
+        "/stats"
+      ],
+      "calls": [],
+      "components": [
+        "src/routes/stats::EmptyState",
+        "src/routes/stats::Stat",
+        "src/routes/stats::StatsPage",
+        "src/routes/stats::TotalCard"
+      ]
+    }
+  ],
+  "quiet": [
+    {
+      "id": "src/lib/formations",
+      "label": "formations",
+      "section": "/",
+      "files": 1,
+      "tables": {},
+      "pages": [
+        "/",
+        "/fixtures"
+      ],
+      "calls": [],
+      "components": []
+    },
+    {
+      "id": "src/lib/utils",
+      "label": "utils",
+      "section": "bodekasse",
+      "files": 1,
+      "tables": {},
+      "pages": [
+        "/bodekasse",
+        "/fixtures"
+      ],
+      "calls": [],
+      "components": []
+    }
+  ],
+  "offMap": [
+    {
+      "id": "src/components/SeasonPicker",
+      "label": "SeasonPicker",
+      "section": null,
+      "files": 1,
+      "tables": {},
+      "pages": [],
+      "calls": [],
+      "components": [
+        "src/components/SeasonPicker::SeasonPicker"
+      ]
+    },
+    {
+      "id": "src/components/ui",
+      "label": "ui",
+      "section": "bodekasse",
+      "files": 46,
+      "tables": {},
+      "pages": [
+        "/bodekasse",
+        "/fixtures",
+        "/squad",
+        "/stats"
+      ],
+      "calls": [],
+      "components": [
+        "src/components/ui/accordion::AccordionContent",
+        "src/components/ui/accordion::AccordionItem",
+        "src/components/ui/accordion::AccordionTrigger",
+        "src/components/ui/alert-dialog::AlertDialogAction",
+        "src/components/ui/alert-dialog::AlertDialogCancel",
+        "src/components/ui/alert-dialog::AlertDialogContent",
+        "src/components/ui/alert-dialog::AlertDialogDescription",
+        "src/components/ui/alert-dialog::AlertDialogFooter",
+        "src/components/ui/alert-dialog::AlertDialogHeader",
+        "src/components/ui/alert-dialog::AlertDialogOverlay",
+        "src/components/ui/alert-dialog::AlertDialogTitle",
+        "src/components/ui/alert::Alert",
+        "src/components/ui/alert::AlertDescription",
+        "src/components/ui/alert::AlertTitle",
+        "src/components/ui/avatar::Avatar",
+        "src/components/ui/avatar::AvatarFallback",
+        "src/components/ui/avatar::AvatarImage",
+        "src/components/ui/badge::Badge",
+        "src/components/ui/breadcrumb::Breadcrumb",
+        "src/components/ui/breadcrumb::BreadcrumbEllipsis",
+        "src/components/ui/breadcrumb::BreadcrumbItem",
+        "src/components/ui/breadcrumb::BreadcrumbLink",
+        "src/components/ui/breadcrumb::BreadcrumbList",
+        "src/components/ui/breadcrumb::BreadcrumbPage",
+        "src/components/ui/breadcrumb::BreadcrumbSeparator",
+        "src/components/ui/button::Button",
+        "src/components/ui/calendar::Calendar",
+        "src/components/ui/calendar::CalendarDayButton",
+        "src/components/ui/card::Card",
+        "src/components/ui/card::CardContent",
+        "src/components/ui/card::CardDescription",
+        "src/components/ui/card::CardFooter",
+        "src/components/ui/card::CardHeader",
+        "src/components/ui/card::CardTitle",
+        "src/components/ui/carousel::Carousel",
+        "src/components/ui/carousel::CarouselContent",
+        "src/components/ui/carousel::CarouselItem",
+        "src/components/ui/carousel::CarouselNext",
+        "src/components/ui/carousel::CarouselPrevious",
+        "src/components/ui/chart::ChartContainer",
+        "src/components/ui/chart::ChartLegendContent",
+        "src/components/ui/chart::ChartStyle",
+        "src/components/ui/chart::ChartTooltipContent",
+        "src/components/ui/checkbox::Checkbox",
+        "src/components/ui/command::Command",
+        "src/components/ui/command::CommandDialog",
+        "src/components/ui/command::CommandEmpty",
+        "src/components/ui/command::CommandGroup",
+        "src/components/ui/command::CommandInput",
+        "src/components/ui/command::CommandItem",
+        "src/components/ui/command::CommandList",
+        "src/components/ui/command::CommandSeparator",
+        "src/components/ui/command::CommandShortcut",
+        "src/components/ui/context-menu::ContextMenuCheckboxItem",
+        "src/components/ui/context-menu::ContextMenuContent",
+        "src/components/ui/context-menu::ContextMenuItem",
+        "src/components/ui/context-menu::ContextMenuLabel",
+        "src/components/ui/context-menu::ContextMenuRadioItem",
+        "src/components/ui/context-menu::ContextMenuSeparator",
+        "src/components/ui/context-menu::ContextMenuShortcut",
+        "src/components/ui/context-menu::ContextMenuSubContent",
+        "src/components/ui/context-menu::ContextMenuSubTrigger",
+        "src/components/ui/dialog::DialogContent",
+        "src/components/ui/dialog::DialogDescription",
+        "src/components/ui/dialog::DialogFooter",
+        "src/components/ui/dialog::DialogHeader",
+        "src/components/ui/dialog::DialogOverlay",
+        "src/components/ui/dialog::DialogTitle",
+        "src/components/ui/drawer::Drawer",
+        "src/components/ui/drawer::DrawerContent",
+        "src/components/ui/drawer::DrawerDescription",
+        "src/components/ui/drawer::DrawerFooter",
+        "src/components/ui/drawer::DrawerHeader",
+        "src/components/ui/drawer::DrawerOverlay",
+        "src/components/ui/drawer::DrawerTitle",
+        "src/components/ui/dropdown-menu::DropdownMenuCheckboxItem",
+        "src/components/ui/dropdown-menu::DropdownMenuContent",
+        "src/components/ui/dropdown-menu::DropdownMenuItem",
+        "src/components/ui/dropdown-menu::DropdownMenuLabel",
+        "src/components/ui/dropdown-menu::DropdownMenuRadioItem",
+        "src/components/ui/dropdown-menu::DropdownMenuSeparator",
+        "src/components/ui/dropdown-menu::DropdownMenuShortcut",
+        "src/components/ui/dropdown-menu::DropdownMenuSubContent",
+        "src/components/ui/dropdown-menu::DropdownMenuSubTrigger",
+        "src/components/ui/form::FormControl",
+        "src/components/ui/form::FormDescription",
+        "src/components/ui/form::FormField",
+        "src/components/ui/form::FormItem",
+        "src/components/ui/form::FormLabel",
+        "src/components/ui/form::FormMessage",
+        "src/components/ui/hover-card::HoverCardContent",
+        "src/components/ui/input-otp::InputOTP",
+        "src/components/ui/input-otp::InputOTPGroup",
+        "src/components/ui/input-otp::InputOTPSeparator",
+        "src/components/ui/input-otp::InputOTPSlot",
+        "src/components/ui/input::Input",
+        "src/components/ui/label::Label",
+        "src/components/ui/menubar::Menubar",
+        "src/components/ui/menubar::MenubarCheckboxItem",
+        "src/components/ui/menubar::MenubarContent",
+        "src/components/ui/menubar::MenubarGroup",
+        "src/components/ui/menubar::MenubarItem",
+        "src/components/ui/menubar::MenubarLabel",
+        "src/components/ui/menubar::MenubarMenu",
+        "src/components/ui/menubar::MenubarPortal",
+        "src/components/ui/menubar::MenubarRadioGroup",
+        "src/components/ui/menubar::MenubarRadioItem",
+        "src/components/ui/menubar::MenubarSeparator",
+        "src/components/ui/menubar::MenubarShortcut",
+        "src/components/ui/menubar::MenubarSub",
+        "src/components/ui/menubar::MenubarSubContent",
+        "src/components/ui/menubar::MenubarSubTrigger",
+        "src/components/ui/menubar::MenubarTrigger",
+        "src/components/ui/navigation-menu::NavigationMenu",
+        "src/components/ui/navigation-menu::NavigationMenuContent",
+        "src/components/ui/navigation-menu::NavigationMenuIndicator",
+        "src/components/ui/navigation-menu::NavigationMenuList",
+        "src/components/ui/navigation-menu::NavigationMenuTrigger",
+        "src/components/ui/navigation-menu::NavigationMenuViewport",
+        "src/components/ui/pagination::Pagination",
+        "src/components/ui/pagination::PaginationContent",
+        "src/components/ui/pagination::PaginationEllipsis",
+        "src/components/ui/pagination::PaginationItem",
+        "src/components/ui/pagination::PaginationLink",
+        "src/components/ui/pagination::PaginationNext",
+        "src/components/ui/pagination::PaginationPrevious",
+        "src/components/ui/popover::PopoverContent",
+        "src/components/ui/progress::Progress",
+        "src/components/ui/radio-group::RadioGroup",
+        "src/components/ui/radio-group::RadioGroupItem",
+        "src/components/ui/resizable::ResizableHandle",
+        "src/components/ui/resizable::ResizablePanelGroup",
+        "src/components/ui/scroll-area::ScrollArea",
+        "src/components/ui/scroll-area::ScrollBar",
+        "src/components/ui/select::SelectContent",
+        "src/components/ui/select::SelectItem",
+        "src/components/ui/select::SelectLabel",
+        "src/components/ui/select::SelectScrollDownButton",
+        "src/components/ui/select::SelectScrollUpButton",
+        "src/components/ui/select::SelectSeparator",
+        "src/components/ui/select::SelectTrigger",
+        "src/components/ui/separator::Separator",
+        "src/components/ui/sheet::SheetContent",
+        "src/components/ui/sheet::SheetDescription",
+        "src/components/ui/sheet::SheetFooter",
+        "src/components/ui/sheet::SheetHeader",
+        "src/components/ui/sheet::SheetOverlay",
+        "src/components/ui/sheet::SheetTitle",
+        "src/components/ui/sidebar::Sidebar",
+        "src/components/ui/sidebar::SidebarContent",
+        "src/components/ui/sidebar::SidebarFooter",
+        "src/components/ui/sidebar::SidebarGroup",
+        "src/components/ui/sidebar::SidebarGroupAction",
+        "src/components/ui/sidebar::SidebarGroupContent",
+        "src/components/ui/sidebar::SidebarGroupLabel",
+        "src/components/ui/sidebar::SidebarHeader",
+        "src/components/ui/sidebar::SidebarInput",
+        "src/components/ui/sidebar::SidebarInset",
+        "src/components/ui/sidebar::SidebarMenu",
+        "src/components/ui/sidebar::SidebarMenuAction",
+        "src/components/ui/sidebar::SidebarMenuBadge",
+        "src/components/ui/sidebar::SidebarMenuButton",
+        "src/components/ui/sidebar::SidebarMenuItem",
+        "src/components/ui/sidebar::SidebarMenuSkeleton",
+        "src/components/ui/sidebar::SidebarMenuSub",
+        "src/components/ui/sidebar::SidebarMenuSubButton",
+        "src/components/ui/sidebar::SidebarMenuSubItem",
+        "src/components/ui/sidebar::SidebarProvider",
+        "src/components/ui/sidebar::SidebarRail",
+        "src/components/ui/sidebar::SidebarSeparator",
+        "src/components/ui/sidebar::SidebarTrigger",
+        "src/components/ui/skeleton::Skeleton",
+        "src/components/ui/slider::Slider",
+        "src/components/ui/sonner::Toaster",
+        "src/components/ui/switch::Switch",
+        "src/components/ui/table::Table",
+        "src/components/ui/table::TableBody",
+        "src/components/ui/table::TableCaption",
+        "src/components/ui/table::TableCell",
+        "src/components/ui/table::TableFooter",
+        "src/components/ui/table::TableHead",
+        "src/components/ui/table::TableHeader",
+        "src/components/ui/table::TableRow",
+        "src/components/ui/tabs::TabsContent",
+        "src/components/ui/tabs::TabsList",
+        "src/components/ui/tabs::TabsTrigger",
+        "src/components/ui/textarea::Textarea",
+        "src/components/ui/toggle-group::ToggleGroup",
+        "src/components/ui/toggle-group::ToggleGroupItem",
+        "src/components/ui/toggle::Toggle",
+        "src/components/ui/tooltip::TooltipContent"
+      ]
+    },
+    {
+      "id": "src/contexts/AuthContext",
+      "label": "AuthContext",
+      "section": "bodekasse",
+      "files": 1,
+      "tables": {},
+      "pages": [
+        "/bodekasse",
+        "/fixtures",
+        "/squad"
+      ],
+      "calls": [],
+      "components": [
+        "src/contexts/AuthContext::AuthProvider"
+      ]
+    },
+    {
+      "id": "src/contexts/SeasonContext",
+      "label": "SeasonContext",
+      "section": "/",
+      "files": 1,
+      "tables": {
+        "seasons": "write"
+      },
+      "pages": [
+        "/",
+        "/fixtures",
+        "/squad",
+        "/stats"
+      ],
+      "calls": [],
+      "components": [
+        "src/contexts/SeasonContext::SeasonProvider"
+      ]
+    },
+    {
+      "id": "src/router",
+      "label": "router",
+      "section": null,
+      "files": 1,
+      "tables": {},
+      "pages": [],
+      "calls": [],
+      "components": [
+        "src/router::DefaultErrorComponent"
+      ]
+    },
+    {
+      "id": "src/routes/__root",
+      "label": "__root",
+      "section": null,
+      "files": 1,
+      "tables": {},
+      "pages": [],
+      "calls": [],
+      "components": [
+        "src/routes/__root::AuthButton",
+        "src/routes/__root::BottomTab",
+        "src/routes/__root::DesktopNavLink",
+        "src/routes/__root::NotFoundComponent",
+        "src/routes/__root::RootComponent",
+        "src/routes/__root::RootShell"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "id": "fines",
+      "section": "bodekasse",
+      "sections": [
+        "bodekasse"
+      ]
+    },
+    {
+      "id": "fixture_attendance",
+      "section": "fixtures",
+      "sections": [
+        "fixtures"
+      ]
+    },
+    {
+      "id": "fixture_events",
+      "section": "fixtures",
+      "sections": [
+        "fixtures",
+        "stats"
+      ]
+    },
+    {
+      "id": "fixture_lineups",
+      "section": "fixtures",
+      "sections": [
+        "/",
+        "fixtures"
+      ]
+    },
+    {
+      "id": "fixtures",
+      "section": "fixtures",
+      "sections": [
+        "/",
+        "fixtures",
+        "stats"
+      ]
+    },
+    {
+      "id": "players",
+      "section": "squad",
+      "sections": [
+        "/",
+        "bodekasse",
+        "fixtures",
+        "squad",
+        "stats"
+      ]
+    },
+    {
+      "id": "season_players",
+      "section": "squad",
+      "sections": [
+        "fixtures",
+        "squad"
+      ]
+    },
+    {
+      "id": "seasons",
+      "section": null,
+      "sections": []
+    }
+  ],
+  "ai": [],
+  "services": [],
+  "shared": [
+    "src/components/ui",
+    "src/contexts/AuthContext",
+    "src/contexts/SeasonContext",
+    "src/integrations/supabase"
+  ],
+  "gaps": [
+    {
+      "kind": "good-to-know",
+      "text": "A few of the code groups are used by no page this map can follow (background jobs, webhooks, other apps, or calls built at runtime), so they belong to no section.",
+      "detail": "1 of 9 groups"
+    },
+    {
+      "kind": "good-to-know",
+      "text": "Most of the components with an id are rendered by no page this map can follow (a page outside the menu, a screen opened at runtime, or unused), so they are listed under their code only.",
+      "detail": "179 of 224 components"
+    },
+    {
+      "kind": "good-to-know",
+      "text": "Some links in the code are missing: imports of the product's own code that resolve to no file.",
+      "detail": "2 imports"
+    }
+  ]
+}

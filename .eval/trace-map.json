@@ -1,0 +1,6554 @@
+{
+  "schema": "evaluation-tool/trace-map@1",
+  "topology": {
+    "hasWebClient": true,
+    "hasNativeClient": false,
+    "hasServer": true,
+    "serverless": false,
+    "frameworks": [
+      "TanStack Start",
+      "Vite"
+    ]
+  },
+  "summary": {
+    "files": 72,
+    "components": 224,
+    "elements": 98,
+    "prompts": 0,
+    "aiCallSites": 0,
+    "aiCallSitesUnlinked": 0,
+    "filesNotAnalysedForAiCalls": 0,
+    "aiDependencies": 0,
+    "aiDependenciesUnexplained": 0,
+    "aiEvidenceProviders": 0,
+    "aiEvidenceUnexplained": 0,
+    "ownEndpointsCalled": 0,
+    "ownEndpointsUnanswered": 0,
+    "sharedCallSites": 0,
+    "promptsNotPrompts": 0,
+    "scanComplete": true
+  },
+  "units": [
+    {
+      "id": "handler",
+      "kind": "function",
+      "name": "handler",
+      "description": "Exported Function 'handler'. Params: req, res.",
+      "file": "api/ssr.js",
+      "startLine": 4,
+      "endLine": 41,
+      "props": [
+        "req",
+        "res"
+      ],
+      "exported": true
+    },
+    {
+      "id": "api/ssr.js",
+      "kind": "file",
+      "name": "api/ssr.js",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "api/ssr.js",
+      "startLine": 1,
+      "endLine": 42
+    },
+    {
+      "id": "eslint.config.js",
+      "kind": "file",
+      "name": "eslint.config.js",
+      "description": "Source module: 0 top-level artifacts.",
+      "file": "eslint.config.js",
+      "startLine": 1,
+      "endLine": 29
+    },
+    {
+      "id": "AttendancePanel",
+      "kind": "component",
+      "name": "AttendancePanel",
+      "description": "Function component. Props: fixtureId, players, playedAt, kickoffTime. Hooks: useAuth, useState, useEffect, useMemo. Renders: section, div, h3, p, SignupCountdown, AttendanceColumn, PlayerRow, Lock, +2 more.",
+      "file": "src/components/AttendancePanel.tsx",
+      "startLine": 37,
+      "endLine": 165,
+      "childIds": [
+        "AttendancePanel.playerrow",
+        "AttendancePanel.answerbutton",
+        "AttendancePanel.answerbutton-2",
+        "AttendancePanel.playerrow-2",
+        "AttendancePanel.answerbutton-3",
+        "AttendancePanel.playerrow-3",
+        "AttendancePanel.answerbutton-4"
+      ],
+      "props": [
+        "fixtureId",
+        "players",
+        "playedAt",
+        "kickoffTime"
+      ],
+      "hooks": [
+        "useAuth",
+        "useState",
+        "useEffect",
+        "useMemo"
+      ],
+      "sections": [
+        "Tilmelding"
+      ],
+      "visibleText": [
+        "Tilmelding",
+        "Ej tilkendegivet",
+        "Tilmeldt",
+        "Afmeld igen",
+        "Afmeldt",
+        "Tilmeld igen"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "SignupCountdown",
+      "kind": "component",
+      "name": "SignupCountdown",
+      "description": "Function component. Props: remaining, deadline, canOverride. Renders: div, Lock, Timer.",
+      "file": "src/components/AttendancePanel.tsx",
+      "startLine": 167,
+      "endLine": 203,
+      "props": [
+        "remaining",
+        "deadline",
+        "canOverride"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "AttendanceColumn",
+      "kind": "component",
+      "name": "AttendanceColumn",
+      "description": "Function component. Props: title, count, tone, empty, children. Renders: div, span, p.",
+      "file": "src/components/AttendancePanel.tsx",
+      "startLine": 205,
+      "endLine": 225,
+      "props": [
+        "title",
+        "count",
+        "tone",
+        "empty",
+        "children"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "PlayerRow",
+      "kind": "component",
+      "name": "PlayerRow",
+      "description": "Function component. Props: player, current, onAnswer, locked, children. Renders: div, span, ContextMenu, ContextMenuTrigger, ContextMenuContent, ContextMenuSeparator, ContextMenuItem, Plus.",
+      "file": "src/components/AttendancePanel.tsx",
+      "startLine": 227,
+      "endLine": 266,
+      "childIds": [
+        "PlayerRow.contextmenuitem",
+        "PlayerRow.contextmenuitem-2",
+        "PlayerRow.contextmenuitem-3"
+      ],
+      "props": [
+        "player",
+        "current",
+        "onAnswer",
+        "locked",
+        "children"
+      ],
+      "visibleText": [
+        "Tilmeld",
+        "Afmeld",
+        "Flyt til Ej tilkendegivet"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "AnswerButton",
+      "kind": "component",
+      "name": "AnswerButton",
+      "description": "Function component. Props: kind, onClick, label, icon. Renders: button, Plus, Minus.",
+      "file": "src/components/AttendancePanel.tsx",
+      "startLine": 268,
+      "endLine": 287,
+      "childIds": [
+        "AnswerButton.button"
+      ],
+      "props": [
+        "kind",
+        "onClick",
+        "label",
+        "icon"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "signupDeadline",
+      "kind": "function",
+      "name": "signupDeadline",
+      "description": "Function 'signupDeadline'. Params: playedAt, kickoffTime.",
+      "file": "src/components/AttendancePanel.tsx",
+      "startLine": 19,
+      "endLine": 23,
+      "props": [
+        "playedAt",
+        "kickoffTime"
+      ]
+    },
+    {
+      "id": "formatCountdown",
+      "kind": "function",
+      "name": "formatCountdown",
+      "description": "Function 'formatCountdown'. Params: ms.",
+      "file": "src/components/AttendancePanel.tsx",
+      "startLine": 25,
+      "endLine": 33,
+      "props": [
+        "ms"
+      ]
+    },
+    {
+      "id": "AttendancePanel.playerrow",
+      "kind": "element",
+      "name": "PlayerRow",
+      "description": "<PlayerRow> component. Handlers: onAnswer.",
+      "file": "src/components/AttendancePanel.tsx",
+      "startLine": 126,
+      "endLine": 135,
+      "selector": "[data-uxid=\"AttendancePanel.playerrow\"]",
+      "parentId": "AttendancePanel",
+      "refId": "PlayerRow",
+      "handlers": [
+        "onAnswer"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "AttendancePanel.answerbutton",
+      "kind": "element",
+      "name": "AnswerButton",
+      "description": "<AnswerButton> component. Handlers: onClick.",
+      "file": "src/components/AttendancePanel.tsx",
+      "startLine": 131,
+      "endLine": 131,
+      "selector": "[data-uxid=\"AttendancePanel.answerbutton\"]",
+      "parentId": "AttendancePanel",
+      "refId": "AnswerButton",
+      "handlers": [
+        "onClick"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "AttendancePanel.answerbutton-2",
+      "kind": "element",
+      "name": "AnswerButton",
+      "description": "<AnswerButton> component. Handlers: onClick.",
+      "file": "src/components/AttendancePanel.tsx",
+      "startLine": 132,
+      "endLine": 132,
+      "selector": "[data-uxid=\"AttendancePanel.answerbutton-2\"]",
+      "parentId": "AttendancePanel",
+      "refId": "AnswerButton",
+      "handlers": [
+        "onClick"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "AttendancePanel.playerrow-2",
+      "kind": "element",
+      "name": "PlayerRow",
+      "description": "<PlayerRow> component. Handlers: onAnswer.",
+      "file": "src/components/AttendancePanel.tsx",
+      "startLine": 141,
+      "endLine": 147,
+      "selector": "[data-uxid=\"AttendancePanel.playerrow-2\"]",
+      "parentId": "AttendancePanel",
+      "refId": "PlayerRow",
+      "handlers": [
+        "onAnswer"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "AttendancePanel.answerbutton-3",
+      "kind": "element",
+      "name": "AnswerButton",
+      "description": "<AnswerButton> component. Handlers: onClick.",
+      "file": "src/components/AttendancePanel.tsx",
+      "startLine": 145,
+      "endLine": 145,
+      "selector": "[data-uxid=\"AttendancePanel.answerbutton-3\"]",
+      "parentId": "AttendancePanel",
+      "refId": "AnswerButton",
+      "handlers": [
+        "onClick"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "AttendancePanel.playerrow-3",
+      "kind": "element",
+      "name": "PlayerRow",
+      "description": "<PlayerRow> component. Handlers: onAnswer.",
+      "file": "src/components/AttendancePanel.tsx",
+      "startLine": 153,
+      "endLine": 159,
+      "selector": "[data-uxid=\"AttendancePanel.playerrow-3\"]",
+      "parentId": "AttendancePanel",
+      "refId": "PlayerRow",
+      "handlers": [
+        "onAnswer"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "AttendancePanel.answerbutton-4",
+      "kind": "element",
+      "name": "AnswerButton",
+      "description": "<AnswerButton> component. Handlers: onClick.",
+      "file": "src/components/AttendancePanel.tsx",
+      "startLine": 157,
+      "endLine": 157,
+      "selector": "[data-uxid=\"AttendancePanel.answerbutton-4\"]",
+      "parentId": "AttendancePanel",
+      "refId": "AnswerButton",
+      "handlers": [
+        "onClick"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "PlayerRow.contextmenuitem",
+      "kind": "element",
+      "name": "ContextMenuItem",
+      "description": "<ContextMenuItem> component. can be disabled, labelled \"Tilmeld\". Handlers: onSelect.",
+      "file": "src/components/AttendancePanel.tsx",
+      "startLine": 253,
+      "endLine": 255,
+      "selector": "[data-uxid=\"PlayerRow.contextmenuitem\"]",
+      "parentId": "PlayerRow",
+      "refId": "ContextMenuItem",
+      "accessibleName": "Tilmeld",
+      "handlers": [
+        "onSelect"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "PlayerRow.contextmenuitem-2",
+      "kind": "element",
+      "name": "ContextMenuItem",
+      "description": "<ContextMenuItem> component. can be disabled, labelled \"Afmeld\". Handlers: onSelect.",
+      "file": "src/components/AttendancePanel.tsx",
+      "startLine": 256,
+      "endLine": 258,
+      "selector": "[data-uxid=\"PlayerRow.contextmenuitem-2\"]",
+      "parentId": "PlayerRow",
+      "refId": "ContextMenuItem",
+      "accessibleName": "Afmeld",
+      "handlers": [
+        "onSelect"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "PlayerRow.contextmenuitem-3",
+      "kind": "element",
+      "name": "ContextMenuItem",
+      "description": "<ContextMenuItem> component. can be disabled, labelled \"Flyt til Ej tilkendegivet\". Handlers: onSelect.",
+      "file": "src/components/AttendancePanel.tsx",
+      "startLine": 260,
+      "endLine": 262,
+      "selector": "[data-uxid=\"PlayerRow.contextmenuitem-3\"]",
+      "parentId": "PlayerRow",
+      "refId": "ContextMenuItem",
+      "accessibleName": "Flyt til Ej tilkendegivet",
+      "handlers": [
+        "onSelect"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "AnswerButton.button",
+      "kind": "element",
+      "name": "button",
+      "description": "Button. Handlers: onClick.",
+      "file": "src/components/AttendancePanel.tsx",
+      "startLine": 274,
+      "endLine": 285,
+      "selector": "[data-uxid=\"AnswerButton.button\"]",
+      "parentId": "AnswerButton",
+      "handlers": [
+        "onClick"
+      ]
+    },
+    {
+      "id": "src/components/AttendancePanel.tsx",
+      "kind": "file",
+      "name": "src/components/AttendancePanel.tsx",
+      "description": "Source module: 7 top-level artifacts.",
+      "file": "src/components/AttendancePanel.tsx",
+      "startLine": 1,
+      "endLine": 288
+    },
+    {
+      "id": "FixtureCalendar",
+      "kind": "component",
+      "name": "FixtureCalendar",
+      "description": "Function component. Props: fixtures. Hooks: useState, useMemo. Renders: div, span, Button, ChevronLeft, ChevronRight, Link.",
+      "file": "src/components/FixtureCalendar.tsx",
+      "startLine": 28,
+      "endLine": 112,
+      "childIds": [
+        "FixtureCalendar.button",
+        "FixtureCalendar.button-2"
+      ],
+      "props": [
+        "fixtures"
+      ],
+      "hooks": [
+        "useState",
+        "useMemo"
+      ],
+      "visibleText": [
+        "Forrige måned",
+        "Næste måned"
+      ],
+      "routes": [
+        "/fixtures"
+      ]
+    },
+    {
+      "id": "dayKey",
+      "kind": "function",
+      "name": "dayKey",
+      "description": "Function 'dayKey'. Params: d.",
+      "file": "src/components/FixtureCalendar.tsx",
+      "startLine": 18,
+      "endLine": 18,
+      "props": [
+        "d"
+      ]
+    },
+    {
+      "id": "resultTone",
+      "kind": "function",
+      "name": "resultTone",
+      "description": "Function 'resultTone'. Params: f.",
+      "file": "src/components/FixtureCalendar.tsx",
+      "startLine": 20,
+      "endLine": 25,
+      "props": [
+        "f"
+      ]
+    },
+    {
+      "id": "FixtureCalendar.button",
+      "kind": "element",
+      "name": "Button",
+      "description": "<Button> component. labelled \"Forrige måned\". Handlers: onClick.",
+      "file": "src/components/FixtureCalendar.tsx",
+      "startLine": 56,
+      "endLine": 58,
+      "selector": "[data-uxid=\"FixtureCalendar.button\"]",
+      "parentId": "FixtureCalendar",
+      "refId": "Button",
+      "accessibleName": "Forrige måned",
+      "handlers": [
+        "onClick"
+      ],
+      "routes": [
+        "/bodekasse",
+        "/fixtures",
+        "/fixtures/*",
+        "/squad",
+        "/stats"
+      ]
+    },
+    {
+      "id": "FixtureCalendar.button-2",
+      "kind": "element",
+      "name": "Button",
+      "description": "<Button> component. labelled \"Næste måned\". Handlers: onClick.",
+      "file": "src/components/FixtureCalendar.tsx",
+      "startLine": 65,
+      "endLine": 67,
+      "selector": "[data-uxid=\"FixtureCalendar.button-2\"]",
+      "parentId": "FixtureCalendar",
+      "refId": "Button",
+      "accessibleName": "Næste måned",
+      "handlers": [
+        "onClick"
+      ],
+      "routes": [
+        "/bodekasse",
+        "/fixtures",
+        "/fixtures/*",
+        "/squad",
+        "/stats"
+      ]
+    },
+    {
+      "id": "src/components/FixtureCalendar.tsx",
+      "kind": "file",
+      "name": "src/components/FixtureCalendar.tsx",
+      "description": "Source module: 3 top-level artifacts.",
+      "file": "src/components/FixtureCalendar.tsx",
+      "startLine": 1,
+      "endLine": 113
+    },
+    {
+      "id": "SeasonPicker",
+      "kind": "component",
+      "name": "SeasonPicker",
+      "description": "Function component. Props: className. Hooks: useSeason, useAuth. Renders: span, Select, SelectTrigger, SelectValue, SelectContent, SelectItem, SelectSeparator.",
+      "file": "src/components/SeasonPicker.tsx",
+      "startLine": 7,
+      "endLine": 53,
+      "childIds": [
+        "SeasonPicker.select"
+      ],
+      "props": [
+        "className"
+      ],
+      "hooks": [
+        "useSeason",
+        "useAuth"
+      ],
+      "visibleText": [
+        "Ingen sæsoner fundet — kør databasemigrationen (supabase db push)",
+        "Vælg sæson"
+      ]
+    },
+    {
+      "id": "SeasonPicker.select",
+      "kind": "element",
+      "name": "Select",
+      "description": "<Select> component. Handlers: onValueChange.",
+      "file": "src/components/SeasonPicker.tsx",
+      "startLine": 32,
+      "endLine": 51,
+      "selector": "[data-uxid=\"SeasonPicker.select\"]",
+      "parentId": "SeasonPicker",
+      "handlers": [
+        "onValueChange"
+      ],
+      "routes": [
+        "/bodekasse",
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "src/components/SeasonPicker.tsx",
+      "kind": "file",
+      "name": "src/components/SeasonPicker.tsx",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/components/SeasonPicker.tsx",
+      "startLine": 1,
+      "endLine": 54
+    },
+    {
+      "id": "AccordionItem",
+      "kind": "component",
+      "name": "AccordionItem",
+      "description": "Wrapped component. Props: className, ...props. Renders: AccordionPrimitive.Item.",
+      "file": "src/components/ui/accordion.tsx",
+      "startLine": 9,
+      "endLine": 14,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "AccordionTrigger",
+      "kind": "component",
+      "name": "AccordionTrigger",
+      "description": "Wrapped component. Props: className, children, ...props. Renders: AccordionPrimitive.Header, AccordionPrimitive.Trigger, ChevronDown.",
+      "file": "src/components/ui/accordion.tsx",
+      "startLine": 17,
+      "endLine": 34,
+      "props": [
+        "className",
+        "children",
+        "...props"
+      ]
+    },
+    {
+      "id": "AccordionContent",
+      "kind": "component",
+      "name": "AccordionContent",
+      "description": "Wrapped component. Props: className, children, ...props. Renders: div, AccordionPrimitive.Content.",
+      "file": "src/components/ui/accordion.tsx",
+      "startLine": 37,
+      "endLine": 48,
+      "props": [
+        "className",
+        "children",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/accordion.tsx",
+      "kind": "file",
+      "name": "src/components/ui/accordion.tsx",
+      "description": "Source module: 3 top-level artifacts.",
+      "file": "src/components/ui/accordion.tsx",
+      "startLine": 1,
+      "endLine": 52
+    },
+    {
+      "id": "AlertDialogOverlay",
+      "kind": "component",
+      "name": "AlertDialogOverlay",
+      "description": "Wrapped component. Props: className, ...props. Renders: AlertDialogPrimitive.Overlay.",
+      "file": "src/components/ui/alert-dialog.tsx",
+      "startLine": 13,
+      "endLine": 25,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "AlertDialogContent",
+      "kind": "component",
+      "name": "AlertDialogContent",
+      "description": "Wrapped component. Props: className, ...props. Renders: AlertDialogPortal, AlertDialogOverlay, AlertDialogPrimitive.Content.",
+      "file": "src/components/ui/alert-dialog.tsx",
+      "startLine": 28,
+      "endLine": 43,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "AlertDialogHeader",
+      "kind": "component",
+      "name": "AlertDialogHeader",
+      "description": "Arrow function component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/alert-dialog.tsx",
+      "startLine": 46,
+      "endLine": 48,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "AlertDialogFooter",
+      "kind": "component",
+      "name": "AlertDialogFooter",
+      "description": "Arrow function component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/alert-dialog.tsx",
+      "startLine": 51,
+      "endLine": 56,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "AlertDialogTitle",
+      "kind": "component",
+      "name": "AlertDialogTitle",
+      "description": "Wrapped component. Props: className, ...props. Renders: AlertDialogPrimitive.Title.",
+      "file": "src/components/ui/alert-dialog.tsx",
+      "startLine": 59,
+      "endLine": 68,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "AlertDialogDescription",
+      "kind": "component",
+      "name": "AlertDialogDescription",
+      "description": "Wrapped component. Props: className, ...props. Renders: AlertDialogPrimitive.Description.",
+      "file": "src/components/ui/alert-dialog.tsx",
+      "startLine": 71,
+      "endLine": 80,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "AlertDialogAction",
+      "kind": "component",
+      "name": "AlertDialogAction",
+      "description": "Wrapped component. Props: className, ...props. Renders: AlertDialogPrimitive.Action.",
+      "file": "src/components/ui/alert-dialog.tsx",
+      "startLine": 83,
+      "endLine": 88,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "AlertDialogCancel",
+      "kind": "component",
+      "name": "AlertDialogCancel",
+      "description": "Wrapped component. Props: className, ...props. Renders: AlertDialogPrimitive.Cancel.",
+      "file": "src/components/ui/alert-dialog.tsx",
+      "startLine": 91,
+      "endLine": 100,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/alert-dialog.tsx",
+      "kind": "file",
+      "name": "src/components/ui/alert-dialog.tsx",
+      "description": "Source module: 8 top-level artifacts.",
+      "file": "src/components/ui/alert-dialog.tsx",
+      "startLine": 1,
+      "endLine": 116
+    },
+    {
+      "id": "Alert",
+      "kind": "component",
+      "name": "Alert",
+      "description": "Wrapped component. Props: className, variant, ...props. Renders: div.",
+      "file": "src/components/ui/alert.tsx",
+      "startLine": 22,
+      "endLine": 27,
+      "childIds": [
+        "Alert.div"
+      ],
+      "props": [
+        "className",
+        "variant",
+        "...props"
+      ]
+    },
+    {
+      "id": "AlertTitle",
+      "kind": "component",
+      "name": "AlertTitle",
+      "description": "Wrapped component. Props: className, ...props. Renders: h5.",
+      "file": "src/components/ui/alert.tsx",
+      "startLine": 30,
+      "endLine": 37,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "AlertDescription",
+      "kind": "component",
+      "name": "AlertDescription",
+      "description": "Wrapped component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/alert.tsx",
+      "startLine": 41,
+      "endLine": 46,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "Alert.div",
+      "kind": "element",
+      "name": "div",
+      "description": "<div> element.",
+      "file": "src/components/ui/alert.tsx",
+      "startLine": 26,
+      "endLine": 26,
+      "selector": "[data-uxid=\"Alert.div\"]",
+      "parentId": "Alert"
+    },
+    {
+      "id": "src/components/ui/alert.tsx",
+      "kind": "file",
+      "name": "src/components/ui/alert.tsx",
+      "description": "Source module: 3 top-level artifacts.",
+      "file": "src/components/ui/alert.tsx",
+      "startLine": 1,
+      "endLine": 50
+    },
+    {
+      "id": "src/components/ui/aspect-ratio.tsx",
+      "kind": "file",
+      "name": "src/components/ui/aspect-ratio.tsx",
+      "description": "Source module: 0 top-level artifacts.",
+      "file": "src/components/ui/aspect-ratio.tsx",
+      "startLine": 1,
+      "endLine": 6
+    },
+    {
+      "id": "Avatar",
+      "kind": "component",
+      "name": "Avatar",
+      "description": "Wrapped component. Props: className, ...props. Renders: AvatarPrimitive.Root.",
+      "file": "src/components/ui/avatar.tsx",
+      "startLine": 8,
+      "endLine": 17,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "AvatarImage",
+      "kind": "component",
+      "name": "AvatarImage",
+      "description": "Wrapped component. Props: className, ...props. Renders: AvatarPrimitive.Image.",
+      "file": "src/components/ui/avatar.tsx",
+      "startLine": 20,
+      "endLine": 29,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "AvatarFallback",
+      "kind": "component",
+      "name": "AvatarFallback",
+      "description": "Wrapped component. Props: className, ...props. Renders: AvatarPrimitive.Fallback.",
+      "file": "src/components/ui/avatar.tsx",
+      "startLine": 32,
+      "endLine": 44,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/avatar.tsx",
+      "kind": "file",
+      "name": "src/components/ui/avatar.tsx",
+      "description": "Source module: 3 top-level artifacts.",
+      "file": "src/components/ui/avatar.tsx",
+      "startLine": 1,
+      "endLine": 48
+    },
+    {
+      "id": "Badge",
+      "kind": "component",
+      "name": "Badge",
+      "description": "Function component. Props: className, variant, ...props. Renders: div.",
+      "file": "src/components/ui/badge.tsx",
+      "startLine": 28,
+      "endLine": 30,
+      "props": [
+        "className",
+        "variant",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/badge.tsx",
+      "kind": "file",
+      "name": "src/components/ui/badge.tsx",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/components/ui/badge.tsx",
+      "startLine": 1,
+      "endLine": 33
+    },
+    {
+      "id": "Breadcrumb",
+      "kind": "component",
+      "name": "Breadcrumb",
+      "description": "Wrapped component. Props: ...props. Renders: nav.",
+      "file": "src/components/ui/breadcrumb.tsx",
+      "startLine": 7,
+      "endLine": 12,
+      "props": [
+        "...props"
+      ],
+      "visibleText": [
+        "breadcrumb"
+      ]
+    },
+    {
+      "id": "BreadcrumbList",
+      "kind": "component",
+      "name": "BreadcrumbList",
+      "description": "Wrapped component. Props: className, ...props. Renders: ol.",
+      "file": "src/components/ui/breadcrumb.tsx",
+      "startLine": 15,
+      "endLine": 25,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "BreadcrumbItem",
+      "kind": "component",
+      "name": "BreadcrumbItem",
+      "description": "Wrapped component. Props: className, ...props. Renders: li.",
+      "file": "src/components/ui/breadcrumb.tsx",
+      "startLine": 29,
+      "endLine": 32,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "BreadcrumbLink",
+      "kind": "component",
+      "name": "BreadcrumbLink",
+      "description": "Wrapped component. Props: asChild, className, ...props. Renders: Comp.",
+      "file": "src/components/ui/breadcrumb.tsx",
+      "startLine": 36,
+      "endLine": 51,
+      "props": [
+        "asChild",
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "BreadcrumbPage",
+      "kind": "component",
+      "name": "BreadcrumbPage",
+      "description": "Wrapped component. Props: className, ...props. Renders: span.",
+      "file": "src/components/ui/breadcrumb.tsx",
+      "startLine": 54,
+      "endLine": 64,
+      "childIds": [
+        "BreadcrumbPage.span"
+      ],
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "BreadcrumbSeparator",
+      "kind": "component",
+      "name": "BreadcrumbSeparator",
+      "description": "Arrow function component. Props: children, className, ...props. Renders: li, ChevronRight.",
+      "file": "src/components/ui/breadcrumb.tsx",
+      "startLine": 68,
+      "endLine": 77,
+      "childIds": [
+        "BreadcrumbSeparator.li"
+      ],
+      "props": [
+        "children",
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "BreadcrumbEllipsis",
+      "kind": "component",
+      "name": "BreadcrumbEllipsis",
+      "description": "Arrow function component. Props: className, ...props. Renders: span, MoreHorizontal.",
+      "file": "src/components/ui/breadcrumb.tsx",
+      "startLine": 80,
+      "endLine": 90,
+      "childIds": [
+        "BreadcrumbEllipsis.span"
+      ],
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "BreadcrumbPage.span",
+      "kind": "element",
+      "name": "span",
+      "description": "<span> element.",
+      "file": "src/components/ui/breadcrumb.tsx",
+      "startLine": 56,
+      "endLine": 63,
+      "selector": "[data-uxid=\"BreadcrumbPage.span\"]",
+      "parentId": "BreadcrumbPage"
+    },
+    {
+      "id": "BreadcrumbSeparator.li",
+      "kind": "element",
+      "name": "li",
+      "description": "<li> element.",
+      "file": "src/components/ui/breadcrumb.tsx",
+      "startLine": 69,
+      "endLine": 76,
+      "selector": "[data-uxid=\"BreadcrumbSeparator.li\"]",
+      "parentId": "BreadcrumbSeparator"
+    },
+    {
+      "id": "BreadcrumbEllipsis.span",
+      "kind": "element",
+      "name": "span",
+      "description": "<span> element.",
+      "file": "src/components/ui/breadcrumb.tsx",
+      "startLine": 81,
+      "endLine": 89,
+      "selector": "[data-uxid=\"BreadcrumbEllipsis.span\"]",
+      "parentId": "BreadcrumbEllipsis"
+    },
+    {
+      "id": "src/components/ui/breadcrumb.tsx",
+      "kind": "file",
+      "name": "src/components/ui/breadcrumb.tsx",
+      "description": "Source module: 7 top-level artifacts.",
+      "file": "src/components/ui/breadcrumb.tsx",
+      "startLine": 1,
+      "endLine": 102
+    },
+    {
+      "id": "Button",
+      "kind": "component",
+      "name": "Button",
+      "description": "Wrapped component. Props: className, variant, size, asChild, ...props. Renders: Comp.",
+      "file": "src/components/ui/button.tsx",
+      "startLine": 39,
+      "endLine": 45,
+      "props": [
+        "className",
+        "variant",
+        "size",
+        "asChild",
+        "...props"
+      ],
+      "routes": [
+        "/bodekasse",
+        "/fixtures",
+        "/fixtures/*",
+        "/squad",
+        "/stats"
+      ]
+    },
+    {
+      "id": "src/components/ui/button.tsx",
+      "kind": "file",
+      "name": "src/components/ui/button.tsx",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/components/ui/button.tsx",
+      "startLine": 1,
+      "endLine": 50
+    },
+    {
+      "id": "Calendar",
+      "kind": "component",
+      "name": "Calendar",
+      "description": "Function component. Props: className, classNames, showOutsideDays, captionLayout, buttonVariant, formatters, +2 more. Renders: div, td, DayPicker, ChevronLeftIcon, ChevronRightIcon, ChevronDownIcon.",
+      "file": "src/components/ui/calendar.tsx",
+      "startLine": 10,
+      "endLine": 137,
+      "props": [
+        "className",
+        "classNames",
+        "showOutsideDays",
+        "captionLayout",
+        "buttonVariant",
+        "formatters",
+        "components",
+        "...props"
+      ]
+    },
+    {
+      "id": "CalendarDayButton",
+      "kind": "component",
+      "name": "CalendarDayButton",
+      "description": "Function component. Props: className, day, modifiers, ...props. Hooks: useRef, useEffect. Renders: Button.",
+      "file": "src/components/ui/calendar.tsx",
+      "startLine": 139,
+      "endLine": 175,
+      "props": [
+        "className",
+        "day",
+        "modifiers",
+        "...props"
+      ],
+      "hooks": [
+        "useRef",
+        "useEffect"
+      ]
+    },
+    {
+      "id": "src/components/ui/calendar.tsx",
+      "kind": "file",
+      "name": "src/components/ui/calendar.tsx",
+      "description": "Source module: 2 top-level artifacts.",
+      "file": "src/components/ui/calendar.tsx",
+      "startLine": 1,
+      "endLine": 178
+    },
+    {
+      "id": "Card",
+      "kind": "component",
+      "name": "Card",
+      "description": "Wrapped component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/card.tsx",
+      "startLine": 5,
+      "endLine": 12,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "CardHeader",
+      "kind": "component",
+      "name": "CardHeader",
+      "description": "Wrapped component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/card.tsx",
+      "startLine": 16,
+      "endLine": 19,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "CardTitle",
+      "kind": "component",
+      "name": "CardTitle",
+      "description": "Wrapped component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/card.tsx",
+      "startLine": 23,
+      "endLine": 30,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "CardDescription",
+      "kind": "component",
+      "name": "CardDescription",
+      "description": "Wrapped component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/card.tsx",
+      "startLine": 34,
+      "endLine": 37,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "CardContent",
+      "kind": "component",
+      "name": "CardContent",
+      "description": "Wrapped component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/card.tsx",
+      "startLine": 41,
+      "endLine": 44,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "CardFooter",
+      "kind": "component",
+      "name": "CardFooter",
+      "description": "Wrapped component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/card.tsx",
+      "startLine": 48,
+      "endLine": 51,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/card.tsx",
+      "kind": "file",
+      "name": "src/components/ui/card.tsx",
+      "description": "Source module: 6 top-level artifacts.",
+      "file": "src/components/ui/card.tsx",
+      "startLine": 1,
+      "endLine": 56
+    },
+    {
+      "id": "Carousel",
+      "kind": "component",
+      "name": "Carousel",
+      "description": "Wrapped component. Props: orientation, opts, setApi, plugins, className, children, +1 more. Hooks: useEmblaCarousel, useState, useCallback, useEffect. Renders: div, CarouselContext.Provider.",
+      "file": "src/components/ui/carousel.tsx",
+      "startLine": 41,
+      "endLine": 132,
+      "childIds": [
+        "Carousel.div"
+      ],
+      "props": [
+        "orientation",
+        "opts",
+        "setApi",
+        "plugins",
+        "className",
+        "children",
+        "...props"
+      ],
+      "hooks": [
+        "useEmblaCarousel",
+        "useState",
+        "useCallback",
+        "useEffect"
+      ]
+    },
+    {
+      "id": "CarouselContent",
+      "kind": "component",
+      "name": "CarouselContent",
+      "description": "Wrapped component. Props: className, ...props. Hooks: useCarousel. Renders: div.",
+      "file": "src/components/ui/carousel.tsx",
+      "startLine": 135,
+      "endLine": 152,
+      "props": [
+        "className",
+        "...props"
+      ],
+      "hooks": [
+        "useCarousel"
+      ]
+    },
+    {
+      "id": "CarouselItem",
+      "kind": "component",
+      "name": "CarouselItem",
+      "description": "Wrapped component. Props: className, ...props. Hooks: useCarousel. Renders: div.",
+      "file": "src/components/ui/carousel.tsx",
+      "startLine": 156,
+      "endLine": 173,
+      "childIds": [
+        "CarouselItem.div"
+      ],
+      "props": [
+        "className",
+        "...props"
+      ],
+      "hooks": [
+        "useCarousel"
+      ]
+    },
+    {
+      "id": "CarouselPrevious",
+      "kind": "component",
+      "name": "CarouselPrevious",
+      "description": "Wrapped component. Props: className, variant, size, ...props. Hooks: useCarousel. Renders: span, Button, ArrowLeft.",
+      "file": "src/components/ui/carousel.tsx",
+      "startLine": 177,
+      "endLine": 201,
+      "childIds": [
+        "CarouselPrevious.button"
+      ],
+      "props": [
+        "className",
+        "variant",
+        "size",
+        "...props"
+      ],
+      "hooks": [
+        "useCarousel"
+      ],
+      "visibleText": [
+        "Previous slide"
+      ]
+    },
+    {
+      "id": "CarouselNext",
+      "kind": "component",
+      "name": "CarouselNext",
+      "description": "Wrapped component. Props: className, variant, size, ...props. Hooks: useCarousel. Renders: span, Button, ArrowRight.",
+      "file": "src/components/ui/carousel.tsx",
+      "startLine": 205,
+      "endLine": 229,
+      "childIds": [
+        "CarouselNext.button"
+      ],
+      "props": [
+        "className",
+        "variant",
+        "size",
+        "...props"
+      ],
+      "hooks": [
+        "useCarousel"
+      ],
+      "visibleText": [
+        "Next slide"
+      ]
+    },
+    {
+      "id": "useCarousel",
+      "kind": "hook",
+      "name": "useCarousel",
+      "description": "Custom hook 'useCarousel'.",
+      "file": "src/components/ui/carousel.tsx",
+      "startLine": 31,
+      "endLine": 39
+    },
+    {
+      "id": "Carousel.div",
+      "kind": "element",
+      "name": "div",
+      "description": "<div> element. Handlers: onKeyDownCapture.",
+      "file": "src/components/ui/carousel.tsx",
+      "startLine": 120,
+      "endLine": 129,
+      "selector": "[data-uxid=\"Carousel.div\"]",
+      "parentId": "Carousel",
+      "handlers": [
+        "onKeyDownCapture"
+      ]
+    },
+    {
+      "id": "CarouselItem.div",
+      "kind": "element",
+      "name": "div",
+      "description": "<div> element.",
+      "file": "src/components/ui/carousel.tsx",
+      "startLine": 161,
+      "endLine": 171,
+      "selector": "[data-uxid=\"CarouselItem.div\"]",
+      "parentId": "CarouselItem"
+    },
+    {
+      "id": "CarouselPrevious.button",
+      "kind": "element",
+      "name": "Button",
+      "description": "<Button> component. can be disabled. Handlers: onClick.",
+      "file": "src/components/ui/carousel.tsx",
+      "startLine": 182,
+      "endLine": 199,
+      "selector": "[data-uxid=\"CarouselPrevious.button\"]",
+      "parentId": "CarouselPrevious",
+      "refId": "Button",
+      "handlers": [
+        "onClick"
+      ],
+      "routes": [
+        "/bodekasse",
+        "/fixtures",
+        "/fixtures/*",
+        "/squad",
+        "/stats"
+      ]
+    },
+    {
+      "id": "CarouselNext.button",
+      "kind": "element",
+      "name": "Button",
+      "description": "<Button> component. can be disabled. Handlers: onClick.",
+      "file": "src/components/ui/carousel.tsx",
+      "startLine": 210,
+      "endLine": 227,
+      "selector": "[data-uxid=\"CarouselNext.button\"]",
+      "parentId": "CarouselNext",
+      "refId": "Button",
+      "handlers": [
+        "onClick"
+      ],
+      "routes": [
+        "/bodekasse",
+        "/fixtures",
+        "/fixtures/*",
+        "/squad",
+        "/stats"
+      ]
+    },
+    {
+      "id": "src/components/ui/carousel.tsx",
+      "kind": "file",
+      "name": "src/components/ui/carousel.tsx",
+      "description": "Source module: 6 top-level artifacts.",
+      "file": "src/components/ui/carousel.tsx",
+      "startLine": 1,
+      "endLine": 241
+    },
+    {
+      "id": "ChartContainer",
+      "kind": "component",
+      "name": "ChartContainer",
+      "description": "Wrapped component. Props: id, className, children, config, ...props. Hooks: useId. Renders: div, ChartContext.Provider, ChartStyle, RechartsPrimitive.ResponsiveContainer.",
+      "file": "src/components/ui/chart.tsx",
+      "startLine": 35,
+      "endLine": 61,
+      "props": [
+        "id",
+        "className",
+        "children",
+        "config",
+        "...props"
+      ],
+      "hooks": [
+        "useId"
+      ]
+    },
+    {
+      "id": "ChartStyle",
+      "kind": "component",
+      "name": "ChartStyle",
+      "description": "Arrow function component. Props: id, config. Renders: style.",
+      "file": "src/components/ui/chart.tsx",
+      "startLine": 64,
+      "endLine": 91,
+      "props": [
+        "id",
+        "config"
+      ]
+    },
+    {
+      "id": "ChartTooltipContent",
+      "kind": "component",
+      "name": "ChartTooltipContent",
+      "description": "Wrapped component. Props: active, payload, className, indicator, hideLabel, hideIndicator, +7 more. Hooks: useChart, useMemo. Renders: div, itemConfig.icon, span.",
+      "file": "src/components/ui/chart.tsx",
+      "startLine": 95,
+      "endLine": 237,
+      "props": [
+        "active",
+        "payload",
+        "className",
+        "indicator",
+        "hideLabel",
+        "hideIndicator",
+        "label",
+        "labelFormatter",
+        "labelClassName",
+        "formatter",
+        "color",
+        "nameKey",
+        "labelKey"
+      ],
+      "hooks": [
+        "useChart",
+        "useMemo"
+      ]
+    },
+    {
+      "id": "ChartLegendContent",
+      "kind": "component",
+      "name": "ChartLegendContent",
+      "description": "Wrapped component. Props: className, hideIcon, payload, verticalAlign, nameKey. Hooks: useChart. Renders: div, itemConfig.icon.",
+      "file": "src/components/ui/chart.tsx",
+      "startLine": 243,
+      "endLine": 295,
+      "props": [
+        "className",
+        "hideIcon",
+        "payload",
+        "verticalAlign",
+        "nameKey"
+      ],
+      "hooks": [
+        "useChart"
+      ]
+    },
+    {
+      "id": "useChart",
+      "kind": "hook",
+      "name": "useChart",
+      "description": "Custom hook 'useChart'.",
+      "file": "src/components/ui/chart.tsx",
+      "startLine": 25,
+      "endLine": 33
+    },
+    {
+      "id": "getPayloadConfigFromPayload",
+      "kind": "function",
+      "name": "getPayloadConfigFromPayload",
+      "description": "Function 'getPayloadConfigFromPayload'. Params: config, payload, key.",
+      "file": "src/components/ui/chart.tsx",
+      "startLine": 299,
+      "endLine": 322,
+      "props": [
+        "config",
+        "payload",
+        "key"
+      ]
+    },
+    {
+      "id": "src/components/ui/chart.tsx",
+      "kind": "file",
+      "name": "src/components/ui/chart.tsx",
+      "description": "Source module: 6 top-level artifacts.",
+      "file": "src/components/ui/chart.tsx",
+      "startLine": 1,
+      "endLine": 332
+    },
+    {
+      "id": "Checkbox",
+      "kind": "component",
+      "name": "Checkbox",
+      "description": "Wrapped component. Props: className, ...props. Renders: CheckboxPrimitive.Root, CheckboxPrimitive.Indicator, Check.",
+      "file": "src/components/ui/checkbox.tsx",
+      "startLine": 7,
+      "endLine": 23,
+      "props": [
+        "className",
+        "...props"
+      ],
+      "routes": [
+        "/bodekasse"
+      ]
+    },
+    {
+      "id": "src/components/ui/checkbox.tsx",
+      "kind": "file",
+      "name": "src/components/ui/checkbox.tsx",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/components/ui/checkbox.tsx",
+      "startLine": 1,
+      "endLine": 27
+    },
+    {
+      "id": "src/components/ui/collapsible.tsx",
+      "kind": "file",
+      "name": "src/components/ui/collapsible.tsx",
+      "description": "Source module: 0 top-level artifacts.",
+      "file": "src/components/ui/collapsible.tsx",
+      "startLine": 1,
+      "endLine": 12
+    },
+    {
+      "id": "Command",
+      "kind": "component",
+      "name": "Command",
+      "description": "Wrapped component. Props: className, ...props. Renders: CommandPrimitive.",
+      "file": "src/components/ui/command.tsx",
+      "startLine": 11,
+      "endLine": 23,
+      "props": [
+        "className",
+        "...props"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "CommandDialog",
+      "kind": "component",
+      "name": "CommandDialog",
+      "description": "Arrow function component. Props: children, ...props. Renders: Dialog, DialogContent, Command.",
+      "file": "src/components/ui/command.tsx",
+      "startLine": 26,
+      "endLine": 36,
+      "props": [
+        "children",
+        "...props"
+      ]
+    },
+    {
+      "id": "CommandInput",
+      "kind": "component",
+      "name": "CommandInput",
+      "description": "Wrapped component. Props: className, ...props. Renders: div, Search, CommandPrimitive.Input.",
+      "file": "src/components/ui/command.tsx",
+      "startLine": 38,
+      "endLine": 53,
+      "props": [
+        "className",
+        "...props"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "CommandList",
+      "kind": "component",
+      "name": "CommandList",
+      "description": "Wrapped component. Props: className, ...props. Renders: CommandPrimitive.List.",
+      "file": "src/components/ui/command.tsx",
+      "startLine": 57,
+      "endLine": 66,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "CommandEmpty",
+      "kind": "component",
+      "name": "CommandEmpty",
+      "description": "Wrapped component. Renders: CommandPrimitive.Empty.",
+      "file": "src/components/ui/command.tsx",
+      "startLine": 70,
+      "endLine": 75,
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "CommandGroup",
+      "kind": "component",
+      "name": "CommandGroup",
+      "description": "Wrapped component. Props: className, ...props. Renders: CommandPrimitive.Group.",
+      "file": "src/components/ui/command.tsx",
+      "startLine": 79,
+      "endLine": 91,
+      "props": [
+        "className",
+        "...props"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "CommandSeparator",
+      "kind": "component",
+      "name": "CommandSeparator",
+      "description": "Wrapped component. Props: className, ...props. Renders: CommandPrimitive.Separator.",
+      "file": "src/components/ui/command.tsx",
+      "startLine": 95,
+      "endLine": 104,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "CommandItem",
+      "kind": "component",
+      "name": "CommandItem",
+      "description": "Wrapped component. Props: className, ...props. Renders: CommandPrimitive.Item.",
+      "file": "src/components/ui/command.tsx",
+      "startLine": 107,
+      "endLine": 119,
+      "props": [
+        "className",
+        "...props"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "CommandShortcut",
+      "kind": "component",
+      "name": "CommandShortcut",
+      "description": "Arrow function component. Props: className, ...props. Renders: span.",
+      "file": "src/components/ui/command.tsx",
+      "startLine": 123,
+      "endLine": 130,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/command.tsx",
+      "kind": "file",
+      "name": "src/components/ui/command.tsx",
+      "description": "Source module: 9 top-level artifacts.",
+      "file": "src/components/ui/command.tsx",
+      "startLine": 1,
+      "endLine": 144
+    },
+    {
+      "id": "ContextMenuSubTrigger",
+      "kind": "component",
+      "name": "ContextMenuSubTrigger",
+      "description": "Wrapped component. Props: className, inset, children, ...props. Renders: ContextMenuPrimitive.SubTrigger, ChevronRight.",
+      "file": "src/components/ui/context-menu.tsx",
+      "startLine": 19,
+      "endLine": 37,
+      "props": [
+        "className",
+        "inset",
+        "children",
+        "...props"
+      ]
+    },
+    {
+      "id": "ContextMenuSubContent",
+      "kind": "component",
+      "name": "ContextMenuSubContent",
+      "description": "Wrapped component. Props: className, ...props. Renders: ContextMenuPrimitive.SubContent.",
+      "file": "src/components/ui/context-menu.tsx",
+      "startLine": 40,
+      "endLine": 52,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "ContextMenuContent",
+      "kind": "component",
+      "name": "ContextMenuContent",
+      "description": "Wrapped component. Props: className, ...props. Renders: ContextMenuPrimitive.Portal, ContextMenuPrimitive.Content.",
+      "file": "src/components/ui/context-menu.tsx",
+      "startLine": 55,
+      "endLine": 69,
+      "props": [
+        "className",
+        "...props"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "ContextMenuItem",
+      "kind": "component",
+      "name": "ContextMenuItem",
+      "description": "Wrapped component. Props: className, inset, ...props. Renders: ContextMenuPrimitive.Item.",
+      "file": "src/components/ui/context-menu.tsx",
+      "startLine": 72,
+      "endLine": 87,
+      "props": [
+        "className",
+        "inset",
+        "...props"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "ContextMenuCheckboxItem",
+      "kind": "component",
+      "name": "ContextMenuCheckboxItem",
+      "description": "Wrapped component. Props: className, children, checked, ...props. Renders: span, ContextMenuPrimitive.CheckboxItem, ContextMenuPrimitive.ItemIndicator, Check.",
+      "file": "src/components/ui/context-menu.tsx",
+      "startLine": 90,
+      "endLine": 110,
+      "props": [
+        "className",
+        "children",
+        "checked",
+        "...props"
+      ]
+    },
+    {
+      "id": "ContextMenuRadioItem",
+      "kind": "component",
+      "name": "ContextMenuRadioItem",
+      "description": "Wrapped component. Props: className, children, ...props. Renders: span, ContextMenuPrimitive.RadioItem, ContextMenuPrimitive.ItemIndicator, Circle.",
+      "file": "src/components/ui/context-menu.tsx",
+      "startLine": 113,
+      "endLine": 132,
+      "props": [
+        "className",
+        "children",
+        "...props"
+      ]
+    },
+    {
+      "id": "ContextMenuLabel",
+      "kind": "component",
+      "name": "ContextMenuLabel",
+      "description": "Wrapped component. Props: className, inset, ...props. Renders: ContextMenuPrimitive.Label.",
+      "file": "src/components/ui/context-menu.tsx",
+      "startLine": 135,
+      "endLine": 146,
+      "props": [
+        "className",
+        "inset",
+        "...props"
+      ]
+    },
+    {
+      "id": "ContextMenuSeparator",
+      "kind": "component",
+      "name": "ContextMenuSeparator",
+      "description": "Wrapped component. Props: className, ...props. Renders: ContextMenuPrimitive.Separator.",
+      "file": "src/components/ui/context-menu.tsx",
+      "startLine": 149,
+      "endLine": 158,
+      "props": [
+        "className",
+        "...props"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "ContextMenuShortcut",
+      "kind": "component",
+      "name": "ContextMenuShortcut",
+      "description": "Arrow function component. Props: className, ...props. Renders: span.",
+      "file": "src/components/ui/context-menu.tsx",
+      "startLine": 161,
+      "endLine": 168,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/context-menu.tsx",
+      "kind": "file",
+      "name": "src/components/ui/context-menu.tsx",
+      "description": "Source module: 9 top-level artifacts.",
+      "file": "src/components/ui/context-menu.tsx",
+      "startLine": 1,
+      "endLine": 188
+    },
+    {
+      "id": "DialogOverlay",
+      "kind": "component",
+      "name": "DialogOverlay",
+      "description": "Wrapped component. Props: className, ...props. Renders: DialogPrimitive.Overlay.",
+      "file": "src/components/ui/dialog.tsx",
+      "startLine": 17,
+      "endLine": 29,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "DialogContent",
+      "kind": "component",
+      "name": "DialogContent",
+      "description": "Wrapped component. Props: className, children, ...props. Renders: span, DialogPortal, DialogOverlay, DialogPrimitive.Content, DialogPrimitive.Close, X.",
+      "file": "src/components/ui/dialog.tsx",
+      "startLine": 32,
+      "endLine": 53,
+      "props": [
+        "className",
+        "children",
+        "...props"
+      ]
+    },
+    {
+      "id": "DialogHeader",
+      "kind": "component",
+      "name": "DialogHeader",
+      "description": "Arrow function component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/dialog.tsx",
+      "startLine": 56,
+      "endLine": 58,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "DialogFooter",
+      "kind": "component",
+      "name": "DialogFooter",
+      "description": "Arrow function component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/dialog.tsx",
+      "startLine": 61,
+      "endLine": 66,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "DialogTitle",
+      "kind": "component",
+      "name": "DialogTitle",
+      "description": "Wrapped component. Props: className, ...props. Renders: DialogPrimitive.Title.",
+      "file": "src/components/ui/dialog.tsx",
+      "startLine": 69,
+      "endLine": 78,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "DialogDescription",
+      "kind": "component",
+      "name": "DialogDescription",
+      "description": "Wrapped component. Props: className, ...props. Renders: DialogPrimitive.Description.",
+      "file": "src/components/ui/dialog.tsx",
+      "startLine": 81,
+      "endLine": 90,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/dialog.tsx",
+      "kind": "file",
+      "name": "src/components/ui/dialog.tsx",
+      "description": "Source module: 6 top-level artifacts.",
+      "file": "src/components/ui/dialog.tsx",
+      "startLine": 1,
+      "endLine": 105
+    },
+    {
+      "id": "Drawer",
+      "kind": "component",
+      "name": "Drawer",
+      "description": "Arrow function component. Props: shouldScaleBackground, ...props. Renders: DrawerPrimitive.Root.",
+      "file": "src/components/ui/drawer.tsx",
+      "startLine": 6,
+      "endLine": 11,
+      "props": [
+        "shouldScaleBackground",
+        "...props"
+      ]
+    },
+    {
+      "id": "DrawerOverlay",
+      "kind": "component",
+      "name": "DrawerOverlay",
+      "description": "Wrapped component. Props: className, ...props. Renders: DrawerPrimitive.Overlay.",
+      "file": "src/components/ui/drawer.tsx",
+      "startLine": 20,
+      "endLine": 29,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "DrawerContent",
+      "kind": "component",
+      "name": "DrawerContent",
+      "description": "Wrapped component. Props: className, children, ...props. Renders: div, DrawerPortal, DrawerOverlay, DrawerPrimitive.Content.",
+      "file": "src/components/ui/drawer.tsx",
+      "startLine": 32,
+      "endLine": 50,
+      "props": [
+        "className",
+        "children",
+        "...props"
+      ]
+    },
+    {
+      "id": "DrawerHeader",
+      "kind": "component",
+      "name": "DrawerHeader",
+      "description": "Arrow function component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/drawer.tsx",
+      "startLine": 53,
+      "endLine": 55,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "DrawerFooter",
+      "kind": "component",
+      "name": "DrawerFooter",
+      "description": "Arrow function component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/drawer.tsx",
+      "startLine": 58,
+      "endLine": 60,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "DrawerTitle",
+      "kind": "component",
+      "name": "DrawerTitle",
+      "description": "Wrapped component. Props: className, ...props. Renders: DrawerPrimitive.Title.",
+      "file": "src/components/ui/drawer.tsx",
+      "startLine": 63,
+      "endLine": 72,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "DrawerDescription",
+      "kind": "component",
+      "name": "DrawerDescription",
+      "description": "Wrapped component. Props: className, ...props. Renders: DrawerPrimitive.Description.",
+      "file": "src/components/ui/drawer.tsx",
+      "startLine": 75,
+      "endLine": 84,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/drawer.tsx",
+      "kind": "file",
+      "name": "src/components/ui/drawer.tsx",
+      "description": "Source module: 7 top-level artifacts.",
+      "file": "src/components/ui/drawer.tsx",
+      "startLine": 1,
+      "endLine": 99
+    },
+    {
+      "id": "DropdownMenuSubTrigger",
+      "kind": "component",
+      "name": "DropdownMenuSubTrigger",
+      "description": "Wrapped component. Props: className, inset, children, ...props. Renders: DropdownMenuPrimitive.SubTrigger, ChevronRight.",
+      "file": "src/components/ui/dropdown-menu.tsx",
+      "startLine": 21,
+      "endLine": 39,
+      "props": [
+        "className",
+        "inset",
+        "children",
+        "...props"
+      ]
+    },
+    {
+      "id": "DropdownMenuSubContent",
+      "kind": "component",
+      "name": "DropdownMenuSubContent",
+      "description": "Wrapped component. Props: className, ...props. Renders: DropdownMenuPrimitive.SubContent.",
+      "file": "src/components/ui/dropdown-menu.tsx",
+      "startLine": 42,
+      "endLine": 54,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "DropdownMenuContent",
+      "kind": "component",
+      "name": "DropdownMenuContent",
+      "description": "Wrapped component. Props: className, sideOffset, ...props. Renders: DropdownMenuPrimitive.Portal, DropdownMenuPrimitive.Content.",
+      "file": "src/components/ui/dropdown-menu.tsx",
+      "startLine": 57,
+      "endLine": 73,
+      "props": [
+        "className",
+        "sideOffset",
+        "...props"
+      ],
+      "routes": [
+        "/fixtures"
+      ]
+    },
+    {
+      "id": "DropdownMenuItem",
+      "kind": "component",
+      "name": "DropdownMenuItem",
+      "description": "Wrapped component. Props: className, inset, ...props. Renders: DropdownMenuPrimitive.Item.",
+      "file": "src/components/ui/dropdown-menu.tsx",
+      "startLine": 76,
+      "endLine": 91,
+      "props": [
+        "className",
+        "inset",
+        "...props"
+      ],
+      "routes": [
+        "/fixtures"
+      ]
+    },
+    {
+      "id": "DropdownMenuCheckboxItem",
+      "kind": "component",
+      "name": "DropdownMenuCheckboxItem",
+      "description": "Wrapped component. Props: className, children, checked, ...props. Renders: span, DropdownMenuPrimitive.CheckboxItem, DropdownMenuPrimitive.ItemIndicator, Check.",
+      "file": "src/components/ui/dropdown-menu.tsx",
+      "startLine": 94,
+      "endLine": 114,
+      "props": [
+        "className",
+        "children",
+        "checked",
+        "...props"
+      ]
+    },
+    {
+      "id": "DropdownMenuRadioItem",
+      "kind": "component",
+      "name": "DropdownMenuRadioItem",
+      "description": "Wrapped component. Props: className, children, ...props. Renders: span, DropdownMenuPrimitive.RadioItem, DropdownMenuPrimitive.ItemIndicator, Circle.",
+      "file": "src/components/ui/dropdown-menu.tsx",
+      "startLine": 117,
+      "endLine": 136,
+      "props": [
+        "className",
+        "children",
+        "...props"
+      ]
+    },
+    {
+      "id": "DropdownMenuLabel",
+      "kind": "component",
+      "name": "DropdownMenuLabel",
+      "description": "Wrapped component. Props: className, inset, ...props. Renders: DropdownMenuPrimitive.Label.",
+      "file": "src/components/ui/dropdown-menu.tsx",
+      "startLine": 139,
+      "endLine": 150,
+      "props": [
+        "className",
+        "inset",
+        "...props"
+      ]
+    },
+    {
+      "id": "DropdownMenuSeparator",
+      "kind": "component",
+      "name": "DropdownMenuSeparator",
+      "description": "Wrapped component. Props: className, ...props. Renders: DropdownMenuPrimitive.Separator.",
+      "file": "src/components/ui/dropdown-menu.tsx",
+      "startLine": 153,
+      "endLine": 162,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "DropdownMenuShortcut",
+      "kind": "component",
+      "name": "DropdownMenuShortcut",
+      "description": "Arrow function component. Props: className, ...props. Renders: span.",
+      "file": "src/components/ui/dropdown-menu.tsx",
+      "startLine": 165,
+      "endLine": 169,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/dropdown-menu.tsx",
+      "kind": "file",
+      "name": "src/components/ui/dropdown-menu.tsx",
+      "description": "Source module: 9 top-level artifacts.",
+      "file": "src/components/ui/dropdown-menu.tsx",
+      "startLine": 1,
+      "endLine": 189
+    },
+    {
+      "id": "FormField",
+      "kind": "component",
+      "name": "FormField",
+      "description": "Arrow function component. Props: ...props. Renders: FormFieldContext.Provider, Controller.",
+      "file": "src/components/ui/form.tsx",
+      "startLine": 27,
+      "endLine": 38,
+      "props": [
+        "...props"
+      ]
+    },
+    {
+      "id": "FormItem",
+      "kind": "component",
+      "name": "FormItem",
+      "description": "Wrapped component. Props: className, ...props. Hooks: useId. Renders: div, FormItemContext.Provider.",
+      "file": "src/components/ui/form.tsx",
+      "startLine": 73,
+      "endLine": 82,
+      "props": [
+        "className",
+        "...props"
+      ],
+      "hooks": [
+        "useId"
+      ]
+    },
+    {
+      "id": "FormLabel",
+      "kind": "component",
+      "name": "FormLabel",
+      "description": "Wrapped component. Props: className, ...props. Hooks: useFormField. Renders: Label.",
+      "file": "src/components/ui/form.tsx",
+      "startLine": 86,
+      "endLine": 100,
+      "props": [
+        "className",
+        "...props"
+      ],
+      "hooks": [
+        "useFormField"
+      ]
+    },
+    {
+      "id": "FormControl",
+      "kind": "component",
+      "name": "FormControl",
+      "description": "Wrapped component. Props: ...props. Hooks: useFormField. Renders: Slot.",
+      "file": "src/components/ui/form.tsx",
+      "startLine": 103,
+      "endLine": 118,
+      "props": [
+        "...props"
+      ],
+      "hooks": [
+        "useFormField"
+      ]
+    },
+    {
+      "id": "FormDescription",
+      "kind": "component",
+      "name": "FormDescription",
+      "description": "Wrapped component. Props: className, ...props. Hooks: useFormField. Renders: p.",
+      "file": "src/components/ui/form.tsx",
+      "startLine": 121,
+      "endLine": 135,
+      "props": [
+        "className",
+        "...props"
+      ],
+      "hooks": [
+        "useFormField"
+      ]
+    },
+    {
+      "id": "FormMessage",
+      "kind": "component",
+      "name": "FormMessage",
+      "description": "Wrapped component. Props: className, children, ...props. Hooks: useFormField. Renders: p.",
+      "file": "src/components/ui/form.tsx",
+      "startLine": 138,
+      "endLine": 159,
+      "props": [
+        "className",
+        "children",
+        "...props"
+      ],
+      "hooks": [
+        "useFormField"
+      ]
+    },
+    {
+      "id": "useFormField",
+      "kind": "hook",
+      "name": "useFormField",
+      "description": "Custom hook 'useFormField'.",
+      "file": "src/components/ui/form.tsx",
+      "startLine": 40,
+      "endLine": 65
+    },
+    {
+      "id": "src/components/ui/form.tsx",
+      "kind": "file",
+      "name": "src/components/ui/form.tsx",
+      "description": "Source module: 7 top-level artifacts.",
+      "file": "src/components/ui/form.tsx",
+      "startLine": 1,
+      "endLine": 172
+    },
+    {
+      "id": "HoverCardContent",
+      "kind": "component",
+      "name": "HoverCardContent",
+      "description": "Wrapped component. Props: className, align, sideOffset, ...props. Renders: HoverCardPrimitive.Content.",
+      "file": "src/components/ui/hover-card.tsx",
+      "startLine": 10,
+      "endLine": 24,
+      "props": [
+        "className",
+        "align",
+        "sideOffset",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/hover-card.tsx",
+      "kind": "file",
+      "name": "src/components/ui/hover-card.tsx",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/components/ui/hover-card.tsx",
+      "startLine": 1,
+      "endLine": 28
+    },
+    {
+      "id": "InputOTP",
+      "kind": "component",
+      "name": "InputOTP",
+      "description": "Wrapped component. Props: className, containerClassName, ...props. Renders: OTPInput.",
+      "file": "src/components/ui/input-otp.tsx",
+      "startLine": 7,
+      "endLine": 20,
+      "props": [
+        "className",
+        "containerClassName",
+        "...props"
+      ]
+    },
+    {
+      "id": "InputOTPGroup",
+      "kind": "component",
+      "name": "InputOTPGroup",
+      "description": "Wrapped component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/input-otp.tsx",
+      "startLine": 23,
+      "endLine": 28,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "InputOTPSlot",
+      "kind": "component",
+      "name": "InputOTPSlot",
+      "description": "Wrapped component. Props: index, className, ...props. Hooks: useContext. Renders: div.",
+      "file": "src/components/ui/input-otp.tsx",
+      "startLine": 31,
+      "endLine": 56,
+      "props": [
+        "index",
+        "className",
+        "...props"
+      ],
+      "hooks": [
+        "useContext"
+      ]
+    },
+    {
+      "id": "InputOTPSeparator",
+      "kind": "component",
+      "name": "InputOTPSeparator",
+      "description": "Wrapped component. Props: ...props. Renders: div, Minus.",
+      "file": "src/components/ui/input-otp.tsx",
+      "startLine": 59,
+      "endLine": 66,
+      "childIds": [
+        "InputOTPSeparator.div"
+      ],
+      "props": [
+        "...props"
+      ]
+    },
+    {
+      "id": "InputOTPSeparator.div",
+      "kind": "element",
+      "name": "div",
+      "description": "<div> element.",
+      "file": "src/components/ui/input-otp.tsx",
+      "startLine": 63,
+      "endLine": 65,
+      "selector": "[data-uxid=\"InputOTPSeparator.div\"]",
+      "parentId": "InputOTPSeparator"
+    },
+    {
+      "id": "src/components/ui/input-otp.tsx",
+      "kind": "file",
+      "name": "src/components/ui/input-otp.tsx",
+      "description": "Source module: 4 top-level artifacts.",
+      "file": "src/components/ui/input-otp.tsx",
+      "startLine": 1,
+      "endLine": 70
+    },
+    {
+      "id": "Input",
+      "kind": "component",
+      "name": "Input",
+      "description": "Wrapped component. Props: className, type, ...props. Renders: input.",
+      "file": "src/components/ui/input.tsx",
+      "startLine": 5,
+      "endLine": 18,
+      "childIds": [
+        "Input.input"
+      ],
+      "props": [
+        "className",
+        "type",
+        "...props"
+      ],
+      "routes": [
+        "/bodekasse",
+        "/fixtures",
+        "/fixtures/*",
+        "/squad",
+        "/stats"
+      ]
+    },
+    {
+      "id": "Input.input",
+      "kind": "element",
+      "name": "input",
+      "description": "Text input field.",
+      "file": "src/components/ui/input.tsx",
+      "startLine": 8,
+      "endLine": 16,
+      "selector": "[data-uxid=\"Input.input\"]",
+      "parentId": "Input"
+    },
+    {
+      "id": "src/components/ui/input.tsx",
+      "kind": "file",
+      "name": "src/components/ui/input.tsx",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/components/ui/input.tsx",
+      "startLine": 1,
+      "endLine": 23
+    },
+    {
+      "id": "Label",
+      "kind": "component",
+      "name": "Label",
+      "description": "Wrapped component. Props: className, ...props. Renders: LabelPrimitive.Root.",
+      "file": "src/components/ui/label.tsx",
+      "startLine": 13,
+      "endLine": 18,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/label.tsx",
+      "kind": "file",
+      "name": "src/components/ui/label.tsx",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/components/ui/label.tsx",
+      "startLine": 1,
+      "endLine": 22
+    },
+    {
+      "id": "MenubarMenu",
+      "kind": "component",
+      "name": "MenubarMenu",
+      "description": "Function component. Props: ...props. Renders: MenubarPrimitive.Menu.",
+      "file": "src/components/ui/menubar.tsx",
+      "startLine": 7,
+      "endLine": 9,
+      "props": [
+        "...props"
+      ]
+    },
+    {
+      "id": "MenubarGroup",
+      "kind": "component",
+      "name": "MenubarGroup",
+      "description": "Function component. Props: ...props. Renders: MenubarPrimitive.Group.",
+      "file": "src/components/ui/menubar.tsx",
+      "startLine": 11,
+      "endLine": 13,
+      "props": [
+        "...props"
+      ]
+    },
+    {
+      "id": "MenubarPortal",
+      "kind": "component",
+      "name": "MenubarPortal",
+      "description": "Function component. Props: ...props. Renders: MenubarPrimitive.Portal.",
+      "file": "src/components/ui/menubar.tsx",
+      "startLine": 15,
+      "endLine": 17,
+      "props": [
+        "...props"
+      ]
+    },
+    {
+      "id": "MenubarRadioGroup",
+      "kind": "component",
+      "name": "MenubarRadioGroup",
+      "description": "Function component. Props: ...props. Renders: MenubarPrimitive.RadioGroup.",
+      "file": "src/components/ui/menubar.tsx",
+      "startLine": 19,
+      "endLine": 21,
+      "props": [
+        "...props"
+      ]
+    },
+    {
+      "id": "MenubarSub",
+      "kind": "component",
+      "name": "MenubarSub",
+      "description": "Function component. Props: ...props. Renders: MenubarPrimitive.Sub.",
+      "file": "src/components/ui/menubar.tsx",
+      "startLine": 23,
+      "endLine": 25,
+      "props": [
+        "...props"
+      ]
+    },
+    {
+      "id": "Menubar",
+      "kind": "component",
+      "name": "Menubar",
+      "description": "Wrapped component. Props: className, ...props. Renders: MenubarPrimitive.Root.",
+      "file": "src/components/ui/menubar.tsx",
+      "startLine": 27,
+      "endLine": 39,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "MenubarTrigger",
+      "kind": "component",
+      "name": "MenubarTrigger",
+      "description": "Wrapped component. Props: className, ...props. Renders: MenubarPrimitive.Trigger.",
+      "file": "src/components/ui/menubar.tsx",
+      "startLine": 42,
+      "endLine": 54,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "MenubarSubTrigger",
+      "kind": "component",
+      "name": "MenubarSubTrigger",
+      "description": "Wrapped component. Props: className, inset, children, ...props. Renders: MenubarPrimitive.SubTrigger, ChevronRight.",
+      "file": "src/components/ui/menubar.tsx",
+      "startLine": 57,
+      "endLine": 75,
+      "props": [
+        "className",
+        "inset",
+        "children",
+        "...props"
+      ]
+    },
+    {
+      "id": "MenubarSubContent",
+      "kind": "component",
+      "name": "MenubarSubContent",
+      "description": "Wrapped component. Props: className, ...props. Renders: MenubarPrimitive.SubContent.",
+      "file": "src/components/ui/menubar.tsx",
+      "startLine": 78,
+      "endLine": 90,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "MenubarContent",
+      "kind": "component",
+      "name": "MenubarContent",
+      "description": "Wrapped component. Props: className, align, alignOffset, sideOffset, ...props. Renders: MenubarPrimitive.Portal, MenubarPrimitive.Content.",
+      "file": "src/components/ui/menubar.tsx",
+      "startLine": 93,
+      "endLine": 110,
+      "props": [
+        "className",
+        "align",
+        "alignOffset",
+        "sideOffset",
+        "...props"
+      ]
+    },
+    {
+      "id": "MenubarItem",
+      "kind": "component",
+      "name": "MenubarItem",
+      "description": "Wrapped component. Props: className, inset, ...props. Renders: MenubarPrimitive.Item.",
+      "file": "src/components/ui/menubar.tsx",
+      "startLine": 113,
+      "endLine": 128,
+      "props": [
+        "className",
+        "inset",
+        "...props"
+      ]
+    },
+    {
+      "id": "MenubarCheckboxItem",
+      "kind": "component",
+      "name": "MenubarCheckboxItem",
+      "description": "Wrapped component. Props: className, children, checked, ...props. Renders: span, MenubarPrimitive.CheckboxItem, MenubarPrimitive.ItemIndicator, Check.",
+      "file": "src/components/ui/menubar.tsx",
+      "startLine": 131,
+      "endLine": 151,
+      "props": [
+        "className",
+        "children",
+        "checked",
+        "...props"
+      ]
+    },
+    {
+      "id": "MenubarRadioItem",
+      "kind": "component",
+      "name": "MenubarRadioItem",
+      "description": "Wrapped component. Props: className, children, ...props. Renders: span, MenubarPrimitive.RadioItem, MenubarPrimitive.ItemIndicator, Circle.",
+      "file": "src/components/ui/menubar.tsx",
+      "startLine": 154,
+      "endLine": 173,
+      "props": [
+        "className",
+        "children",
+        "...props"
+      ]
+    },
+    {
+      "id": "MenubarLabel",
+      "kind": "component",
+      "name": "MenubarLabel",
+      "description": "Wrapped component. Props: className, inset, ...props. Renders: MenubarPrimitive.Label.",
+      "file": "src/components/ui/menubar.tsx",
+      "startLine": 176,
+      "endLine": 187,
+      "props": [
+        "className",
+        "inset",
+        "...props"
+      ]
+    },
+    {
+      "id": "MenubarSeparator",
+      "kind": "component",
+      "name": "MenubarSeparator",
+      "description": "Wrapped component. Props: className, ...props. Renders: MenubarPrimitive.Separator.",
+      "file": "src/components/ui/menubar.tsx",
+      "startLine": 190,
+      "endLine": 199,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "MenubarShortcut",
+      "kind": "component",
+      "name": "MenubarShortcut",
+      "description": "Arrow function component. Props: className, ...props. Renders: span.",
+      "file": "src/components/ui/menubar.tsx",
+      "startLine": 202,
+      "endLine": 209,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/menubar.tsx",
+      "kind": "file",
+      "name": "src/components/ui/menubar.tsx",
+      "description": "Source module: 16 top-level artifacts.",
+      "file": "src/components/ui/menubar.tsx",
+      "startLine": 1,
+      "endLine": 230
+    },
+    {
+      "id": "NavigationMenu",
+      "kind": "component",
+      "name": "NavigationMenu",
+      "description": "Wrapped component. Props: className, children, ...props. Renders: NavigationMenuPrimitive.Root, NavigationMenuViewport.",
+      "file": "src/components/ui/navigation-menu.tsx",
+      "startLine": 8,
+      "endLine": 20,
+      "props": [
+        "className",
+        "children",
+        "...props"
+      ]
+    },
+    {
+      "id": "NavigationMenuList",
+      "kind": "component",
+      "name": "NavigationMenuList",
+      "description": "Wrapped component. Props: className, ...props. Renders: NavigationMenuPrimitive.List.",
+      "file": "src/components/ui/navigation-menu.tsx",
+      "startLine": 23,
+      "endLine": 32,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "NavigationMenuTrigger",
+      "kind": "component",
+      "name": "NavigationMenuTrigger",
+      "description": "Wrapped component. Props: className, children, ...props. Renders: NavigationMenuPrimitive.Trigger, ChevronDown.",
+      "file": "src/components/ui/navigation-menu.tsx",
+      "startLine": 41,
+      "endLine": 56,
+      "props": [
+        "className",
+        "children",
+        "...props"
+      ]
+    },
+    {
+      "id": "NavigationMenuContent",
+      "kind": "component",
+      "name": "NavigationMenuContent",
+      "description": "Wrapped component. Props: className, ...props. Renders: NavigationMenuPrimitive.Content.",
+      "file": "src/components/ui/navigation-menu.tsx",
+      "startLine": 59,
+      "endLine": 71,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "NavigationMenuViewport",
+      "kind": "component",
+      "name": "NavigationMenuViewport",
+      "description": "Wrapped component. Props: className, ...props. Renders: div, NavigationMenuPrimitive.Viewport.",
+      "file": "src/components/ui/navigation-menu.tsx",
+      "startLine": 76,
+      "endLine": 90,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "NavigationMenuIndicator",
+      "kind": "component",
+      "name": "NavigationMenuIndicator",
+      "description": "Wrapped component. Props: className, ...props. Renders: div, NavigationMenuPrimitive.Indicator.",
+      "file": "src/components/ui/navigation-menu.tsx",
+      "startLine": 93,
+      "endLine": 107,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/navigation-menu.tsx",
+      "kind": "file",
+      "name": "src/components/ui/navigation-menu.tsx",
+      "description": "Source module: 6 top-level artifacts.",
+      "file": "src/components/ui/navigation-menu.tsx",
+      "startLine": 1,
+      "endLine": 121
+    },
+    {
+      "id": "Pagination",
+      "kind": "component",
+      "name": "Pagination",
+      "description": "Arrow function component. Props: className, ...props. Renders: nav.",
+      "file": "src/components/ui/pagination.tsx",
+      "startLine": 7,
+      "endLine": 14,
+      "childIds": [
+        "Pagination.nav"
+      ],
+      "props": [
+        "className",
+        "...props"
+      ],
+      "visibleText": [
+        "pagination"
+      ]
+    },
+    {
+      "id": "PaginationContent",
+      "kind": "component",
+      "name": "PaginationContent",
+      "description": "Wrapped component. Props: className, ...props. Renders: ul.",
+      "file": "src/components/ui/pagination.tsx",
+      "startLine": 17,
+      "endLine": 20,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "PaginationItem",
+      "kind": "component",
+      "name": "PaginationItem",
+      "description": "Wrapped component. Props: className, ...props. Renders: li.",
+      "file": "src/components/ui/pagination.tsx",
+      "startLine": 24,
+      "endLine": 25,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "PaginationLink",
+      "kind": "component",
+      "name": "PaginationLink",
+      "description": "Arrow function component. Props: className, isActive, size, ...props. Renders: a.",
+      "file": "src/components/ui/pagination.tsx",
+      "startLine": 34,
+      "endLine": 46,
+      "childIds": [
+        "PaginationLink.link"
+      ],
+      "props": [
+        "className",
+        "isActive",
+        "size",
+        "...props"
+      ]
+    },
+    {
+      "id": "PaginationPrevious",
+      "kind": "component",
+      "name": "PaginationPrevious",
+      "description": "Arrow function component. Props: className, ...props. Renders: span, PaginationLink, ChevronLeft.",
+      "file": "src/components/ui/pagination.tsx",
+      "startLine": 49,
+      "endLine": 62,
+      "props": [
+        "className",
+        "...props"
+      ],
+      "visibleText": [
+        "Previous",
+        "Go to previous page"
+      ]
+    },
+    {
+      "id": "PaginationNext",
+      "kind": "component",
+      "name": "PaginationNext",
+      "description": "Arrow function component. Props: className, ...props. Renders: span, PaginationLink, ChevronRight.",
+      "file": "src/components/ui/pagination.tsx",
+      "startLine": 65,
+      "endLine": 75,
+      "props": [
+        "className",
+        "...props"
+      ],
+      "visibleText": [
+        "Next",
+        "Go to next page"
+      ]
+    },
+    {
+      "id": "PaginationEllipsis",
+      "kind": "component",
+      "name": "PaginationEllipsis",
+      "description": "Arrow function component. Props: className, ...props. Renders: span, MoreHorizontal.",
+      "file": "src/components/ui/pagination.tsx",
+      "startLine": 78,
+      "endLine": 87,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "Pagination.nav",
+      "kind": "element",
+      "name": "nav",
+      "description": "<nav> element. labelled \"pagination\".",
+      "file": "src/components/ui/pagination.tsx",
+      "startLine": 8,
+      "endLine": 13,
+      "selector": "[data-uxid=\"Pagination.nav\"]",
+      "parentId": "Pagination",
+      "accessibleName": "pagination"
+    },
+    {
+      "id": "PaginationLink.link",
+      "kind": "element",
+      "name": "a",
+      "description": "Link.",
+      "file": "src/components/ui/pagination.tsx",
+      "startLine": 35,
+      "endLine": 45,
+      "selector": "[data-uxid=\"PaginationLink.link\"]",
+      "parentId": "PaginationLink"
+    },
+    {
+      "id": "src/components/ui/pagination.tsx",
+      "kind": "file",
+      "name": "src/components/ui/pagination.tsx",
+      "description": "Source module: 7 top-level artifacts.",
+      "file": "src/components/ui/pagination.tsx",
+      "startLine": 1,
+      "endLine": 99
+    },
+    {
+      "id": "PopoverContent",
+      "kind": "component",
+      "name": "PopoverContent",
+      "description": "Wrapped component. Props: className, align, sideOffset, ...props. Renders: PopoverPrimitive.Portal, PopoverPrimitive.Content.",
+      "file": "src/components/ui/popover.tsx",
+      "startLine": 12,
+      "endLine": 28,
+      "props": [
+        "className",
+        "align",
+        "sideOffset",
+        "...props"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "src/components/ui/popover.tsx",
+      "kind": "file",
+      "name": "src/components/ui/popover.tsx",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/components/ui/popover.tsx",
+      "startLine": 1,
+      "endLine": 32
+    },
+    {
+      "id": "Progress",
+      "kind": "component",
+      "name": "Progress",
+      "description": "Wrapped component. Props: className, value, ...props. Renders: ProgressPrimitive.Root, ProgressPrimitive.Indicator.",
+      "file": "src/components/ui/progress.tsx",
+      "startLine": 8,
+      "endLine": 22,
+      "props": [
+        "className",
+        "value",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/progress.tsx",
+      "kind": "file",
+      "name": "src/components/ui/progress.tsx",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/components/ui/progress.tsx",
+      "startLine": 1,
+      "endLine": 26
+    },
+    {
+      "id": "RadioGroup",
+      "kind": "component",
+      "name": "RadioGroup",
+      "description": "Wrapped component. Props: className, ...props. Renders: RadioGroupPrimitive.Root.",
+      "file": "src/components/ui/radio-group.tsx",
+      "startLine": 7,
+      "endLine": 12,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "RadioGroupItem",
+      "kind": "component",
+      "name": "RadioGroupItem",
+      "description": "Wrapped component. Props: className, ...props. Renders: RadioGroupPrimitive.Item, RadioGroupPrimitive.Indicator, Circle.",
+      "file": "src/components/ui/radio-group.tsx",
+      "startLine": 15,
+      "endLine": 33,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/radio-group.tsx",
+      "kind": "file",
+      "name": "src/components/ui/radio-group.tsx",
+      "description": "Source module: 2 top-level artifacts.",
+      "file": "src/components/ui/radio-group.tsx",
+      "startLine": 1,
+      "endLine": 37
+    },
+    {
+      "id": "ResizablePanelGroup",
+      "kind": "component",
+      "name": "ResizablePanelGroup",
+      "description": "Arrow function component. Props: className, ...props. Renders: Group.",
+      "file": "src/components/ui/resizable.tsx",
+      "startLine": 6,
+      "endLine": 11,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "ResizableHandle",
+      "kind": "component",
+      "name": "ResizableHandle",
+      "description": "Arrow function component. Props: withHandle, className, ...props. Renders: div, Separator, GripVertical.",
+      "file": "src/components/ui/resizable.tsx",
+      "startLine": 15,
+      "endLine": 35,
+      "props": [
+        "withHandle",
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/resizable.tsx",
+      "kind": "file",
+      "name": "src/components/ui/resizable.tsx",
+      "description": "Source module: 2 top-level artifacts.",
+      "file": "src/components/ui/resizable.tsx",
+      "startLine": 1,
+      "endLine": 38
+    },
+    {
+      "id": "ScrollArea",
+      "kind": "component",
+      "name": "ScrollArea",
+      "description": "Wrapped component. Props: className, children, ...props. Renders: ScrollAreaPrimitive.Root, ScrollAreaPrimitive.Viewport, ScrollBar, ScrollAreaPrimitive.Corner.",
+      "file": "src/components/ui/scroll-area.tsx",
+      "startLine": 6,
+      "endLine": 21,
+      "props": [
+        "className",
+        "children",
+        "...props"
+      ]
+    },
+    {
+      "id": "ScrollBar",
+      "kind": "component",
+      "name": "ScrollBar",
+      "description": "Wrapped component. Props: className, orientation, ...props. Renders: ScrollAreaPrimitive.ScrollAreaScrollbar, ScrollAreaPrimitive.ScrollAreaThumb.",
+      "file": "src/components/ui/scroll-area.tsx",
+      "startLine": 24,
+      "endLine": 41,
+      "props": [
+        "className",
+        "orientation",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/scroll-area.tsx",
+      "kind": "file",
+      "name": "src/components/ui/scroll-area.tsx",
+      "description": "Source module: 2 top-level artifacts.",
+      "file": "src/components/ui/scroll-area.tsx",
+      "startLine": 1,
+      "endLine": 45
+    },
+    {
+      "id": "SelectTrigger",
+      "kind": "component",
+      "name": "SelectTrigger",
+      "description": "Wrapped component. Props: className, children, ...props. Renders: SelectPrimitive.Trigger, SelectPrimitive.Icon, ChevronDown.",
+      "file": "src/components/ui/select.tsx",
+      "startLine": 15,
+      "endLine": 32,
+      "props": [
+        "className",
+        "children",
+        "...props"
+      ],
+      "routes": [
+        "/bodekasse",
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "SelectScrollUpButton",
+      "kind": "component",
+      "name": "SelectScrollUpButton",
+      "description": "Wrapped component. Props: className, ...props. Renders: SelectPrimitive.ScrollUpButton, ChevronUp.",
+      "file": "src/components/ui/select.tsx",
+      "startLine": 35,
+      "endLine": 46,
+      "props": [
+        "className",
+        "...props"
+      ],
+      "routes": [
+        "/bodekasse",
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "SelectScrollDownButton",
+      "kind": "component",
+      "name": "SelectScrollDownButton",
+      "description": "Wrapped component. Props: className, ...props. Renders: SelectPrimitive.ScrollDownButton, ChevronDown.",
+      "file": "src/components/ui/select.tsx",
+      "startLine": 49,
+      "endLine": 60,
+      "props": [
+        "className",
+        "...props"
+      ],
+      "routes": [
+        "/bodekasse",
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "SelectContent",
+      "kind": "component",
+      "name": "SelectContent",
+      "description": "Wrapped component. Props: className, children, position, ...props. Renders: SelectPrimitive.Portal, SelectPrimitive.Content, SelectScrollUpButton, SelectPrimitive.Viewport, SelectScrollDownButton.",
+      "file": "src/components/ui/select.tsx",
+      "startLine": 63,
+      "endLine": 92,
+      "props": [
+        "className",
+        "children",
+        "position",
+        "...props"
+      ],
+      "routes": [
+        "/bodekasse",
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "SelectLabel",
+      "kind": "component",
+      "name": "SelectLabel",
+      "description": "Wrapped component. Props: className, ...props. Renders: SelectPrimitive.Label.",
+      "file": "src/components/ui/select.tsx",
+      "startLine": 95,
+      "endLine": 104,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "SelectItem",
+      "kind": "component",
+      "name": "SelectItem",
+      "description": "Wrapped component. Props: className, children, ...props. Renders: span, SelectPrimitive.Item, SelectPrimitive.ItemIndicator, Check, SelectPrimitive.ItemText.",
+      "file": "src/components/ui/select.tsx",
+      "startLine": 107,
+      "endLine": 126,
+      "props": [
+        "className",
+        "children",
+        "...props"
+      ],
+      "routes": [
+        "/bodekasse",
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "SelectSeparator",
+      "kind": "component",
+      "name": "SelectSeparator",
+      "description": "Wrapped component. Props: className, ...props. Renders: SelectPrimitive.Separator.",
+      "file": "src/components/ui/select.tsx",
+      "startLine": 129,
+      "endLine": 138,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/select.tsx",
+      "kind": "file",
+      "name": "src/components/ui/select.tsx",
+      "description": "Source module: 7 top-level artifacts.",
+      "file": "src/components/ui/select.tsx",
+      "startLine": 1,
+      "endLine": 153
+    },
+    {
+      "id": "Separator",
+      "kind": "component",
+      "name": "Separator",
+      "description": "Wrapped component. Props: className, orientation, decorative, ...props. Renders: SeparatorPrimitive.Root.",
+      "file": "src/components/ui/separator.tsx",
+      "startLine": 6,
+      "endLine": 21,
+      "props": [
+        "className",
+        "orientation",
+        "decorative",
+        "...props"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "src/components/ui/separator.tsx",
+      "kind": "file",
+      "name": "src/components/ui/separator.tsx",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/components/ui/separator.tsx",
+      "startLine": 1,
+      "endLine": 25
+    },
+    {
+      "id": "SheetOverlay",
+      "kind": "component",
+      "name": "SheetOverlay",
+      "description": "Wrapped component. Props: className, ...props. Renders: SheetPrimitive.Overlay.",
+      "file": "src/components/ui/sheet.tsx",
+      "startLine": 18,
+      "endLine": 30,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "SheetContent",
+      "kind": "component",
+      "name": "SheetContent",
+      "description": "Wrapped component. Props: side, className, children, ...props. Renders: span, SheetPortal, SheetOverlay, SheetPrimitive.Content, SheetPrimitive.Close, X.",
+      "file": "src/components/ui/sheet.tsx",
+      "startLine": 57,
+      "endLine": 71,
+      "props": [
+        "side",
+        "className",
+        "children",
+        "...props"
+      ]
+    },
+    {
+      "id": "SheetHeader",
+      "kind": "component",
+      "name": "SheetHeader",
+      "description": "Arrow function component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/sheet.tsx",
+      "startLine": 74,
+      "endLine": 76,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "SheetFooter",
+      "kind": "component",
+      "name": "SheetFooter",
+      "description": "Arrow function component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/sheet.tsx",
+      "startLine": 79,
+      "endLine": 84,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "SheetTitle",
+      "kind": "component",
+      "name": "SheetTitle",
+      "description": "Wrapped component. Props: className, ...props. Renders: SheetPrimitive.Title.",
+      "file": "src/components/ui/sheet.tsx",
+      "startLine": 87,
+      "endLine": 96,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "SheetDescription",
+      "kind": "component",
+      "name": "SheetDescription",
+      "description": "Wrapped component. Props: className, ...props. Renders: SheetPrimitive.Description.",
+      "file": "src/components/ui/sheet.tsx",
+      "startLine": 99,
+      "endLine": 108,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/sheet.tsx",
+      "kind": "file",
+      "name": "src/components/ui/sheet.tsx",
+      "description": "Source module: 6 top-level artifacts.",
+      "file": "src/components/ui/sheet.tsx",
+      "startLine": 1,
+      "endLine": 123
+    },
+    {
+      "id": "SidebarProvider",
+      "kind": "component",
+      "name": "SidebarProvider",
+      "description": "Wrapped component. Props: defaultOpen, open, onOpenChange, className, style, children, +1 more. Hooks: useIsMobile, useState, useCallback, useEffect, useMemo. Renders: div, SidebarContext.Provider, TooltipProvider.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 49,
+      "endLine": 149,
+      "props": [
+        "defaultOpen",
+        "open",
+        "onOpenChange",
+        "className",
+        "style",
+        "children",
+        "...props"
+      ],
+      "hooks": [
+        "useIsMobile",
+        "useState",
+        "useCallback",
+        "useEffect",
+        "useMemo"
+      ]
+    },
+    {
+      "id": "Sidebar",
+      "kind": "component",
+      "name": "Sidebar",
+      "description": "Wrapped component. Props: side, variant, collapsible, className, children, ...props. Hooks: useSidebar. Renders: div, Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 153,
+      "endLine": 256,
+      "childIds": [
+        "Sidebar.sheet"
+      ],
+      "props": [
+        "side",
+        "variant",
+        "collapsible",
+        "className",
+        "children",
+        "...props"
+      ],
+      "hooks": [
+        "useSidebar"
+      ]
+    },
+    {
+      "id": "SidebarTrigger",
+      "kind": "component",
+      "name": "SidebarTrigger",
+      "description": "Wrapped component. Props: className, onClick, ...props. Hooks: useSidebar. Renders: span, Button, PanelLeft.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 260,
+      "endLine": 283,
+      "childIds": [
+        "SidebarTrigger.button"
+      ],
+      "props": [
+        "className",
+        "onClick",
+        "...props"
+      ],
+      "hooks": [
+        "useSidebar"
+      ],
+      "visibleText": [
+        "Toggle Sidebar"
+      ]
+    },
+    {
+      "id": "SidebarRail",
+      "kind": "component",
+      "name": "SidebarRail",
+      "description": "Wrapped component. Props: className, ...props. Hooks: useSidebar. Renders: button.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 286,
+      "endLine": 310,
+      "childIds": [
+        "SidebarRail.button"
+      ],
+      "props": [
+        "className",
+        "...props"
+      ],
+      "hooks": [
+        "useSidebar"
+      ],
+      "visibleText": [
+        "Toggle Sidebar"
+      ]
+    },
+    {
+      "id": "SidebarInset",
+      "kind": "component",
+      "name": "SidebarInset",
+      "description": "Wrapped component. Props: className, ...props. Renders: main.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 314,
+      "endLine": 327,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "SidebarInput",
+      "kind": "component",
+      "name": "SidebarInput",
+      "description": "Wrapped component. Props: className, ...props. Renders: Input.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 331,
+      "endLine": 346,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "SidebarHeader",
+      "kind": "component",
+      "name": "SidebarHeader",
+      "description": "Wrapped component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 349,
+      "endLine": 359,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "SidebarFooter",
+      "kind": "component",
+      "name": "SidebarFooter",
+      "description": "Wrapped component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 363,
+      "endLine": 373,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "SidebarSeparator",
+      "kind": "component",
+      "name": "SidebarSeparator",
+      "description": "Wrapped component. Props: className, ...props. Renders: Separator.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 377,
+      "endLine": 389,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "SidebarContent",
+      "kind": "component",
+      "name": "SidebarContent",
+      "description": "Wrapped component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 392,
+      "endLine": 405,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "SidebarGroup",
+      "kind": "component",
+      "name": "SidebarGroup",
+      "description": "Wrapped component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 409,
+      "endLine": 419,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "SidebarGroupLabel",
+      "kind": "component",
+      "name": "SidebarGroupLabel",
+      "description": "Wrapped component. Props: className, asChild, ...props. Renders: Comp.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 423,
+      "endLine": 441,
+      "props": [
+        "className",
+        "asChild",
+        "...props"
+      ]
+    },
+    {
+      "id": "SidebarGroupAction",
+      "kind": "component",
+      "name": "SidebarGroupAction",
+      "description": "Wrapped component. Props: className, asChild, ...props. Renders: Comp.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 444,
+      "endLine": 464,
+      "props": [
+        "className",
+        "asChild",
+        "...props"
+      ]
+    },
+    {
+      "id": "SidebarGroupContent",
+      "kind": "component",
+      "name": "SidebarGroupContent",
+      "description": "Wrapped component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 467,
+      "endLine": 475,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "SidebarMenu",
+      "kind": "component",
+      "name": "SidebarMenu",
+      "description": "Wrapped component. Props: className, ...props. Renders: ul.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 479,
+      "endLine": 487,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "SidebarMenuItem",
+      "kind": "component",
+      "name": "SidebarMenuItem",
+      "description": "Wrapped component. Props: className, ...props. Renders: li.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 491,
+      "endLine": 499,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "SidebarMenuButton",
+      "kind": "component",
+      "name": "SidebarMenuButton",
+      "description": "Wrapped component. Props: asChild, isActive, variant, size, tooltip, className, +1 more. Hooks: useSidebar. Renders: Comp, Tooltip, TooltipTrigger, TooltipContent.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 525,
+      "endLine": 580,
+      "props": [
+        "asChild",
+        "isActive",
+        "variant",
+        "size",
+        "tooltip",
+        "className",
+        "...props"
+      ],
+      "hooks": [
+        "useSidebar"
+      ]
+    },
+    {
+      "id": "SidebarMenuAction",
+      "kind": "component",
+      "name": "SidebarMenuAction",
+      "description": "Wrapped component. Props: className, asChild, showOnHover, ...props. Renders: Comp.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 584,
+      "endLine": 612,
+      "props": [
+        "className",
+        "asChild",
+        "showOnHover",
+        "...props"
+      ]
+    },
+    {
+      "id": "SidebarMenuBadge",
+      "kind": "component",
+      "name": "SidebarMenuBadge",
+      "description": "Wrapped component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 615,
+      "endLine": 631,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "SidebarMenuSkeleton",
+      "kind": "component",
+      "name": "SidebarMenuSkeleton",
+      "description": "Wrapped component. Props: className, showIcon, ...props. Hooks: useMemo. Renders: div, Skeleton.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 635,
+      "endLine": 665,
+      "props": [
+        "className",
+        "showIcon",
+        "...props"
+      ],
+      "hooks": [
+        "useMemo"
+      ]
+    },
+    {
+      "id": "SidebarMenuSub",
+      "kind": "component",
+      "name": "SidebarMenuSub",
+      "description": "Wrapped component. Props: className, ...props. Renders: ul.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 668,
+      "endLine": 680,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "SidebarMenuSubItem",
+      "kind": "component",
+      "name": "SidebarMenuSubItem",
+      "description": "Wrapped component. Props: ...props. Renders: li.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 684,
+      "endLine": 685,
+      "props": [
+        "...props"
+      ]
+    },
+    {
+      "id": "SidebarMenuSubButton",
+      "kind": "component",
+      "name": "SidebarMenuSubButton",
+      "description": "Wrapped component. Props: asChild, size, isActive, className, ...props. Renders: Comp.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 689,
+      "endLine": 716,
+      "props": [
+        "asChild",
+        "size",
+        "isActive",
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "useSidebar",
+      "kind": "hook",
+      "name": "useSidebar",
+      "description": "Custom hook 'useSidebar'.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 40,
+      "endLine": 47
+    },
+    {
+      "id": "Sidebar.sheet",
+      "kind": "element",
+      "name": "Sheet",
+      "description": "<Sheet> component. Handlers: onOpenChange.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 191,
+      "endLine": 209,
+      "selector": "[data-uxid=\"Sidebar.sheet\"]",
+      "parentId": "Sidebar",
+      "handlers": [
+        "onOpenChange"
+      ]
+    },
+    {
+      "id": "SidebarTrigger.button",
+      "kind": "element",
+      "name": "Button",
+      "description": "<Button> component. Handlers: onClick.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 267,
+      "endLine": 281,
+      "selector": "[data-uxid=\"SidebarTrigger.button\"]",
+      "parentId": "SidebarTrigger",
+      "refId": "Button",
+      "handlers": [
+        "onClick"
+      ],
+      "routes": [
+        "/bodekasse",
+        "/fixtures",
+        "/fixtures/*",
+        "/squad",
+        "/stats"
+      ]
+    },
+    {
+      "id": "SidebarRail.button",
+      "kind": "element",
+      "name": "button",
+      "description": "Button. labelled \"Toggle Sidebar\". Handlers: onClick.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 291,
+      "endLine": 308,
+      "selector": "[data-uxid=\"SidebarRail.button\"]",
+      "parentId": "SidebarRail",
+      "accessibleName": "Toggle Sidebar",
+      "handlers": [
+        "onClick"
+      ]
+    },
+    {
+      "id": "src/components/ui/sidebar.tsx",
+      "kind": "file",
+      "name": "src/components/ui/sidebar.tsx",
+      "description": "Source module: 24 top-level artifacts.",
+      "file": "src/components/ui/sidebar.tsx",
+      "startLine": 1,
+      "endLine": 745
+    },
+    {
+      "id": "Skeleton",
+      "kind": "component",
+      "name": "Skeleton",
+      "description": "Function component. Props: className, ...props. Renders: div.",
+      "file": "src/components/ui/skeleton.tsx",
+      "startLine": 3,
+      "endLine": 5,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/skeleton.tsx",
+      "kind": "file",
+      "name": "src/components/ui/skeleton.tsx",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/components/ui/skeleton.tsx",
+      "startLine": 1,
+      "endLine": 8
+    },
+    {
+      "id": "Slider",
+      "kind": "component",
+      "name": "Slider",
+      "description": "Wrapped component. Props: className, ...props. Renders: SliderPrimitive.Root, SliderPrimitive.Track, SliderPrimitive.Range, SliderPrimitive.Thumb.",
+      "file": "src/components/ui/slider.tsx",
+      "startLine": 6,
+      "endLine": 20,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/slider.tsx",
+      "kind": "file",
+      "name": "src/components/ui/slider.tsx",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/components/ui/slider.tsx",
+      "startLine": 1,
+      "endLine": 24
+    },
+    {
+      "id": "Toaster",
+      "kind": "component",
+      "name": "Toaster",
+      "description": "Arrow function component. Props: ...props. Renders: Sonner.",
+      "file": "src/components/ui/sonner.tsx",
+      "startLine": 5,
+      "endLine": 21,
+      "props": [
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/sonner.tsx",
+      "kind": "file",
+      "name": "src/components/ui/sonner.tsx",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/components/ui/sonner.tsx",
+      "startLine": 1,
+      "endLine": 24
+    },
+    {
+      "id": "Switch",
+      "kind": "component",
+      "name": "Switch",
+      "description": "Wrapped component. Props: className, ...props. Renders: SwitchPrimitives.Root, SwitchPrimitives.Thumb.",
+      "file": "src/components/ui/switch.tsx",
+      "startLine": 6,
+      "endLine": 24,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/switch.tsx",
+      "kind": "file",
+      "name": "src/components/ui/switch.tsx",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/components/ui/switch.tsx",
+      "startLine": 1,
+      "endLine": 28
+    },
+    {
+      "id": "Table",
+      "kind": "component",
+      "name": "Table",
+      "description": "Wrapped component. Props: className, ...props. Renders: div, table.",
+      "file": "src/components/ui/table.tsx",
+      "startLine": 5,
+      "endLine": 10,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "TableHeader",
+      "kind": "component",
+      "name": "TableHeader",
+      "description": "Wrapped component. Props: className, ...props. Renders: thead.",
+      "file": "src/components/ui/table.tsx",
+      "startLine": 14,
+      "endLine": 19,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "TableBody",
+      "kind": "component",
+      "name": "TableBody",
+      "description": "Wrapped component. Props: className, ...props. Renders: tbody.",
+      "file": "src/components/ui/table.tsx",
+      "startLine": 22,
+      "endLine": 27,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "TableFooter",
+      "kind": "component",
+      "name": "TableFooter",
+      "description": "Wrapped component. Props: className, ...props. Renders: tfoot.",
+      "file": "src/components/ui/table.tsx",
+      "startLine": 30,
+      "endLine": 39,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "TableRow",
+      "kind": "component",
+      "name": "TableRow",
+      "description": "Wrapped component. Props: className, ...props. Renders: tr.",
+      "file": "src/components/ui/table.tsx",
+      "startLine": 42,
+      "endLine": 52,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "TableHead",
+      "kind": "component",
+      "name": "TableHead",
+      "description": "Wrapped component. Props: className, ...props. Renders: th.",
+      "file": "src/components/ui/table.tsx",
+      "startLine": 56,
+      "endLine": 68,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "TableCell",
+      "kind": "component",
+      "name": "TableCell",
+      "description": "Wrapped component. Props: className, ...props. Renders: td.",
+      "file": "src/components/ui/table.tsx",
+      "startLine": 71,
+      "endLine": 83,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "TableCaption",
+      "kind": "component",
+      "name": "TableCaption",
+      "description": "Wrapped component. Props: className, ...props. Renders: caption.",
+      "file": "src/components/ui/table.tsx",
+      "startLine": 86,
+      "endLine": 91,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/table.tsx",
+      "kind": "file",
+      "name": "src/components/ui/table.tsx",
+      "description": "Source module: 8 top-level artifacts.",
+      "file": "src/components/ui/table.tsx",
+      "startLine": 1,
+      "endLine": 95
+    },
+    {
+      "id": "TabsList",
+      "kind": "component",
+      "name": "TabsList",
+      "description": "Wrapped component. Props: className, ...props. Renders: TabsPrimitive.List.",
+      "file": "src/components/ui/tabs.tsx",
+      "startLine": 8,
+      "endLine": 20,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "TabsTrigger",
+      "kind": "component",
+      "name": "TabsTrigger",
+      "description": "Wrapped component. Props: className, ...props. Renders: TabsPrimitive.Trigger.",
+      "file": "src/components/ui/tabs.tsx",
+      "startLine": 23,
+      "endLine": 35,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "TabsContent",
+      "kind": "component",
+      "name": "TabsContent",
+      "description": "Wrapped component. Props: className, ...props. Renders: TabsPrimitive.Content.",
+      "file": "src/components/ui/tabs.tsx",
+      "startLine": 38,
+      "endLine": 50,
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/tabs.tsx",
+      "kind": "file",
+      "name": "src/components/ui/tabs.tsx",
+      "description": "Source module: 3 top-level artifacts.",
+      "file": "src/components/ui/tabs.tsx",
+      "startLine": 1,
+      "endLine": 54
+    },
+    {
+      "id": "Textarea",
+      "kind": "component",
+      "name": "Textarea",
+      "description": "Wrapped component. Props: className, ...props. Renders: textarea.",
+      "file": "src/components/ui/textarea.tsx",
+      "startLine": 5,
+      "endLine": 17,
+      "childIds": [
+        "Textarea.textarea"
+      ],
+      "props": [
+        "className",
+        "...props"
+      ]
+    },
+    {
+      "id": "Textarea.textarea",
+      "kind": "element",
+      "name": "textarea",
+      "description": "Multi-line text field.",
+      "file": "src/components/ui/textarea.tsx",
+      "startLine": 8,
+      "endLine": 15,
+      "selector": "[data-uxid=\"Textarea.textarea\"]",
+      "parentId": "Textarea"
+    },
+    {
+      "id": "src/components/ui/textarea.tsx",
+      "kind": "file",
+      "name": "src/components/ui/textarea.tsx",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/components/ui/textarea.tsx",
+      "startLine": 1,
+      "endLine": 22
+    },
+    {
+      "id": "ToggleGroup",
+      "kind": "component",
+      "name": "ToggleGroup",
+      "description": "Wrapped component. Props: className, variant, size, children, ...props. Renders: ToggleGroupPrimitive.Root, ToggleGroupContext.Provider.",
+      "file": "src/components/ui/toggle-group.tsx",
+      "startLine": 15,
+      "endLine": 27,
+      "props": [
+        "className",
+        "variant",
+        "size",
+        "children",
+        "...props"
+      ],
+      "routes": [
+        "/fixtures"
+      ]
+    },
+    {
+      "id": "ToggleGroupItem",
+      "kind": "component",
+      "name": "ToggleGroupItem",
+      "description": "Wrapped component. Props: className, children, variant, size, ...props. Hooks: useContext. Renders: ToggleGroupPrimitive.Item.",
+      "file": "src/components/ui/toggle-group.tsx",
+      "startLine": 31,
+      "endLine": 53,
+      "props": [
+        "className",
+        "children",
+        "variant",
+        "size",
+        "...props"
+      ],
+      "hooks": [
+        "useContext"
+      ],
+      "routes": [
+        "/fixtures"
+      ]
+    },
+    {
+      "id": "src/components/ui/toggle-group.tsx",
+      "kind": "file",
+      "name": "src/components/ui/toggle-group.tsx",
+      "description": "Source module: 2 top-level artifacts.",
+      "file": "src/components/ui/toggle-group.tsx",
+      "startLine": 1,
+      "endLine": 58
+    },
+    {
+      "id": "Toggle",
+      "kind": "component",
+      "name": "Toggle",
+      "description": "Wrapped component. Props: className, variant, size, ...props. Renders: TogglePrimitive.Root.",
+      "file": "src/components/ui/toggle.tsx",
+      "startLine": 29,
+      "endLine": 38,
+      "props": [
+        "className",
+        "variant",
+        "size",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/toggle.tsx",
+      "kind": "file",
+      "name": "src/components/ui/toggle.tsx",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/components/ui/toggle.tsx",
+      "startLine": 1,
+      "endLine": 43
+    },
+    {
+      "id": "TooltipContent",
+      "kind": "component",
+      "name": "TooltipContent",
+      "description": "Wrapped component. Props: className, sideOffset, ...props. Renders: TooltipPrimitive.Portal, TooltipPrimitive.Content.",
+      "file": "src/components/ui/tooltip.tsx",
+      "startLine": 14,
+      "endLine": 29,
+      "props": [
+        "className",
+        "sideOffset",
+        "...props"
+      ]
+    },
+    {
+      "id": "src/components/ui/tooltip.tsx",
+      "kind": "file",
+      "name": "src/components/ui/tooltip.tsx",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/components/ui/tooltip.tsx",
+      "startLine": 1,
+      "endLine": 33
+    },
+    {
+      "id": "AuthProvider",
+      "kind": "component",
+      "name": "AuthProvider",
+      "description": "Function component. Props: children. Hooks: useState, useEffect. Renders: form, div, label, p, AuthContext.Provider, Dialog, DialogContent, DialogHeader, +2 more.",
+      "file": "src/contexts/AuthContext.tsx",
+      "startLine": 17,
+      "endLine": 100,
+      "childIds": [
+        "AuthProvider.dialog",
+        "AuthProvider.form",
+        "AuthProvider.label",
+        "AuthProvider.input",
+        "AuthProvider.label-2",
+        "AuthProvider.input-2"
+      ],
+      "props": [
+        "children"
+      ],
+      "hooks": [
+        "useState",
+        "useEffect"
+      ],
+      "visibleText": [
+        "E-mail",
+        "din@email.dk",
+        "Adgangskode",
+        "Logger ind… / Log ind"
+      ],
+      "moments": [
+        {
+          "verb": "submit",
+          "file": "src/contexts/AuthContext.tsx",
+          "line": 47,
+          "handler": "handleSignIn",
+          "observedBy": "form-submit"
+        }
+      ]
+    },
+    {
+      "id": "useAuth",
+      "kind": "hook",
+      "name": "useAuth",
+      "description": "Exported Custom hook 'useAuth'.",
+      "file": "src/contexts/AuthContext.tsx",
+      "startLine": 102,
+      "endLine": 106,
+      "exported": true
+    },
+    {
+      "id": "AuthProvider.dialog",
+      "kind": "element",
+      "name": "Dialog",
+      "description": "<Dialog> component. Handlers: onOpenChange.",
+      "file": "src/contexts/AuthContext.tsx",
+      "startLine": 64,
+      "endLine": 97,
+      "selector": "[data-uxid=\"AuthProvider.dialog\"]",
+      "parentId": "AuthProvider",
+      "handlers": [
+        "onOpenChange"
+      ]
+    },
+    {
+      "id": "AuthProvider.form",
+      "kind": "element",
+      "name": "form",
+      "description": "Form. Handlers: onSubmit.",
+      "file": "src/contexts/AuthContext.tsx",
+      "startLine": 69,
+      "endLine": 95,
+      "selector": "[data-uxid=\"AuthProvider.form\"]",
+      "parentId": "AuthProvider",
+      "handlers": [
+        "onSubmit"
+      ]
+    },
+    {
+      "id": "AuthProvider.label",
+      "kind": "element",
+      "name": "label",
+      "description": "Field label. labelled \"E-mail\".",
+      "file": "src/contexts/AuthContext.tsx",
+      "startLine": 71,
+      "endLine": 71,
+      "selector": "[data-uxid=\"AuthProvider.label\"]",
+      "parentId": "AuthProvider",
+      "accessibleName": "E-mail"
+    },
+    {
+      "id": "AuthProvider.input",
+      "kind": "element",
+      "name": "Input",
+      "description": "<Input> component. type=email, placeholder \"din@email.dk\". Handlers: onChange.",
+      "file": "src/contexts/AuthContext.tsx",
+      "startLine": 72,
+      "endLine": 79,
+      "selector": "[data-uxid=\"AuthProvider.input\"]",
+      "parentId": "AuthProvider",
+      "refId": "Input",
+      "accessibleName": "din@email.dk",
+      "handlers": [
+        "onChange"
+      ],
+      "routes": [
+        "/bodekasse",
+        "/fixtures",
+        "/fixtures/*",
+        "/squad",
+        "/stats"
+      ]
+    },
+    {
+      "id": "AuthProvider.label-2",
+      "kind": "element",
+      "name": "label",
+      "description": "Field label. labelled \"Adgangskode\".",
+      "file": "src/contexts/AuthContext.tsx",
+      "startLine": 82,
+      "endLine": 82,
+      "selector": "[data-uxid=\"AuthProvider.label-2\"]",
+      "parentId": "AuthProvider",
+      "accessibleName": "Adgangskode"
+    },
+    {
+      "id": "AuthProvider.input-2",
+      "kind": "element",
+      "name": "Input",
+      "description": "<Input> component. type=password, placeholder \"••••••••\". Handlers: onChange.",
+      "file": "src/contexts/AuthContext.tsx",
+      "startLine": 83,
+      "endLine": 89,
+      "selector": "[data-uxid=\"AuthProvider.input-2\"]",
+      "parentId": "AuthProvider",
+      "refId": "Input",
+      "accessibleName": "••••••••",
+      "handlers": [
+        "onChange"
+      ],
+      "routes": [
+        "/bodekasse",
+        "/fixtures",
+        "/fixtures/*",
+        "/squad",
+        "/stats"
+      ]
+    },
+    {
+      "id": "src/contexts/AuthContext.tsx",
+      "kind": "file",
+      "name": "src/contexts/AuthContext.tsx",
+      "description": "Source module: 2 top-level artifacts.",
+      "file": "src/contexts/AuthContext.tsx",
+      "startLine": 1,
+      "endLine": 107
+    },
+    {
+      "id": "SeasonProvider",
+      "kind": "component",
+      "name": "SeasonProvider",
+      "description": "Function component. Props: children. Hooks: useState, useEffect, useMemo. Renders: form, div, label, SeasonContext.Provider, Dialog, DialogContent, DialogHeader, DialogTitle, +1 more.",
+      "file": "src/contexts/SeasonContext.tsx",
+      "startLine": 24,
+      "endLine": 129,
+      "childIds": [
+        "SeasonProvider.dialog",
+        "SeasonProvider.form",
+        "SeasonProvider.label",
+        "SeasonProvider.input",
+        "SeasonProvider.label-2",
+        "SeasonProvider.checkbox"
+      ],
+      "props": [
+        "children"
+      ],
+      "hooks": [
+        "useState",
+        "useEffect",
+        "useMemo"
+      ],
+      "visibleText": [
+        "Navn",
+        "Forår 26/27",
+        "Gør til aktiv sæson",
+        "Opretter… / Opret sæson"
+      ],
+      "moments": [
+        {
+          "verb": "create",
+          "file": "src/contexts/SeasonContext.tsx",
+          "line": 73,
+          "handler": "createSeason",
+          "observedBy": "form-submit"
+        }
+      ]
+    },
+    {
+      "id": "useSeason",
+      "kind": "hook",
+      "name": "useSeason",
+      "description": "Exported Custom hook 'useSeason'.",
+      "file": "src/contexts/SeasonContext.tsx",
+      "startLine": 131,
+      "endLine": 135,
+      "exported": true
+    },
+    {
+      "id": "SeasonProvider.dialog",
+      "kind": "element",
+      "name": "Dialog",
+      "description": "<Dialog> component. Handlers: onOpenChange.",
+      "file": "src/contexts/SeasonContext.tsx",
+      "startLine": 100,
+      "endLine": 126,
+      "selector": "[data-uxid=\"SeasonProvider.dialog\"]",
+      "parentId": "SeasonProvider",
+      "handlers": [
+        "onOpenChange"
+      ]
+    },
+    {
+      "id": "SeasonProvider.form",
+      "kind": "element",
+      "name": "form",
+      "description": "Form. Handlers: onSubmit.",
+      "file": "src/contexts/SeasonContext.tsx",
+      "startLine": 105,
+      "endLine": 124,
+      "selector": "[data-uxid=\"SeasonProvider.form\"]",
+      "parentId": "SeasonProvider",
+      "handlers": [
+        "onSubmit"
+      ]
+    },
+    {
+      "id": "SeasonProvider.label",
+      "kind": "element",
+      "name": "label",
+      "description": "Field label. labelled \"Navn\".",
+      "file": "src/contexts/SeasonContext.tsx",
+      "startLine": 107,
+      "endLine": 107,
+      "selector": "[data-uxid=\"SeasonProvider.label\"]",
+      "parentId": "SeasonProvider",
+      "accessibleName": "Navn"
+    },
+    {
+      "id": "SeasonProvider.input",
+      "kind": "element",
+      "name": "Input",
+      "description": "<Input> component. placeholder \"Forår 26/27\". Handlers: onChange.",
+      "file": "src/contexts/SeasonContext.tsx",
+      "startLine": 108,
+      "endLine": 115,
+      "selector": "[data-uxid=\"SeasonProvider.input\"]",
+      "parentId": "SeasonProvider",
+      "refId": "Input",
+      "accessibleName": "Forår 26/27",
+      "handlers": [
+        "onChange"
+      ],
+      "routes": [
+        "/bodekasse",
+        "/fixtures",
+        "/fixtures/*",
+        "/squad",
+        "/stats"
+      ]
+    },
+    {
+      "id": "SeasonProvider.label-2",
+      "kind": "element",
+      "name": "label",
+      "description": "Field label. labelled \"Gør til aktiv sæson\".",
+      "file": "src/contexts/SeasonContext.tsx",
+      "startLine": 117,
+      "endLine": 120,
+      "selector": "[data-uxid=\"SeasonProvider.label-2\"]",
+      "parentId": "SeasonProvider",
+      "accessibleName": "Gør til aktiv sæson"
+    },
+    {
+      "id": "SeasonProvider.checkbox",
+      "kind": "element",
+      "name": "Checkbox",
+      "description": "<Checkbox> component. Handlers: onCheckedChange.",
+      "file": "src/contexts/SeasonContext.tsx",
+      "startLine": 118,
+      "endLine": 118,
+      "selector": "[data-uxid=\"SeasonProvider.checkbox\"]",
+      "parentId": "SeasonProvider",
+      "refId": "Checkbox",
+      "handlers": [
+        "onCheckedChange"
+      ],
+      "routes": [
+        "/bodekasse"
+      ]
+    },
+    {
+      "id": "src/contexts/SeasonContext.tsx",
+      "kind": "file",
+      "name": "src/contexts/SeasonContext.tsx",
+      "description": "Source module: 2 top-level artifacts.",
+      "file": "src/contexts/SeasonContext.tsx",
+      "startLine": 1,
+      "endLine": 136
+    },
+    {
+      "id": "useIsMobile",
+      "kind": "hook",
+      "name": "useIsMobile",
+      "description": "Exported Custom hook 'useIsMobile'.",
+      "file": "src/hooks/use-mobile.tsx",
+      "startLine": 5,
+      "endLine": 19,
+      "exported": true
+    },
+    {
+      "id": "src/hooks/use-mobile.tsx",
+      "kind": "file",
+      "name": "src/hooks/use-mobile.tsx",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/hooks/use-mobile.tsx",
+      "startLine": 1,
+      "endLine": 20
+    },
+    {
+      "id": "src/integrations/supabase/auth-middleware.ts",
+      "kind": "file",
+      "name": "src/integrations/supabase/auth-middleware.ts",
+      "description": "Source module: 0 top-level artifacts.",
+      "file": "src/integrations/supabase/auth-middleware.ts",
+      "startLine": 1,
+      "endLine": 81
+    },
+    {
+      "id": "createSupabaseAdminClient",
+      "kind": "function",
+      "name": "createSupabaseAdminClient",
+      "description": "Function 'createSupabaseAdminClient'.",
+      "file": "src/integrations/supabase/client.server.ts",
+      "startLine": 8,
+      "endLine": 29
+    },
+    {
+      "id": "src/integrations/supabase/client.server.ts",
+      "kind": "file",
+      "name": "src/integrations/supabase/client.server.ts",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/integrations/supabase/client.server.ts",
+      "startLine": 1,
+      "endLine": 42
+    },
+    {
+      "id": "createSupabaseClient",
+      "kind": "function",
+      "name": "createSupabaseClient",
+      "description": "Function 'createSupabaseClient'.",
+      "file": "src/integrations/supabase/client.ts",
+      "startLine": 5,
+      "endLine": 28
+    },
+    {
+      "id": "src/integrations/supabase/client.ts",
+      "kind": "file",
+      "name": "src/integrations/supabase/client.ts",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/integrations/supabase/client.ts",
+      "startLine": 1,
+      "endLine": 41
+    },
+    {
+      "id": "src/integrations/supabase/types.ts",
+      "kind": "file",
+      "name": "src/integrations/supabase/types.ts",
+      "description": "Source module: 0 top-level artifacts.",
+      "file": "src/integrations/supabase/types.ts",
+      "startLine": 1,
+      "endLine": 453
+    },
+    {
+      "id": "formationsFor",
+      "kind": "function",
+      "name": "formationsFor",
+      "description": "Exported Function 'formationsFor'. Params: teamSize.",
+      "file": "src/lib/formations.ts",
+      "startLine": 107,
+      "endLine": 109,
+      "props": [
+        "teamSize"
+      ],
+      "exported": true
+    },
+    {
+      "id": "defaultFormation",
+      "kind": "function",
+      "name": "defaultFormation",
+      "description": "Exported Function 'defaultFormation'. Params: teamSize.",
+      "file": "src/lib/formations.ts",
+      "startLine": 111,
+      "endLine": 113,
+      "props": [
+        "teamSize"
+      ],
+      "exported": true
+    },
+    {
+      "id": "patternCounts",
+      "kind": "function",
+      "name": "patternCounts",
+      "description": "Function 'patternCounts'. Params: input.",
+      "file": "src/lib/formations.ts",
+      "startLine": 116,
+      "endLine": 123,
+      "props": [
+        "input"
+      ]
+    },
+    {
+      "id": "parseFormationPattern",
+      "kind": "function",
+      "name": "parseFormationPattern",
+      "description": "Exported Function 'parseFormationPattern'. Params: input, teamSize.",
+      "file": "src/lib/formations.ts",
+      "startLine": 128,
+      "endLine": 132,
+      "props": [
+        "input",
+        "teamSize"
+      ],
+      "exported": true
+    },
+    {
+      "id": "spread",
+      "kind": "function",
+      "name": "spread",
+      "description": "Function 'spread'. Params: n.",
+      "file": "src/lib/formations.ts",
+      "startLine": 135,
+      "endLine": 144,
+      "props": [
+        "n"
+      ]
+    },
+    {
+      "id": "defenderLabels",
+      "kind": "function",
+      "name": "defenderLabels",
+      "description": "Function 'defenderLabels'. Params: n.",
+      "file": "src/lib/formations.ts",
+      "startLine": 146,
+      "endLine": 155,
+      "props": [
+        "n"
+      ]
+    },
+    {
+      "id": "forwardLabels",
+      "kind": "function",
+      "name": "forwardLabels",
+      "description": "Function 'forwardLabels'. Params: n.",
+      "file": "src/lib/formations.ts",
+      "startLine": 157,
+      "endLine": 164,
+      "props": [
+        "n"
+      ]
+    },
+    {
+      "id": "midfieldLabels",
+      "kind": "function",
+      "name": "midfieldLabels",
+      "description": "Function 'midfieldLabels'. Params: n, role.",
+      "file": "src/lib/formations.ts",
+      "startLine": 167,
+      "endLine": 180,
+      "props": [
+        "n",
+        "role"
+      ]
+    },
+    {
+      "id": "buildFormation",
+      "kind": "function",
+      "name": "buildFormation",
+      "description": "Function 'buildFormation'. Params: name, counts.",
+      "file": "src/lib/formations.ts",
+      "startLine": 185,
+      "endLine": 199,
+      "props": [
+        "name",
+        "counts"
+      ]
+    },
+    {
+      "id": "parseFormation",
+      "kind": "function",
+      "name": "parseFormation",
+      "description": "Exported Function 'parseFormation'. Params: name, teamSize.",
+      "file": "src/lib/formations.ts",
+      "startLine": 204,
+      "endLine": 212,
+      "props": [
+        "name",
+        "teamSize"
+      ],
+      "exported": true
+    },
+    {
+      "id": "formationPositions",
+      "kind": "function",
+      "name": "formationPositions",
+      "description": "Exported Function 'formationPositions'. Params: name, teamSize.",
+      "file": "src/lib/formations.ts",
+      "startLine": 215,
+      "endLine": 218,
+      "props": [
+        "name",
+        "teamSize"
+      ],
+      "exported": true
+    },
+    {
+      "id": "src/lib/formations.ts",
+      "kind": "file",
+      "name": "src/lib/formations.ts",
+      "description": "Source module: 11 top-level artifacts.",
+      "file": "src/lib/formations.ts",
+      "startLine": 1,
+      "endLine": 219
+    },
+    {
+      "id": "escapeText",
+      "kind": "function",
+      "name": "escapeText",
+      "description": "Function 'escapeText'. Params: s.",
+      "file": "src/lib/ics.ts",
+      "startLine": 38,
+      "endLine": 40,
+      "props": [
+        "s"
+      ]
+    },
+    {
+      "id": "fold",
+      "kind": "function",
+      "name": "fold",
+      "description": "Function 'fold'. Params: line.",
+      "file": "src/lib/ics.ts",
+      "startLine": 43,
+      "endLine": 61,
+      "props": [
+        "line"
+      ]
+    },
+    {
+      "id": "compactDate",
+      "kind": "function",
+      "name": "compactDate",
+      "description": "Function 'compactDate'. Params: date.",
+      "file": "src/lib/ics.ts",
+      "startLine": 63,
+      "endLine": 63,
+      "props": [
+        "date"
+      ]
+    },
+    {
+      "id": "localDateTime",
+      "kind": "function",
+      "name": "localDateTime",
+      "description": "Function 'localDateTime'. Params: date, time.",
+      "file": "src/lib/ics.ts",
+      "startLine": 65,
+      "endLine": 67,
+      "props": [
+        "date",
+        "time"
+      ]
+    },
+    {
+      "id": "addMinutes",
+      "kind": "function",
+      "name": "addMinutes",
+      "description": "Function 'addMinutes'. Params: date, time, minutes.",
+      "file": "src/lib/ics.ts",
+      "startLine": 69,
+      "endLine": 74,
+      "props": [
+        "date",
+        "time",
+        "minutes"
+      ]
+    },
+    {
+      "id": "nextDay",
+      "kind": "function",
+      "name": "nextDay",
+      "description": "Function 'nextDay'. Params: date.",
+      "file": "src/lib/ics.ts",
+      "startLine": 76,
+      "endLine": 80,
+      "props": [
+        "date"
+      ]
+    },
+    {
+      "id": "buildSeasonCalendar",
+      "kind": "function",
+      "name": "buildSeasonCalendar",
+      "description": "Exported Function 'buildSeasonCalendar'. Params: opts.",
+      "file": "src/lib/ics.ts",
+      "startLine": 82,
+      "endLine": 130,
+      "props": [
+        "opts"
+      ],
+      "exported": true
+    },
+    {
+      "id": "src/lib/ics.ts",
+      "kind": "file",
+      "name": "src/lib/ics.ts",
+      "description": "Source module: 7 top-level artifacts.",
+      "file": "src/lib/ics.ts",
+      "startLine": 1,
+      "endLine": 131
+    },
+    {
+      "id": "cn",
+      "kind": "function",
+      "name": "cn",
+      "description": "Exported Function 'cn'. Params: ...inputs.",
+      "file": "src/lib/utils.ts",
+      "startLine": 4,
+      "endLine": 6,
+      "props": [
+        "...inputs"
+      ],
+      "exported": true
+    },
+    {
+      "id": "src/lib/utils.ts",
+      "kind": "file",
+      "name": "src/lib/utils.ts",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/lib/utils.ts",
+      "startLine": 1,
+      "endLine": 7
+    },
+    {
+      "id": "src/routeTree.gen.ts",
+      "kind": "file",
+      "name": "src/routeTree.gen.ts",
+      "description": "Source module: 0 top-level artifacts.",
+      "file": "src/routeTree.gen.ts",
+      "startLine": 1,
+      "endLine": 199
+    },
+    {
+      "id": "DefaultErrorComponent",
+      "kind": "component",
+      "name": "DefaultErrorComponent",
+      "description": "Function component. Props: error, reset. Hooks: useRouter. Renders: div, svg, path, h1, p, pre.",
+      "file": "src/router.tsx",
+      "startLine": 4,
+      "endLine": 55,
+      "childIds": [
+        "DefaultErrorComponent.button",
+        "DefaultErrorComponent.link"
+      ],
+      "props": [
+        "error",
+        "reset"
+      ],
+      "hooks": [
+        "useRouter"
+      ],
+      "sections": [
+        "Something went wrong"
+      ],
+      "visibleText": [
+        "Something went wrong",
+        "Try again",
+        "Go home"
+      ]
+    },
+    {
+      "id": "getRouter",
+      "kind": "function",
+      "name": "getRouter",
+      "description": "Exported Function 'getRouter'.",
+      "file": "src/router.tsx",
+      "startLine": 57,
+      "endLine": 67,
+      "exported": true
+    },
+    {
+      "id": "DefaultErrorComponent.button",
+      "kind": "element",
+      "name": "button",
+      "description": "Button. labelled \"Try again\". Handlers: onClick.",
+      "file": "src/router.tsx",
+      "startLine": 36,
+      "endLine": 44,
+      "selector": "[data-uxid=\"DefaultErrorComponent.button\"]",
+      "parentId": "DefaultErrorComponent",
+      "accessibleName": "Try again",
+      "handlers": [
+        "onClick"
+      ]
+    },
+    {
+      "id": "DefaultErrorComponent.link",
+      "kind": "element",
+      "name": "a",
+      "description": "Link. href \"/\", labelled \"Go home\".",
+      "file": "src/router.tsx",
+      "startLine": 45,
+      "endLine": 50,
+      "selector": "[data-uxid=\"DefaultErrorComponent.link\"]",
+      "parentId": "DefaultErrorComponent",
+      "accessibleName": "Go home"
+    },
+    {
+      "id": "src/router.tsx",
+      "kind": "file",
+      "name": "src/router.tsx",
+      "description": "Source module: 2 top-level artifacts.",
+      "file": "src/router.tsx",
+      "startLine": 1,
+      "endLine": 68
+    },
+    {
+      "id": "NotFoundComponent",
+      "kind": "component",
+      "name": "NotFoundComponent",
+      "description": "Function component. Renders: div, h1, p, Link.",
+      "file": "src/routes/__root.tsx",
+      "startLine": 9,
+      "endLine": 19,
+      "visibleText": [
+        "Tilbage til forsiden"
+      ]
+    },
+    {
+      "id": "RootShell",
+      "kind": "component",
+      "name": "RootShell",
+      "description": "Function component. Props: children. Renders: html, head, body, HeadContent, Scripts.",
+      "file": "src/routes/__root.tsx",
+      "startLine": 38,
+      "endLine": 48,
+      "props": [
+        "children"
+      ]
+    },
+    {
+      "id": "DesktopNavLink",
+      "kind": "component",
+      "name": "DesktopNavLink",
+      "description": "Function component. Props: to, label. Hooks: useRouterState. Renders: span, Link.",
+      "file": "src/routes/__root.tsx",
+      "startLine": 58,
+      "endLine": 72,
+      "props": [
+        "to",
+        "label"
+      ],
+      "hooks": [
+        "useRouterState"
+      ]
+    },
+    {
+      "id": "BottomTab",
+      "kind": "component",
+      "name": "BottomTab",
+      "description": "Function component. Props: to, label, Icon. Hooks: useRouterState. Renders: span, Link, Icon.",
+      "file": "src/routes/__root.tsx",
+      "startLine": 74,
+      "endLine": 88,
+      "props": [
+        "to",
+        "label",
+        "Icon"
+      ],
+      "hooks": [
+        "useRouterState"
+      ]
+    },
+    {
+      "id": "AuthButton",
+      "kind": "component",
+      "name": "AuthButton",
+      "description": "Function component. Hooks: useAuth. Renders: button, LogOut, LogIn.",
+      "file": "src/routes/__root.tsx",
+      "startLine": 90,
+      "endLine": 112,
+      "childIds": [
+        "AuthButton.button",
+        "AuthButton.button-2"
+      ],
+      "hooks": [
+        "useAuth"
+      ],
+      "visibleText": [
+        "Log ud",
+        "Log ind"
+      ]
+    },
+    {
+      "id": "RootComponent",
+      "kind": "component",
+      "name": "RootComponent",
+      "description": "Function component. Renders: div, header, nav, main, AuthProvider, SeasonProvider, Link, DesktopNavLink, +2 more.",
+      "file": "src/routes/__root.tsx",
+      "startLine": 114,
+      "endLine": 167,
+      "visibleText": [
+        "FC FC Sabbatår Holdets HQ",
+        "FC FC Sabbatår"
+      ]
+    },
+    {
+      "id": "AuthButton.button",
+      "kind": "element",
+      "name": "button",
+      "description": "Button. labelled \"Log ud\". Handlers: onClick.",
+      "file": "src/routes/__root.tsx",
+      "startLine": 94,
+      "endLine": 100,
+      "selector": "[data-uxid=\"AuthButton.button\"]",
+      "parentId": "AuthButton",
+      "accessibleName": "Log ud",
+      "handlers": [
+        "onClick"
+      ]
+    },
+    {
+      "id": "AuthButton.button-2",
+      "kind": "element",
+      "name": "button",
+      "description": "Button. labelled \"Log ind\". Handlers: onClick.",
+      "file": "src/routes/__root.tsx",
+      "startLine": 104,
+      "endLine": 110,
+      "selector": "[data-uxid=\"AuthButton.button-2\"]",
+      "parentId": "AuthButton",
+      "accessibleName": "Log ind",
+      "handlers": [
+        "onClick"
+      ]
+    },
+    {
+      "id": "src/routes/__root.tsx",
+      "kind": "file",
+      "name": "src/routes/__root.tsx",
+      "description": "Source module: 6 top-level artifacts.",
+      "file": "src/routes/__root.tsx",
+      "startLine": 1,
+      "endLine": 168
+    },
+    {
+      "id": "BodekassePage",
+      "kind": "component",
+      "name": "BodekassePage",
+      "description": "Function component. Hooks: useAuth, useState, useEffect. Renders: div, section, p, h1, form, h2, Coins, PiggyBank, +4 more.",
+      "file": "src/routes/bodekasse.tsx",
+      "startLine": 20,
+      "endLine": 224,
+      "childIds": [
+        "BodekassePage.form",
+        "BodekassePage.select",
+        "BodekassePage.input",
+        "BodekassePage.input-2",
+        "BodekassePage.button",
+        "BodekassePage.label",
+        "BodekassePage.checkbox",
+        "BodekassePage.checkbox-2",
+        "BodekassePage.button-2"
+      ],
+      "hooks": [
+        "useAuth",
+        "useState",
+        "useEffect"
+      ],
+      "sections": [
+        "Bødekasse",
+        "Skyldigt pr. spiller",
+        "Alle bøder"
+      ],
+      "visibleText": [
+        "Bødekasse",
+        "Vælg spiller…",
+        "Beløb (kr)",
+        "Årsag…",
+        "Tilføj bøde",
+        "Skyldigt pr. spiller",
+        "Markér alt som betalt",
+        "Alle bøder",
+        "Vis betalte",
+        "Slet bøde"
+      ],
+      "moments": [
+        {
+          "verb": "submit",
+          "file": "src/routes/bodekasse.tsx",
+          "line": 40,
+          "handler": "add",
+          "observedBy": "form-submit"
+        }
+      ],
+      "routes": [
+        "/bodekasse"
+      ]
+    },
+    {
+      "id": "BodekassePage.form",
+      "kind": "element",
+      "name": "form",
+      "description": "Form. Handlers: onSubmit.",
+      "file": "src/routes/bodekasse.tsx",
+      "startLine": 117,
+      "endLine": 130,
+      "selector": "[data-uxid=\"BodekassePage.form\"]",
+      "parentId": "BodekassePage",
+      "handlers": [
+        "onSubmit"
+      ],
+      "routes": [
+        "/bodekasse"
+      ]
+    },
+    {
+      "id": "BodekassePage.select",
+      "kind": "element",
+      "name": "Select",
+      "description": "<Select> component. Handlers: onValueChange.",
+      "file": "src/routes/bodekasse.tsx",
+      "startLine": 119,
+      "endLine": 124,
+      "selector": "[data-uxid=\"BodekassePage.select\"]",
+      "parentId": "BodekassePage",
+      "handlers": [
+        "onValueChange"
+      ],
+      "routes": [
+        "/bodekasse"
+      ]
+    },
+    {
+      "id": "BodekassePage.input",
+      "kind": "element",
+      "name": "Input",
+      "description": "<Input> component. type=number, placeholder \"Beløb (kr)\". Handlers: onChange.",
+      "file": "src/routes/bodekasse.tsx",
+      "startLine": 126,
+      "endLine": 126,
+      "selector": "[data-uxid=\"BodekassePage.input\"]",
+      "parentId": "BodekassePage",
+      "refId": "Input",
+      "accessibleName": "Beløb (kr)",
+      "handlers": [
+        "onChange"
+      ],
+      "routes": [
+        "/bodekasse"
+      ]
+    },
+    {
+      "id": "BodekassePage.input-2",
+      "kind": "element",
+      "name": "Input",
+      "description": "<Input> component. placeholder \"Årsag…\". Handlers: onChange.",
+      "file": "src/routes/bodekasse.tsx",
+      "startLine": 127,
+      "endLine": 127,
+      "selector": "[data-uxid=\"BodekassePage.input-2\"]",
+      "parentId": "BodekassePage",
+      "refId": "Input",
+      "accessibleName": "Årsag…",
+      "handlers": [
+        "onChange"
+      ],
+      "routes": [
+        "/bodekasse"
+      ]
+    },
+    {
+      "id": "BodekassePage.button",
+      "kind": "element",
+      "name": "button",
+      "description": "Button. labelled \"Markér alt som betalt\". Handlers: onClick.",
+      "file": "src/routes/bodekasse.tsx",
+      "startLine": 156,
+      "endLine": 161,
+      "selector": "[data-uxid=\"BodekassePage.button\"]",
+      "parentId": "BodekassePage",
+      "accessibleName": "Markér alt som betalt",
+      "handlers": [
+        "onClick"
+      ],
+      "routes": [
+        "/bodekasse"
+      ]
+    },
+    {
+      "id": "BodekassePage.label",
+      "kind": "element",
+      "name": "label",
+      "description": "Field label. labelled \"Vis betalte\".",
+      "file": "src/routes/bodekasse.tsx",
+      "startLine": 174,
+      "endLine": 177,
+      "selector": "[data-uxid=\"BodekassePage.label\"]",
+      "parentId": "BodekassePage",
+      "accessibleName": "Vis betalte",
+      "routes": [
+        "/bodekasse"
+      ]
+    },
+    {
+      "id": "BodekassePage.checkbox",
+      "kind": "element",
+      "name": "Checkbox",
+      "description": "<Checkbox> component. Handlers: onCheckedChange.",
+      "file": "src/routes/bodekasse.tsx",
+      "startLine": 175,
+      "endLine": 175,
+      "selector": "[data-uxid=\"BodekassePage.checkbox\"]",
+      "parentId": "BodekassePage",
+      "refId": "Checkbox",
+      "handlers": [
+        "onCheckedChange"
+      ],
+      "routes": [
+        "/bodekasse"
+      ]
+    },
+    {
+      "id": "BodekassePage.checkbox-2",
+      "kind": "element",
+      "name": "Checkbox",
+      "description": "<Checkbox> component. Handlers: onCheckedChange.",
+      "file": "src/routes/bodekasse.tsx",
+      "startLine": 188,
+      "endLine": 192,
+      "selector": "[data-uxid=\"BodekassePage.checkbox-2\"]",
+      "parentId": "BodekassePage",
+      "refId": "Checkbox",
+      "handlers": [
+        "onCheckedChange"
+      ],
+      "routes": [
+        "/bodekasse"
+      ]
+    },
+    {
+      "id": "BodekassePage.button-2",
+      "kind": "element",
+      "name": "button",
+      "description": "Button. labelled \"Slet bøde\". Handlers: onClick.",
+      "file": "src/routes/bodekasse.tsx",
+      "startLine": 210,
+      "endLine": 216,
+      "selector": "[data-uxid=\"BodekassePage.button-2\"]",
+      "parentId": "BodekassePage",
+      "accessibleName": "Slet bøde",
+      "handlers": [
+        "onClick"
+      ],
+      "routes": [
+        "/bodekasse"
+      ]
+    },
+    {
+      "id": "src/routes/bodekasse.tsx",
+      "kind": "file",
+      "name": "src/routes/bodekasse.tsx",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/routes/bodekasse.tsx",
+      "startLine": 1,
+      "endLine": 225,
+      "routes": [
+        "/bodekasse"
+      ]
+    },
+    {
+      "id": "FixtureDetail",
+      "kind": "component",
+      "name": "FixtureDetail",
+      "description": "Function component. Hooks: useAuth, useSeason, useParams, useState, useEffect, useMemo. Renders: p, div, section, h1, h2, h3, Link, ArrowLeft, +4 more.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 40,
+      "endLine": 523,
+      "childIds": [
+        "FixtureDetail.button",
+        "FixtureDetail.button-2",
+        "FixtureDetail.button-3",
+        "FixtureDetail.label",
+        "FixtureDetail.input",
+        "FixtureDetail.label-2",
+        "FixtureDetail.input-2",
+        "FixtureDetail.label-3",
+        "FixtureDetail.input-3",
+        "FixtureDetail.label-4",
+        "FixtureDetail.input-4",
+        "FixtureDetail.label-5",
+        "FixtureDetail.input-5",
+        "FixtureDetail.label-6",
+        "FixtureDetail.input-6",
+        "FixtureDetail.label-7",
+        "FixtureDetail.input-7",
+        "FixtureDetail.button-4",
+        "FixtureDetail.button-5",
+        "FixtureDetail.select",
+        "FixtureDetail.form",
+        "FixtureDetail.input-8",
+        "FixtureDetail.slotcard",
+        "FixtureDetail.slotcard-2",
+        "FixtureDetail.slotcard-3"
+      ],
+      "hooks": [
+        "useAuth",
+        "useSeason",
+        "useParams",
+        "useState",
+        "useEffect",
+        "useMemo"
+      ],
+      "sections": [
+        "FC Sabbatår",
+        "Hændelser",
+        "Opstilling {formation}",
+        "Bænken",
+        "FC Sabbatår vs {opponent}",
+        "Opstilling"
+      ],
+      "visibleText": [
+        "Alle kampe",
+        "Rediger",
+        "FC Sabbatår",
+        "Dato",
+        "Sted",
+        "Mødetid",
+        "Kampstart",
+        "Hændelser",
+        "Mål",
+        "Assists",
+        "Gule kort",
+        "Røde kort",
+        "Opstilling {formation}",
+        "Bænken",
+        "Tilbage",
+        "Gem",
+        "FC Sabbatår vs {opponent}",
+        "Modstander",
+        "fx Ryparken",
+        "Vores mål",
+        "Modstanderens mål",
+        "Mål / Assist / Gult kort / Rødt kort",
+        "Fjern hændelse",
+        "Opstilling",
+        "Egen",
+        "Brug"
+      ],
+      "moments": [
+        {
+          "verb": "save",
+          "file": "src/routes/fixtures.$fixtureId.tsx",
+          "line": 148,
+          "label": "Gem",
+          "handler": "saveDetails"
+        },
+        {
+          "verb": "submit",
+          "file": "src/routes/fixtures.$fixtureId.tsx",
+          "line": 179,
+          "handler": "applyCustomFormation",
+          "observedBy": "form-submit"
+        }
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "EventViewRow",
+      "kind": "component",
+      "name": "EventViewRow",
+      "description": "Function component. Props: icon, label, evts, playerName. Renders: div, span.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 543,
+      "endLine": 565,
+      "props": [
+        "icon",
+        "label",
+        "evts",
+        "playerName"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "InfoCard",
+      "kind": "component",
+      "name": "InfoCard",
+      "description": "Function component. Props: icon, label, value, highlight. Renders: div.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 567,
+      "endLine": 576,
+      "props": [
+        "icon",
+        "label",
+        "value",
+        "highlight"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "PitchPlayer",
+      "kind": "component",
+      "name": "PitchPlayer",
+      "description": "Function component. Props: position, name, events, playerId. Renders: div, span.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 578,
+      "endLine": 598,
+      "props": [
+        "position",
+        "name",
+        "events",
+        "playerId"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "SlotCard",
+      "kind": "component",
+      "name": "SlotCard",
+      "description": "Function component. Props: slot, position, isSub, current, players, usedPlayerIds, +2 more. Hooks: useState. Renders: div, button, span, Popover, PopoverTrigger, ChevronsUpDown, PopoverContent, Command, +1 more.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 600,
+      "endLine": 643,
+      "childIds": [
+        "SlotCard.popover",
+        "SlotCard.button",
+        "SlotCard.commanditem",
+        "SlotCard.button-2"
+      ],
+      "props": [
+        "slot",
+        "position",
+        "isSub",
+        "current",
+        "players",
+        "usedPlayerIds",
+        "onAssign",
+        "bench"
+      ],
+      "hooks": [
+        "useState"
+      ],
+      "visibleText": [
+        "Søg spiller…",
+        "Fjern"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.button",
+      "kind": "element",
+      "name": "Button",
+      "description": "<Button> component. labelled \"Rediger\". Handlers: onClick.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 213,
+      "endLine": 215,
+      "selector": "[data-uxid=\"FixtureDetail.button\"]",
+      "parentId": "FixtureDetail",
+      "refId": "Button",
+      "accessibleName": "Rediger",
+      "handlers": [
+        "onClick"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.button-2",
+      "kind": "element",
+      "name": "button",
+      "description": "Button. labelled \"Tilbage\". Handlers: onClick.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 339,
+      "endLine": 341,
+      "selector": "[data-uxid=\"FixtureDetail.button-2\"]",
+      "parentId": "FixtureDetail",
+      "accessibleName": "Tilbage",
+      "handlers": [
+        "onClick"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.button-3",
+      "kind": "element",
+      "name": "Button",
+      "description": "<Button> component. labelled \"Gem\". Handlers: onClick.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 342,
+      "endLine": 344,
+      "selector": "[data-uxid=\"FixtureDetail.button-3\"]",
+      "parentId": "FixtureDetail",
+      "refId": "Button",
+      "accessibleName": "Gem",
+      "handlers": [
+        "onClick"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.label",
+      "kind": "element",
+      "name": "label",
+      "description": "Field label. labelled \"Modstander\".",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 354,
+      "endLine": 354,
+      "selector": "[data-uxid=\"FixtureDetail.label\"]",
+      "parentId": "FixtureDetail",
+      "accessibleName": "Modstander",
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.input",
+      "kind": "element",
+      "name": "Input",
+      "description": "<Input> component. Handlers: onChange.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 355,
+      "endLine": 355,
+      "selector": "[data-uxid=\"FixtureDetail.input\"]",
+      "parentId": "FixtureDetail",
+      "refId": "Input",
+      "handlers": [
+        "onChange"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.label-2",
+      "kind": "element",
+      "name": "label",
+      "description": "Field label. labelled \"Dato\".",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 358,
+      "endLine": 358,
+      "selector": "[data-uxid=\"FixtureDetail.label-2\"]",
+      "parentId": "FixtureDetail",
+      "accessibleName": "Dato",
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.input-2",
+      "kind": "element",
+      "name": "Input",
+      "description": "<Input> component. type=date. Handlers: onChange.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 359,
+      "endLine": 359,
+      "selector": "[data-uxid=\"FixtureDetail.input-2\"]",
+      "parentId": "FixtureDetail",
+      "refId": "Input",
+      "handlers": [
+        "onChange"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.label-3",
+      "kind": "element",
+      "name": "label",
+      "description": "Field label. labelled \"Sted\".",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 362,
+      "endLine": 362,
+      "selector": "[data-uxid=\"FixtureDetail.label-3\"]",
+      "parentId": "FixtureDetail",
+      "accessibleName": "Sted",
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.input-3",
+      "kind": "element",
+      "name": "Input",
+      "description": "<Input> component. placeholder \"fx Ryparken\". Handlers: onChange.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 363,
+      "endLine": 363,
+      "selector": "[data-uxid=\"FixtureDetail.input-3\"]",
+      "parentId": "FixtureDetail",
+      "refId": "Input",
+      "accessibleName": "fx Ryparken",
+      "handlers": [
+        "onChange"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.label-4",
+      "kind": "element",
+      "name": "label",
+      "description": "Field label. labelled \"Mødetid\".",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 367,
+      "endLine": 367,
+      "selector": "[data-uxid=\"FixtureDetail.label-4\"]",
+      "parentId": "FixtureDetail",
+      "accessibleName": "Mødetid",
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.input-4",
+      "kind": "element",
+      "name": "Input",
+      "description": "<Input> component. type=time. Handlers: onChange.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 368,
+      "endLine": 368,
+      "selector": "[data-uxid=\"FixtureDetail.input-4\"]",
+      "parentId": "FixtureDetail",
+      "refId": "Input",
+      "handlers": [
+        "onChange"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.label-5",
+      "kind": "element",
+      "name": "label",
+      "description": "Field label. labelled \"Kampstart\".",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 371,
+      "endLine": 371,
+      "selector": "[data-uxid=\"FixtureDetail.label-5\"]",
+      "parentId": "FixtureDetail",
+      "accessibleName": "Kampstart",
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.input-5",
+      "kind": "element",
+      "name": "Input",
+      "description": "<Input> component. type=time. Handlers: onChange.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 372,
+      "endLine": 372,
+      "selector": "[data-uxid=\"FixtureDetail.input-5\"]",
+      "parentId": "FixtureDetail",
+      "refId": "Input",
+      "handlers": [
+        "onChange"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.label-6",
+      "kind": "element",
+      "name": "label",
+      "description": "Field label. labelled \"Vores mål\".",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 376,
+      "endLine": 376,
+      "selector": "[data-uxid=\"FixtureDetail.label-6\"]",
+      "parentId": "FixtureDetail",
+      "accessibleName": "Vores mål",
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.input-6",
+      "kind": "element",
+      "name": "Input",
+      "description": "<Input> component. type=number, placeholder \"–\". Handlers: onChange.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 377,
+      "endLine": 377,
+      "selector": "[data-uxid=\"FixtureDetail.input-6\"]",
+      "parentId": "FixtureDetail",
+      "refId": "Input",
+      "accessibleName": "–",
+      "handlers": [
+        "onChange"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.label-7",
+      "kind": "element",
+      "name": "label",
+      "description": "Field label. labelled \"Modstanderens mål\".",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 380,
+      "endLine": 380,
+      "selector": "[data-uxid=\"FixtureDetail.label-7\"]",
+      "parentId": "FixtureDetail",
+      "accessibleName": "Modstanderens mål",
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.input-7",
+      "kind": "element",
+      "name": "Input",
+      "description": "<Input> component. type=number, placeholder \"–\". Handlers: onChange.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 381,
+      "endLine": 381,
+      "selector": "[data-uxid=\"FixtureDetail.input-7\"]",
+      "parentId": "FixtureDetail",
+      "refId": "Input",
+      "accessibleName": "–",
+      "handlers": [
+        "onChange"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.button-4",
+      "kind": "element",
+      "name": "button",
+      "description": "Button. labelled \"Mål / Assist / Gult kort / Rødt kort\". Handlers: onClick.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 407,
+      "endLine": 414,
+      "selector": "[data-uxid=\"FixtureDetail.button-4\"]",
+      "parentId": "FixtureDetail",
+      "accessibleName": "Mål / Assist / Gult kort / Rødt kort",
+      "handlers": [
+        "onClick"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.button-5",
+      "kind": "element",
+      "name": "button",
+      "description": "Button. labelled \"Fjern hændelse\". Handlers: onClick.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 421,
+      "endLine": 429,
+      "selector": "[data-uxid=\"FixtureDetail.button-5\"]",
+      "parentId": "FixtureDetail",
+      "accessibleName": "Fjern hændelse",
+      "handlers": [
+        "onClick"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.select",
+      "kind": "element",
+      "name": "Select",
+      "description": "<Select> component. Handlers: onValueChange.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 452,
+      "endLine": 457,
+      "selector": "[data-uxid=\"FixtureDetail.select\"]",
+      "parentId": "FixtureDetail",
+      "handlers": [
+        "onValueChange"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.form",
+      "kind": "element",
+      "name": "form",
+      "description": "Form. Handlers: onSubmit.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 459,
+      "endLine": 467,
+      "selector": "[data-uxid=\"FixtureDetail.form\"]",
+      "parentId": "FixtureDetail",
+      "handlers": [
+        "onSubmit"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.input-8",
+      "kind": "element",
+      "name": "Input",
+      "description": "<Input> component. Handlers: onChange.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 460,
+      "endLine": 465,
+      "selector": "[data-uxid=\"FixtureDetail.input-8\"]",
+      "parentId": "FixtureDetail",
+      "refId": "Input",
+      "handlers": [
+        "onChange"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.slotcard",
+      "kind": "element",
+      "name": "SlotCard",
+      "description": "<SlotCard> component. Handlers: onAssign.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 488,
+      "endLine": 497,
+      "selector": "[data-uxid=\"FixtureDetail.slotcard\"]",
+      "parentId": "FixtureDetail",
+      "refId": "SlotCard",
+      "handlers": [
+        "onAssign"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.slotcard-2",
+      "kind": "element",
+      "name": "SlotCard",
+      "description": "<SlotCard> component. Handlers: onAssign.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 504,
+      "endLine": 504,
+      "selector": "[data-uxid=\"FixtureDetail.slotcard-2\"]",
+      "parentId": "FixtureDetail",
+      "refId": "SlotCard",
+      "handlers": [
+        "onAssign"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixtureDetail.slotcard-3",
+      "kind": "element",
+      "name": "SlotCard",
+      "description": "<SlotCard> component. Handlers: onAssign.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 515,
+      "endLine": 515,
+      "selector": "[data-uxid=\"FixtureDetail.slotcard-3\"]",
+      "parentId": "FixtureDetail",
+      "refId": "SlotCard",
+      "handlers": [
+        "onAssign"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "SlotCard.popover",
+      "kind": "element",
+      "name": "Popover",
+      "description": "<Popover> component. Handlers: onOpenChange.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 615,
+      "endLine": 635,
+      "selector": "[data-uxid=\"SlotCard.popover\"]",
+      "parentId": "SlotCard",
+      "handlers": [
+        "onOpenChange"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "SlotCard.button",
+      "kind": "element",
+      "name": "button",
+      "description": "Button.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 617,
+      "endLine": 620,
+      "selector": "[data-uxid=\"SlotCard.button\"]",
+      "parentId": "SlotCard",
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "SlotCard.commanditem",
+      "kind": "element",
+      "name": "CommandItem",
+      "description": "<CommandItem> component. Handlers: onSelect.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 628,
+      "endLine": 630,
+      "selector": "[data-uxid=\"SlotCard.commanditem\"]",
+      "parentId": "SlotCard",
+      "refId": "CommandItem",
+      "handlers": [
+        "onSelect"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "SlotCard.button-2",
+      "kind": "element",
+      "name": "button",
+      "description": "Button. labelled \"Fjern\". Handlers: onClick.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 637,
+      "endLine": 639,
+      "selector": "[data-uxid=\"SlotCard.button-2\"]",
+      "parentId": "SlotCard",
+      "accessibleName": "Fjern",
+      "handlers": [
+        "onClick"
+      ],
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "src/routes/fixtures.$fixtureId.tsx",
+      "kind": "file",
+      "name": "src/routes/fixtures.$fixtureId.tsx",
+      "description": "Source module: 5 top-level artifacts.",
+      "file": "src/routes/fixtures.$fixtureId.tsx",
+      "startLine": 1,
+      "endLine": 644,
+      "routes": [
+        "/fixtures/*"
+      ]
+    },
+    {
+      "id": "FixturesPage",
+      "kind": "component",
+      "name": "FixturesPage",
+      "description": "Function component. Hooks: useAuth, useSeason, useState, useEffect. Renders: div, section, p, h1, form, span, RecordCard, Input, +4 more.",
+      "file": "src/routes/fixtures.index.tsx",
+      "startLine": 31,
+      "endLine": 227,
+      "childIds": [
+        "FixturesPage.form",
+        "FixturesPage.input",
+        "FixturesPage.input-2",
+        "FixturesPage.togglegroup",
+        "FixturesPage.button"
+      ],
+      "hooks": [
+        "useAuth",
+        "useSeason",
+        "useState",
+        "useEffect"
+      ],
+      "sections": [
+        "Kampe"
+      ],
+      "visibleText": [
+        "Kampe",
+        "Sejre",
+        "Uafgjort",
+        "Nederlag",
+        "Scoret",
+        "Indkasseret",
+        "Modstanderens navn…",
+        "Kampdato",
+        "Tilføj",
+        "Visning",
+        "Liste",
+        "Kalender",
+        "{opponent} · {formation} Mødetid",
+        "Kampstart",
+        "Mødetid",
+        "Slet kamp"
+      ],
+      "moments": [
+        {
+          "verb": "submit",
+          "file": "src/routes/fixtures.index.tsx",
+          "line": 63,
+          "handler": "add",
+          "observedBy": "form-submit"
+        }
+      ],
+      "routes": [
+        "/fixtures"
+      ]
+    },
+    {
+      "id": "CalendarExport",
+      "kind": "component",
+      "name": "CalendarExport",
+      "description": "Function component. Props: seasonId. Renders: span, a, DropdownMenu, DropdownMenuTrigger, Button, CalendarPlus, DropdownMenuContent, DropdownMenuItem.",
+      "file": "src/routes/fixtures.index.tsx",
+      "startLine": 230,
+      "endLine": 263,
+      "childIds": [
+        "CalendarExport.link",
+        "CalendarExport.link-2",
+        "CalendarExport.link-3"
+      ],
+      "props": [
+        "seasonId"
+      ],
+      "visibleText": [
+        "Til kalender",
+        "Tilføj til kalender",
+        "iPhone / Apple Kalender",
+        "Google Kalender",
+        "Download .ics-fil"
+      ],
+      "routes": [
+        "/fixtures"
+      ]
+    },
+    {
+      "id": "RecordCard",
+      "kind": "component",
+      "name": "RecordCard",
+      "description": "Function component. Props: label, value, tone. Renders: div.",
+      "file": "src/routes/fixtures.index.tsx",
+      "startLine": 265,
+      "endLine": 273,
+      "props": [
+        "label",
+        "value",
+        "tone"
+      ],
+      "routes": [
+        "/fixtures"
+      ]
+    },
+    {
+      "id": "FixturesPage.form",
+      "kind": "element",
+      "name": "form",
+      "description": "Form. Handlers: onSubmit.",
+      "file": "src/routes/fixtures.index.tsx",
+      "startLine": 114,
+      "endLine": 134,
+      "selector": "[data-uxid=\"FixturesPage.form\"]",
+      "parentId": "FixturesPage",
+      "handlers": [
+        "onSubmit"
+      ],
+      "routes": [
+        "/fixtures"
+      ]
+    },
+    {
+      "id": "FixturesPage.input",
+      "kind": "element",
+      "name": "Input",
+      "description": "<Input> component. placeholder \"Modstanderens navn…\". Handlers: onChange.",
+      "file": "src/routes/fixtures.index.tsx",
+      "startLine": 115,
+      "endLine": 121,
+      "selector": "[data-uxid=\"FixturesPage.input\"]",
+      "parentId": "FixturesPage",
+      "refId": "Input",
+      "accessibleName": "Modstanderens navn…",
+      "handlers": [
+        "onChange"
+      ],
+      "routes": [
+        "/fixtures"
+      ]
+    },
+    {
+      "id": "FixturesPage.input-2",
+      "kind": "element",
+      "name": "Input",
+      "description": "<Input> component. type=date, labelled \"Kampdato\". Handlers: onChange.",
+      "file": "src/routes/fixtures.index.tsx",
+      "startLine": 123,
+      "endLine": 129,
+      "selector": "[data-uxid=\"FixturesPage.input-2\"]",
+      "parentId": "FixturesPage",
+      "refId": "Input",
+      "accessibleName": "Kampdato",
+      "handlers": [
+        "onChange"
+      ],
+      "routes": [
+        "/fixtures"
+      ]
+    },
+    {
+      "id": "FixturesPage.togglegroup",
+      "kind": "element",
+      "name": "ToggleGroup",
+      "description": "<ToggleGroup> component. type=single, labelled \"Visning\". Handlers: onValueChange.",
+      "file": "src/routes/fixtures.index.tsx",
+      "startLine": 142,
+      "endLine": 156,
+      "selector": "[data-uxid=\"FixturesPage.togglegroup\"]",
+      "parentId": "FixturesPage",
+      "refId": "ToggleGroup",
+      "accessibleName": "Visning",
+      "handlers": [
+        "onValueChange"
+      ],
+      "routes": [
+        "/fixtures"
+      ]
+    },
+    {
+      "id": "FixturesPage.button",
+      "kind": "element",
+      "name": "button",
+      "description": "Button. labelled \"Slet kamp\". Handlers: onClick.",
+      "file": "src/routes/fixtures.index.tsx",
+      "startLine": 208,
+      "endLine": 214,
+      "selector": "[data-uxid=\"FixturesPage.button\"]",
+      "parentId": "FixturesPage",
+      "accessibleName": "Slet kamp",
+      "handlers": [
+        "onClick"
+      ],
+      "routes": [
+        "/fixtures"
+      ]
+    },
+    {
+      "id": "CalendarExport.link",
+      "kind": "element",
+      "name": "a",
+      "description": "Link. labelled \"iPhone / Apple Kalender\".",
+      "file": "src/routes/fixtures.index.tsx",
+      "startLine": 242,
+      "endLine": 244,
+      "selector": "[data-uxid=\"CalendarExport.link\"]",
+      "parentId": "CalendarExport",
+      "accessibleName": "iPhone / Apple Kalender",
+      "routes": [
+        "/fixtures"
+      ]
+    },
+    {
+      "id": "CalendarExport.link-2",
+      "kind": "element",
+      "name": "a",
+      "description": "Link. labelled \"Google Kalender\".",
+      "file": "src/routes/fixtures.index.tsx",
+      "startLine": 247,
+      "endLine": 253,
+      "selector": "[data-uxid=\"CalendarExport.link-2\"]",
+      "parentId": "CalendarExport",
+      "accessibleName": "Google Kalender",
+      "routes": [
+        "/fixtures"
+      ]
+    },
+    {
+      "id": "CalendarExport.link-3",
+      "kind": "element",
+      "name": "a",
+      "description": "Link. labelled \"Download .ics-fil\".",
+      "file": "src/routes/fixtures.index.tsx",
+      "startLine": 256,
+      "endLine": 258,
+      "selector": "[data-uxid=\"CalendarExport.link-3\"]",
+      "parentId": "CalendarExport",
+      "accessibleName": "Download .ics-fil",
+      "routes": [
+        "/fixtures"
+      ]
+    },
+    {
+      "id": "src/routes/fixtures.index.tsx",
+      "kind": "file",
+      "name": "src/routes/fixtures.index.tsx",
+      "description": "Source module: 3 top-level artifacts.",
+      "file": "src/routes/fixtures.index.tsx",
+      "startLine": 1,
+      "endLine": 274,
+      "routes": [
+        "/fixtures"
+      ]
+    },
+    {
+      "id": "UpcomingPage",
+      "kind": "component",
+      "name": "UpcomingPage",
+      "description": "Function component. Hooks: useSeason, useState, useEffect, useMemo. Renders: p, div, section, img, h1, h2, Link, InfoCard, +4 more.",
+      "file": "src/routes/index.tsx",
+      "startLine": 27,
+      "endLine": 190,
+      "hooks": [
+        "useSeason",
+        "useState",
+        "useEffect",
+        "useMemo"
+      ],
+      "sections": [
+        "Ingen kommende kampe",
+        "FC Sabbatår",
+        "Opstilling {formation}",
+        "Bænken"
+      ],
+      "visibleText": [
+        "FC Sabbatår cover",
+        "Ingen kommende kampe",
+        "Kampe",
+        "FC Sabbatår",
+        "Dato",
+        "Sted",
+        "Mødetid",
+        "Kampstart",
+        "Opstilling {formation}",
+        "Redigér",
+        "Bænken"
+      ],
+      "routes": [
+        "/"
+      ]
+    },
+    {
+      "id": "InfoCard-2",
+      "kind": "component",
+      "name": "InfoCard",
+      "description": "Function component. Props: icon, label, value, highlight. Renders: div.",
+      "file": "src/routes/index.tsx",
+      "startLine": 192,
+      "endLine": 201,
+      "props": [
+        "icon",
+        "label",
+        "value",
+        "highlight"
+      ],
+      "routes": [
+        "/"
+      ]
+    },
+    {
+      "id": "PitchPlayer-2",
+      "kind": "component",
+      "name": "PitchPlayer",
+      "description": "Function component. Props: position, name. Renders: div.",
+      "file": "src/routes/index.tsx",
+      "startLine": 203,
+      "endLine": 215,
+      "props": [
+        "position",
+        "name"
+      ],
+      "routes": [
+        "/"
+      ]
+    },
+    {
+      "id": "src/routes/index.tsx",
+      "kind": "file",
+      "name": "src/routes/index.tsx",
+      "description": "Source module: 3 top-level artifacts.",
+      "file": "src/routes/index.tsx",
+      "startLine": 1,
+      "endLine": 216,
+      "routes": [
+        "/"
+      ]
+    },
+    {
+      "id": "src/routes/kalender.$seasonId.ts",
+      "kind": "file",
+      "name": "src/routes/kalender.$seasonId.ts",
+      "description": "Source module: 0 top-level artifacts.",
+      "file": "src/routes/kalender.$seasonId.ts",
+      "startLine": 1,
+      "endLine": 45,
+      "routes": [
+        "/kalender/*"
+      ]
+    },
+    {
+      "id": "SquadPage",
+      "kind": "component",
+      "name": "SquadPage",
+      "description": "Function component. Hooks: useAuth, useSeason, useState, useEffect. Renders: div, section, p, h1, form, span, Input, Button, +3 more.",
+      "file": "src/routes/squad.tsx",
+      "startLine": 18,
+      "endLine": 148,
+      "childIds": [
+        "SquadPage.form",
+        "SquadPage.input",
+        "SquadPage.button",
+        "SquadPage.button-2"
+      ],
+      "hooks": [
+        "useAuth",
+        "useSeason",
+        "useState",
+        "useEffect"
+      ],
+      "sections": [
+        "Truppen",
+        "Ikke i truppen"
+      ],
+      "visibleText": [
+        "Truppen",
+        "Navn på ny spiller…",
+        "Tilføj",
+        "Ikke i truppen"
+      ],
+      "moments": [
+        {
+          "verb": "submit",
+          "file": "src/routes/squad.tsx",
+          "line": 51,
+          "handler": "add",
+          "observedBy": "form-submit"
+        }
+      ],
+      "routes": [
+        "/squad"
+      ]
+    },
+    {
+      "id": "SquadPage.form",
+      "kind": "element",
+      "name": "form",
+      "description": "Form. Handlers: onSubmit.",
+      "file": "src/routes/squad.tsx",
+      "startLine": 95,
+      "endLine": 106,
+      "selector": "[data-uxid=\"SquadPage.form\"]",
+      "parentId": "SquadPage",
+      "handlers": [
+        "onSubmit"
+      ],
+      "routes": [
+        "/squad"
+      ]
+    },
+    {
+      "id": "SquadPage.input",
+      "kind": "element",
+      "name": "Input",
+      "description": "<Input> component. placeholder \"Navn på ny spiller…\". Handlers: onChange.",
+      "file": "src/routes/squad.tsx",
+      "startLine": 96,
+      "endLine": 102,
+      "selector": "[data-uxid=\"SquadPage.input\"]",
+      "parentId": "SquadPage",
+      "refId": "Input",
+      "accessibleName": "Navn på ny spiller…",
+      "handlers": [
+        "onChange"
+      ],
+      "routes": [
+        "/squad"
+      ]
+    },
+    {
+      "id": "SquadPage.button",
+      "kind": "element",
+      "name": "button",
+      "description": "Button. Handlers: onClick.",
+      "file": "src/routes/squad.tsx",
+      "startLine": 117,
+      "endLine": 119,
+      "selector": "[data-uxid=\"SquadPage.button\"]",
+      "parentId": "SquadPage",
+      "handlers": [
+        "onClick"
+      ],
+      "routes": [
+        "/squad"
+      ]
+    },
+    {
+      "id": "SquadPage.button-2",
+      "kind": "element",
+      "name": "button",
+      "description": "Button. Handlers: onClick.",
+      "file": "src/routes/squad.tsx",
+      "startLine": 135,
+      "endLine": 141,
+      "selector": "[data-uxid=\"SquadPage.button-2\"]",
+      "parentId": "SquadPage",
+      "handlers": [
+        "onClick"
+      ],
+      "routes": [
+        "/squad"
+      ]
+    },
+    {
+      "id": "src/routes/squad.tsx",
+      "kind": "file",
+      "name": "src/routes/squad.tsx",
+      "description": "Source module: 1 top-level artifact.",
+      "file": "src/routes/squad.tsx",
+      "startLine": 1,
+      "endLine": 149,
+      "routes": [
+        "/squad"
+      ]
+    },
+    {
+      "id": "StatsPage",
+      "kind": "component",
+      "name": "StatsPage",
+      "description": "Function component. Hooks: useSeason, useState, useEffect. Renders: div, section, p, h1, span, h2, TotalCard, Goal, +4 more.",
+      "file": "src/routes/stats.tsx",
+      "startLine": 18,
+      "endLine": 168,
+      "childIds": [
+        "StatsPage.input"
+      ],
+      "hooks": [
+        "useSeason",
+        "useState",
+        "useEffect"
+      ],
+      "sections": [
+        "Tallene",
+        "Topscorerlisten"
+      ],
+      "visibleText": [
+        "Tallene",
+        "Scoret",
+        "Indkasseret",
+        "Assists",
+        "Gule",
+        "Røde",
+        "Topscorerlisten",
+        "Søg spiller…"
+      ],
+      "routes": [
+        "/stats"
+      ]
+    },
+    {
+      "id": "Stat",
+      "kind": "component",
+      "name": "Stat",
+      "description": "Function component. Props: label, value, tone. Renders: span.",
+      "file": "src/routes/stats.tsx",
+      "startLine": 170,
+      "endLine": 178,
+      "props": [
+        "label",
+        "value",
+        "tone"
+      ],
+      "routes": [
+        "/stats"
+      ]
+    },
+    {
+      "id": "TotalCard",
+      "kind": "component",
+      "name": "TotalCard",
+      "description": "Function component. Props: icon, label, value, accent. Renders: div.",
+      "file": "src/routes/stats.tsx",
+      "startLine": 180,
+      "endLine": 190,
+      "props": [
+        "icon",
+        "label",
+        "value",
+        "accent"
+      ],
+      "routes": [
+        "/stats"
+      ]
+    },
+    {
+      "id": "EmptyState",
+      "kind": "component",
+      "name": "EmptyState",
+      "description": "Function component. Renders: div, p, a, Button.",
+      "file": "src/routes/stats.tsx",
+      "startLine": 192,
+      "endLine": 199,
+      "childIds": [
+        "EmptyState.link"
+      ],
+      "visibleText": [
+        "Tilføj spillere"
+      ],
+      "routes": [
+        "/stats"
+      ]
+    },
+    {
+      "id": "StatsPage.input",
+      "kind": "element",
+      "name": "Input",
+      "description": "<Input> component. placeholder \"Søg spiller…\". Handlers: onChange.",
+      "file": "src/routes/stats.tsx",
+      "startLine": 117,
+      "endLine": 122,
+      "selector": "[data-uxid=\"StatsPage.input\"]",
+      "parentId": "StatsPage",
+      "refId": "Input",
+      "accessibleName": "Søg spiller…",
+      "handlers": [
+        "onChange"
+      ],
+      "routes": [
+        "/stats"
+      ]
+    },
+    {
+      "id": "EmptyState.link",
+      "kind": "element",
+      "name": "a",
+      "description": "Link. href \"/squad\".",
+      "file": "src/routes/stats.tsx",
+      "startLine": 196,
+      "endLine": 196,
+      "selector": "[data-uxid=\"EmptyState.link\"]",
+      "parentId": "EmptyState",
+      "routes": [
+        "/stats"
+      ]
+    },
+    {
+      "id": "src/routes/stats.tsx",
+      "kind": "file",
+      "name": "src/routes/stats.tsx",
+      "description": "Source module: 4 top-level artifacts.",
+      "file": "src/routes/stats.tsx",
+      "startLine": 1,
+      "endLine": 200,
+      "routes": [
+        "/stats"
+      ]
+    },
+    {
+      "id": "vite.config.ts",
+      "kind": "file",
+      "name": "vite.config.ts",
+      "description": "Source module: 0 top-level artifacts.",
+      "file": "vite.config.ts",
+      "startLine": 1,
+      "endLine": 15
+    }
+  ],
+  "aiCalls": [],
+  "stackProfile": {
+    "version": 1,
+    "roots": [
+      {
+        "root": "",
+        "frameworks": [
+          {
+            "id": "tanstack-start",
+            "label": "TanStack Start",
+            "origin": "rule",
+            "evidence": [
+              {
+                "file": "package.json",
+                "why": "marker file"
+              },
+              {
+                "file": "vite.config.ts",
+                "why": "marker file"
+              },
+              {
+                "file": "package.json",
+                "why": "dependency"
+              }
+            ]
+          },
+          {
+            "id": "vite",
+            "label": "Vite",
+            "origin": "rule",
+            "evidence": [
+              {
+                "file": "vite.config.ts",
+                "why": "marker file"
+              },
+              {
+                "file": "package.json",
+                "why": "dependency"
+              }
+            ]
+          }
+        ],
+        "hasWebClient": true,
+        "hasNativeClient": false,
+        "hasServer": true,
+        "serverless": false,
+        "runtime": "unknown",
+        "packageManager": "unknown",
+        "serverCode": [
+          "src/routes/"
+        ],
+        "handlerStyles": [
+          {
+            "style": "a TanStack Start server route",
+            "where": "src/routes/",
+            "evidence": "src/routes/kalender.$seasonId.ts"
+          }
+        ],
+        "aiPackages": [],
+        "unrecognisedAi": [],
+        "confidence": "high",
+        "unknowns": []
+      }
+    ],
+    "unknowns": [],
+    "disagreements": [],
+    "tiers": [
+      "rule"
+    ]
+  }
+}
