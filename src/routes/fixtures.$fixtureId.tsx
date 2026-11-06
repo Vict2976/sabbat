@@ -37,6 +37,7 @@ type FixtureEvent = { id: string; fixture_id: string; player_id: string; event_t
 
 const SUB_COUNT = 3;
 
+// @uxid src/routes/fixtures.$fixtureId::FixtureDetail
 function FixtureDetail() {
   const { user, openLoginDialog } = useAuth();
   const { seasons } = useSeason();
@@ -540,6 +541,7 @@ const EVENT_LABELS: Record<EventType, string> = {
 
 // ── Sub-components ──────────────────────────────────────────────────────────
 
+// @uxid src/routes/fixtures.$fixtureId::EventViewRow
 function EventViewRow({ icon, label, evts, playerName }: { icon: string; label: string; evts: FixtureEvent[]; playerName: (id: string) => string }) {
   if (evts.length === 0) return null;
   // Group by player for multi-goal display
@@ -564,6 +566,7 @@ function EventViewRow({ icon, label, evts, playerName }: { icon: string; label: 
   );
 }
 
+// @uxid src/routes/fixtures.$fixtureId::InfoCard
 function InfoCard({ icon, label, value, highlight }: { icon: React.ReactNode; label: string; value: string; highlight?: boolean }) {
   return (
     <div className={`rounded-xl border ${highlight ? "border-primary/50 shadow-[var(--shadow-glow)]" : "border-border"} bg-card p-3 text-center`}>
@@ -575,6 +578,7 @@ function InfoCard({ icon, label, value, highlight }: { icon: React.ReactNode; la
   );
 }
 
+// @uxid src/routes/fixtures.$fixtureId::PitchPlayer
 function PitchPlayer({ position, name, events, playerId }: { position: string; name: string | null; events: FixtureEvent[]; playerId?: string }) {
   const playerEvents = playerId ? events.filter((e) => e.player_id === playerId) : [];
   return (
@@ -597,6 +601,7 @@ function PitchPlayer({ position, name, events, playerId }: { position: string; n
   );
 }
 
+// @uxid src/routes/fixtures.$fixtureId::SlotCard
 function SlotCard({
   slot, position, isSub, current, players, usedPlayerIds, onAssign, bench,
 }: {

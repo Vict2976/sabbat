@@ -24,6 +24,7 @@ type Fixture = {
 type Player = { id: string; name: string };
 type LineupRow = { player_id: string; position: string; slot: number; is_sub: boolean };
 
+// @uxid src/routes/index::UpcomingPage
 function UpcomingPage() {
   const { season, seasonId, loading: seasonsLoading } = useSeason();
   const [fixture, setFixture] = useState<Fixture | null>(null);
@@ -189,6 +190,7 @@ function UpcomingPage() {
   );
 }
 
+// @uxid src/routes/index::InfoCard
 function InfoCard({ icon, label, value, highlight }: { icon: React.ReactNode; label: string; value: string; highlight?: boolean }) {
   return (
     <div className={`rounded-xl border ${highlight ? "border-primary/50 shadow-[var(--shadow-glow)]" : "border-border"} bg-card p-3 text-center`}>
@@ -200,6 +202,7 @@ function InfoCard({ icon, label, value, highlight }: { icon: React.ReactNode; la
   );
 }
 
+// @uxid src/routes/index::PitchPlayer
 function PitchPlayer({ position, name }: { position: string; name: string | null }) {
   return (
     <div className="flex flex-col items-center gap-1 min-w-[54px] sm:min-w-[80px]">

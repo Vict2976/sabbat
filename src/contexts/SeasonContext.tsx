@@ -21,6 +21,7 @@ interface SeasonContextType {
 
 const SeasonContext = createContext<SeasonContextType | null>(null);
 
+// @uxid src/contexts/SeasonContext::SeasonProvider
 export function SeasonProvider({ children }: { children: React.ReactNode }) {
   const [seasons, setSeasons] = useState<Season[]>([]);
   const [seasonId, setSeasonIdState] = useState<string | null>(null);

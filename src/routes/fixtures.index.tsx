@@ -28,6 +28,7 @@ type Fixture = {
   meeting_time: string | null;
 };
 
+// @uxid src/routes/fixtures.index::FixturesPage
 function FixturesPage() {
   const { user, openLoginDialog } = useAuth();
   const { season, seasonId } = useSeason();
@@ -227,6 +228,7 @@ function FixturesPage() {
 }
 
 // Subscriptions stay in sync: new matches, times and results show up in the phone's calendar.
+// @uxid src/routes/fixtures.index::CalendarExport
 function CalendarExport({ seasonId }: { seasonId: string }) {
   // Only rendered once the menu opens, so window is available.
   const feed = () => `${window.location.host}/kalender/${seasonId}`;
@@ -262,6 +264,7 @@ function CalendarExport({ seasonId }: { seasonId: string }) {
   );
 }
 
+// @uxid src/routes/fixtures.index::RecordCard
 function RecordCard({ label, value, tone }: { label: string; value: number; tone?: "primary" | "destructive" }) {
   const color = tone === "primary" ? "text-primary" : tone === "destructive" ? "text-destructive" : "text-foreground";
   return (

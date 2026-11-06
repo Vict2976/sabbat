@@ -14,6 +14,7 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
+// @uxid src/contexts/AuthContext::AuthProvider
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);

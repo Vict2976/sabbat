@@ -6,6 +6,7 @@ import { AuthProvider, useAuth } from "@/contexts/AuthContext";
 import { SeasonProvider } from "@/contexts/SeasonContext";
 import { SeasonPicker } from "@/components/SeasonPicker";
 
+// @uxid src/routes/__root::NotFoundComponent
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center px-4">
@@ -35,6 +36,7 @@ export const Route = createRootRoute({
   notFoundComponent: NotFoundComponent,
 });
 
+// @uxid src/routes/__root::RootShell
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang="da">
@@ -55,6 +57,7 @@ const NAV_ITEMS = [
   { to: "/bodekasse", label: "Bøder", icon: Coins },
 ] as const;
 
+// @uxid src/routes/__root::DesktopNavLink
 function DesktopNavLink({ to, label }: { to: string; label: string }) {
   const path = useRouterState({ select: (s) => s.location.pathname });
   const active = path === to || (to !== "/" && path.startsWith(to));
@@ -71,6 +74,7 @@ function DesktopNavLink({ to, label }: { to: string; label: string }) {
   );
 }
 
+// @uxid src/routes/__root::BottomTab
 function BottomTab({ to, label, Icon }: { to: string; label: string; Icon: React.ComponentType<{ className?: string }> }) {
   const path = useRouterState({ select: (s) => s.location.pathname });
   const active = path === to || (to !== "/" && path.startsWith(to));
@@ -87,6 +91,7 @@ function BottomTab({ to, label, Icon }: { to: string; label: string; Icon: React
   );
 }
 
+// @uxid src/routes/__root::AuthButton
 function AuthButton() {
   const { user, signOut, openLoginDialog } = useAuth();
   if (user) {
@@ -111,6 +116,7 @@ function AuthButton() {
   );
 }
 
+// @uxid src/routes/__root::RootComponent
 function RootComponent() {
   return (
     <AuthProvider>
