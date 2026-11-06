@@ -34,6 +34,7 @@ function formatCountdown(ms: number): string {
 
 // Sign-up for one fixture. Open to every member — no login — since players answer for themselves.
 // After the deadline it locks; a logged-in admin can still make late changes.
+// @uxid src/components/AttendancePanel::AttendancePanel
 export function AttendancePanel({
   fixtureId, players, playedAt, kickoffTime,
 }: { fixtureId: string; players: Player[]; playedAt: string; kickoffTime: string | null }) {
@@ -164,6 +165,7 @@ export function AttendancePanel({
   );
 }
 
+// @uxid src/components/AttendancePanel::SignupCountdown
 function SignupCountdown({
   remaining, deadline, canOverride,
 }: { remaining: number | null; deadline: Date; canOverride: boolean }) {
@@ -202,6 +204,7 @@ function SignupCountdown({
   );
 }
 
+// @uxid src/components/AttendancePanel::AttendanceColumn
 function AttendanceColumn({
   title, count, tone, empty, children,
 }: { title: string; count: number; tone?: "primary" | "destructive"; empty: string; children: React.ReactNode }) {
@@ -224,6 +227,7 @@ function AttendanceColumn({
   );
 }
 
+// @uxid src/components/AttendancePanel::PlayerRow
 function PlayerRow({
   player, current, onAnswer, locked, children,
 }: {
@@ -265,6 +269,7 @@ function PlayerRow({
   );
 }
 
+// @uxid src/components/AttendancePanel::AnswerButton
 function AnswerButton({
   kind, onClick, label, icon,
 }: { kind: Status; onClick: () => void; label?: string; icon?: React.ReactNode }) {

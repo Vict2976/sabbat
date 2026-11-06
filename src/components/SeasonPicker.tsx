@@ -4,6 +4,7 @@ import { useAuth } from "@/contexts/AuthContext";
 
 const NEW_SEASON = "__new_season__";
 
+// @uxid src/components/SeasonPicker::SeasonPicker
 export function SeasonPicker({ className }: { className?: string }) {
   const { seasons, seasonId, setSeasonId, openNewSeasonDialog, loading } = useSeason();
   const { user, openLoginDialog } = useAuth();

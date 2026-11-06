@@ -25,6 +25,7 @@ function resultTone(f: CalendarFixture) {
 }
 
 // Month grid (Monday first) with match days marked. Opens on the month of `fixtures[0]`, the nearest match.
+// @uxid src/components/FixtureCalendar::FixtureCalendar
 export function FixtureCalendar({ fixtures }: { fixtures: CalendarFixture[] }) {
   const [month, setMonth] = useState(() => {
     const [y, m] = (fixtures[0]?.played_at ?? dayKey(new Date())).split("-").map(Number);
