@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AssistentRouteImport } from './routes/assistent'
 import { Route as BodekasseRouteImport } from './routes/bodekasse'
 import { Route as SquadRouteImport } from './routes/squad'
 import { Route as StatsRouteImport } from './routes/stats'
@@ -20,6 +21,11 @@ import { Route as KalenderSeasonIdRouteImport } from './routes/kalender.$seasonI
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AssistentRoute = AssistentRouteImport.update({
+  id: '/assistent',
+  path: '/assistent',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BodekasseRoute = BodekasseRouteImport.update({
@@ -55,6 +61,7 @@ const KalenderSeasonIdRoute = KalenderSeasonIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/assistent': typeof AssistentRoute
   '/bodekasse': typeof BodekasseRoute
   '/squad': typeof SquadRoute
   '/stats': typeof StatsRoute
@@ -64,6 +71,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/assistent': typeof AssistentRoute
   '/bodekasse': typeof BodekasseRoute
   '/squad': typeof SquadRoute
   '/stats': typeof StatsRoute
@@ -74,6 +82,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/assistent': typeof AssistentRoute
   '/bodekasse': typeof BodekasseRoute
   '/squad': typeof SquadRoute
   '/stats': typeof StatsRoute
@@ -85,6 +94,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/assistent'
     | '/bodekasse'
     | '/squad'
     | '/stats'
@@ -94,6 +104,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/assistent'
     | '/bodekasse'
     | '/squad'
     | '/stats'
@@ -103,6 +114,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/assistent'
     | '/bodekasse'
     | '/squad'
     | '/stats'
@@ -113,6 +125,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AssistentRoute: typeof AssistentRoute
   BodekasseRoute: typeof BodekasseRoute
   SquadRoute: typeof SquadRoute
   StatsRoute: typeof StatsRoute
@@ -128,6 +141,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/assistent': {
+      id: '/assistent'
+      path: '/assistent'
+      fullPath: '/assistent'
+      preLoaderRoute: typeof AssistentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/bodekasse': {
@@ -177,6 +197,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AssistentRoute: AssistentRoute,
   BodekasseRoute: BodekasseRoute,
   SquadRoute: SquadRoute,
   StatsRoute: StatsRoute,
